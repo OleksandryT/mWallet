@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Merchant creation" verbose="1" >
+    <test name="LogIn" >
+        <parameter name="browser" value="Chrome"/>
+        <classes>
+            <class name="Tests" />
+        </classes>
+    </test>
+
+</suite>
