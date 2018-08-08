@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 public class mWallet {
 
     private WebDriver driver;
@@ -13,18 +15,22 @@ public class mWallet {
         this.driver = driver;
     }
 
+    GenerateData generateData;
+
     String userIdName = "IlonaQA4";
     String passwordName = "Zxcvbnm10!)";
-    String fullName = "IlonaAutomation";
-    String shortname = "IlonaAutomation";
-    String posName = "";
-    String posAddress = "";
-    String legalAddress = "";
-    String correspondenceAddress = "";
-    String contactPhoneNumber = "+380678261814";
-    String contactEmail = "ilonazEmail@dizboard.com";
-    String contactWebsite = "www.ilonazAutomation.com";
-    String contactCallcenternumber = "+380442567364";
+//    String fullName = "IlonaAutomation";
+//    String shortname = "IlonaAutomation";
+//    String tradename = "trade name";
+//    String organizationForm = "organization form";
+//    String posName = "pos name";
+//    String posAddress = "pos address";
+//    String legalAddress = "legal address";
+//    String correspondenceAddress = "correspondence";
+//    String contactPhoneNumber = "+380678261814";
+//    String contactEmail = "ilonazEmail@dizboard.com";
+//    String contactWebsite = "www.ilonazAutomation.com";
+//    String contactCallcenternumber = "+380442567364";
     String IDOfMerchantContractWithAgentForSettlement = "102938";
     String IDOfMerchantContractWithAgentForSettlement1 = "1029381";
     String IDOfMerchantContractWithAgentForSettlement2 = "1029382";
@@ -152,7 +158,14 @@ public class mWallet {
     By saveButton = By.xpath("//*[@id=\"regMerchSave\"]");
 
 
-    By transactionsField = By.xpath("//*[@translate=\"general_label_transactions\"]");
+//    By transactionsField = By.xpath("//*[@translate=\"general_label_transactions\"]");
+    //
+//    public void transactionsButton() {
+//        WebElement transaction = driver.findElement(transactionsField);
+//        JavascriptExecutor executor = (JavascriptExecutor)driver;
+//        executor.executeScript("arguments[0].click();",transaction);
+//    }
+
 
 
     public void useridLocator (String userIdName) {
@@ -201,33 +214,186 @@ public class mWallet {
         driver.findElement(merchantTypeMerchantField).click();
     }
 
-    public void fullnameLocator (String fullName){
+    public void fullnameLocator (){
         WebElement fullname = driver.findElement(fullnameField);
         fullname.click();
         fullname.clear();
-        fullname.sendKeys(fullName);
+        fullname.sendKeys(generateData.generateRandomString(10));
     }
 
-    public void shortNameLocator (String shortName){
+    public void shortNameLocator (){
         WebElement shortname = driver.findElement(shortNameField);
         shortname.click();
         shortname.clear();
-        shortname.sendKeys(shortName);
+        shortname.sendKeys(generateData.generateRandomString(10));
     }
+
+    public void setTradeNameOrganizationField (){
+        WebElement tradeName = driver.findElement(tradeNameOrganizationField);
+        tradeName.click();
+        tradeName.clear();
+        tradeName.sendKeys(generateData.generateRandomString(10));
+    }
+
+    public void setOrganizationForm (){
+        WebElement organization = driver.findElement(organizationFormField);
+        organization.click();
+        organization.clear();
+        organization.sendKeys(generateData.generateRandomString(10));
+    }
+
+    public void setBusinessEntityDropbox (){
+        driver.findElement(businessEntityDropbox).click();
+    }
+
+    public void setBusinessEntityTypePrivateField (){
+        driver.findElement(businessEntityTypePrivateField).click();
+    }
+
+    public void setBusinessEntityTypeLegalField() {
+        driver.findElement(businessEntityTypeLegalField).click();
+    }
+
+    public void setListOfMerchantsPointsOfSaleCreateNewPointOfSaleButton (){
+        driver.findElement(listOfMerchantsPointsOfSaleCreateNewPointOfSaleButton).click();
+    }
+
+    public void setPosName(){
+        WebElement pos = driver.findElement(newPosNameField);
+        pos.click();
+        pos.clear();
+        pos.sendKeys(generateData.generateRandomString(9));
+    }
+
+    public void setPosAddress (){
+        WebElement posAddre = driver.findElement(newPosAddressField);
+        posAddre.click();
+        posAddre.clear();
+        posAddre.sendKeys(generateData.generateRandomString(10));
+    }
+
+    public void addpos (){
+        driver.findElement(addPosButton).click();
+    }
+
+    public void setListOfregionswhereMerchantOperatesDropdown (){
+        driver.findElement(listOfregionswhereMerchantOperatesDropdown).click();
+    }
+    public void setListOfRegionsVinnytskaobl (){
+        driver.findElement(listOfRegionsVinnytskaobl).click();
+    }
+
+    public void setLegalAddress (){
+        WebElement legalAdre = driver.findElement(legalAddressFiled);
+        legalAdre.click();
+        legalAdre.clear();
+        legalAdre.sendKeys(generateData.generateRandomString(10));
+    }
+
+    public void setActualAddressFiled (){
+        WebElement actualAdd = driver.findElement(actualAddressFiled);
+        actualAdd.click();;
+        actualAdd.clear();
+        actualAdd.sendKeys(generateData.generateRandomString(10));
+    }
+
+    public void setCorrespondenceAddress (){
+        WebElement correspondenceAdd = driver.findElement(correspondenceAddressFiled);
+        correspondenceAdd.click();
+        correspondenceAdd.clear();
+        correspondenceAdd.sendKeys(generateData.generateRandomString(10));
+    }
+
+    public void setPhoneNumberField (){
+        WebElement phone = driver.findElement(phoneNumberField);
+        phone.click();
+        phone.clear();
+        phone.sendKeys(generateData.generateRandomNumber(12));
+    }
+
+    public void setContactEmail (){
+        WebElement email = driver.findElement(contactEmailField);
+        email.click();
+        email.clear();
+        email.sendKeys(generateData.generateEmail(30));
+    }
+
+    public void setContactWebsite (){
+        WebElement web = driver.findElement(contactWebsiteField);
+        web.click();
+        web.clear();
+        web.sendKeys(generateData.generateUrl(10));
+    }
+
+    public void setContactCallCenterNumberField (){
+        WebElement callCenter = driver.findElement(contactCallCenterNumberField);
+        callCenter.click();
+        callCenter.clear();
+        callCenter.sendKeys(generateData.generateRandomNumber(12));
+    }
+
+    public void setNotificationChannelSmsField (){
+        driver.findElement(notificationChannelSmsField).click();
+    }
+
+    public void setNotificationChannelEmailField (){
+        driver.findElement(notificationChannelEmailField).click();
+    }
+
+    public void setNextButtonCompany (){
+        driver.findElement(nextButtonCompany).click();
+    }
+
+    public void setIDOfMerchantContractWithAgentForSettlement0Field (){
+        WebElement merchantContractWithSettlement = driver.findElement(IDOfMerchantContractWithAgentForSettlement0Field);
+        merchantContractWithSettlement.click();
+        merchantContractWithSettlement.clear();
+        merchantContractWithSettlement.sendKeys(generateData.generateRandomNumber(5));
+    }
+
+    public void setDateofMerchantContractWithAgentDate0Picker (){
+        WebElement dateWidget = driver.findElement(dateofMerchantContractWithAgentDate0Picker);
+        List<WebElement> columns = dateWidget.findElements(By.tagName("td"));
+        for (WebElement cell:columns){
+             // Select 13th date
+            if (cell.getText().equals("13")){
+                cell.findElement(By.linkText("13")).click();
+            }
+        }
+
+    }
+
 
     public void merchantCreation() {
         merchantLocator();
         createMerchantLocator();
         merchnatTypeDropboxLocator();
         merchantTypeMerchantLocator();
-        fullnameLocator(fullName);
-        shortNameLocator(shortname);
-    }
+        fullnameLocator();
+        shortNameLocator();
+        setTradeNameOrganizationField();
+        setOrganizationForm();
+        setBusinessEntityDropbox();
+        setBusinessEntityTypePrivateField();
+        setListOfMerchantsPointsOfSaleCreateNewPointOfSaleButton();
+        setPosName();
+        setPosAddress();
+        addpos();
+        setListOfregionswhereMerchantOperatesDropdown();
+        setListOfRegionsVinnytskaobl();
+        setLegalAddress();
+        setActualAddressFiled();
+        setCorrespondenceAddress();
+        setPhoneNumberField();
+        setContactEmail();
+        setContactWebsite();
+        setContactCallCenterNumberField();
+        setNotificationChannelSmsField();
+        setNextButtonCompany();
+        setIDOfMerchantContractWithAgentForSettlement0Field();
+        setDateofMerchantContractWithAgentDate0Picker();
 
-    public void transactionsButton() {
-        WebElement transaction = driver.findElement(transactionsField);
-        JavascriptExecutor executor = (JavascriptExecutor)driver;
-        executor.executeScript("arguments[0].click();",transaction);
+
     }
 
 }
