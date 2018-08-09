@@ -21,11 +21,11 @@ public class BrowserSettings {
       driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
     }
 
-
-  @AfterTest
-    public void tearDown (){
-      driver.close();
-  }
+//
+//  @AfterTest
+//    public void tearDown (){
+//      driver.close();
+//  }
 
 
 }

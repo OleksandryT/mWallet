@@ -1,59 +1,24 @@
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import static  org.apache.commons.lang3.RandomStringUtils.*;
 
-import java.util.List;
-
-public class mWallet {
+public class mWallet extends RandomValues {
 
     private WebDriver driver;
-
     public mWallet (WebDriver driver){
         this.driver = driver;
     }
 
-    GenerateData generateData;
 
     String userIdName = "IlonaQA4";
     String passwordName = "Zxcvbnm10!)";
-//    String fullName = "IlonaAutomation";
-//    String shortname = "IlonaAutomation";
-//    String tradename = "trade name";
-//    String organizationForm = "organization form";
-//    String posName = "pos name";
-//    String posAddress = "pos address";
-//    String legalAddress = "legal address";
-//    String correspondenceAddress = "correspondence";
-//    String contactPhoneNumber = "+380678261814";
-//    String contactEmail = "ilonazEmail@dizboard.com";
-//    String contactWebsite = "www.ilonazAutomation.com";
-//    String contactCallcenternumber = "+380442567364";
-    String IDOfMerchantContractWithAgentForSettlement = "102938";
-    String IDOfMerchantContractWithAgentForSettlement1 = "1029381";
-    String IDOfMerchantContractWithAgentForSettlement2 = "1029382";
-    String IDOfMerchantContractWithAgentForSettlement3 = "1029383";
-    String contactFullname = "Contact";
-    String positionFullname = "Position";
-    String mobileNumberContact = "+380671567625";
-    String emailContact = "izautomate@gmail.com";
-    String accountNo = "5678";
-    String bankname = "bank name";
-    String bankId = "09876";
-    String stateRegistryId = "0987600";
-    String contractSigneeName = "Contract Signee Name";
-    String contractSigneePosition = "Contract Signee Position";
-    String contractSigneeBasis = "Contract Signee Basis";
-    String contractSigneeFullname = "Contract full";
-    String merchantUrl = "www.izauto.com";
-    String numberOfWorkingDaysinBankForFundOut = "18";
-    String feeForrefund = "5";
-    String turnoverOverLastYear = "1";
-    String serverIp = "12.123.12.11";
-    String serverPort = "1212";
-    String paymentPurpose = "Autotest";
 
     By userIdFiled = By.cssSelector(".InputTableRow > td:nth-child(2) > input:nth-child(1)");
     By passwordField = By.cssSelector(".loginTable > tbody:nth-child(1) > tr:nth-child(2) > td:nth-child(2) > input:nth-child(1)");
@@ -81,7 +46,7 @@ public class mWallet {
     By phoneNumberField = By.xpath("//*[@ng-model = \"merchant.contactPhoneNumber\"]");
     By contactEmailField = By.xpath("//*[@ng-model = \"merchant.contactEmail\"]");
     By contactWebsiteField = By.xpath("//*[@ng-model = \"merchant.contactWebsite\"]");
-    By contactCallCenterNumberField = By.xpath("//*[@ng-model = \"merchant.contactCallcenterNumber\"]");
+    By contactCallCenterNumberField = By.xpath("//*[@name = 'callCenterNumber']");
     By notificationChannelSmsField = By.xpath("//*[@name = \"merchant_receive_sms\"]");
     By notificationChannelEmailField = By.xpath("//*[@name = \"merchant_receive_email\"]");
     By nextButtonCompany = By.xpath(" //*[@name=\"companyDetailsFormNext\"]");
@@ -214,32 +179,32 @@ public class mWallet {
         driver.findElement(merchantTypeMerchantField).click();
     }
 
-    public void fullnameLocator (){
+    public void fullnameLocator(){
         WebElement fullname = driver.findElement(fullnameField);
         fullname.click();
         fullname.clear();
-        fullname.sendKeys(generateData.generateRandomString(10));
+        fullname.sendKeys(randomAlphabetic);
     }
 
     public void shortNameLocator (){
         WebElement shortname = driver.findElement(shortNameField);
         shortname.click();
         shortname.clear();
-        shortname.sendKeys(generateData.generateRandomString(10));
+        shortname.sendKeys(randomAlphabetic);
     }
 
     public void setTradeNameOrganizationField (){
         WebElement tradeName = driver.findElement(tradeNameOrganizationField);
         tradeName.click();
         tradeName.clear();
-        tradeName.sendKeys(generateData.generateRandomString(10));
+        tradeName.sendKeys(randomAlphabetic);
     }
 
     public void setOrganizationForm (){
         WebElement organization = driver.findElement(organizationFormField);
         organization.click();
         organization.clear();
-        organization.sendKeys(generateData.generateRandomString(10));
+        organization.sendKeys(randomAlphabetic);
     }
 
     public void setBusinessEntityDropbox (){
@@ -262,14 +227,14 @@ public class mWallet {
         WebElement pos = driver.findElement(newPosNameField);
         pos.click();
         pos.clear();
-        pos.sendKeys(generateData.generateRandomString(9));
+        pos.sendKeys(randomAlphabetic);
     }
 
     public void setPosAddress (){
         WebElement posAddre = driver.findElement(newPosAddressField);
         posAddre.click();
         posAddre.clear();
-        posAddre.sendKeys(generateData.generateRandomString(10));
+        posAddre.sendKeys(randomAlphabetic);
     }
 
     public void addpos (){
@@ -287,49 +252,49 @@ public class mWallet {
         WebElement legalAdre = driver.findElement(legalAddressFiled);
         legalAdre.click();
         legalAdre.clear();
-        legalAdre.sendKeys(generateData.generateRandomString(10));
+        legalAdre.sendKeys(randomAlphabetic);
     }
 
     public void setActualAddressFiled (){
         WebElement actualAdd = driver.findElement(actualAddressFiled);
         actualAdd.click();;
         actualAdd.clear();
-        actualAdd.sendKeys(generateData.generateRandomString(10));
+        actualAdd.sendKeys(randomAlphabetic);
     }
 
     public void setCorrespondenceAddress (){
         WebElement correspondenceAdd = driver.findElement(correspondenceAddressFiled);
         correspondenceAdd.click();
         correspondenceAdd.clear();
-        correspondenceAdd.sendKeys(generateData.generateRandomString(10));
+        correspondenceAdd.sendKeys(randomAlphabetic);
     }
 
     public void setPhoneNumberField (){
         WebElement phone = driver.findElement(phoneNumberField);
         phone.click();
         phone.clear();
-        phone.sendKeys(generateData.generateRandomNumber(12));
+        phone.sendKeys(randomNumber);
     }
 
     public void setContactEmail (){
         WebElement email = driver.findElement(contactEmailField);
         email.click();
         email.clear();
-        email.sendKeys(generateData.generateEmail(30));
+        email.sendKeys(generateEmail(20));
     }
 
     public void setContactWebsite (){
         WebElement web = driver.findElement(contactWebsiteField);
         web.click();
         web.clear();
-        web.sendKeys(generateData.generateUrl(10));
+        web.sendKeys(generateUrl(10));
     }
 
     public void setContactCallCenterNumberField (){
         WebElement callCenter = driver.findElement(contactCallCenterNumberField);
         callCenter.click();
         callCenter.clear();
-        callCenter.sendKeys(generateData.generateRandomNumber(12));
+        callCenter.sendKeys(randomNumber);
     }
 
     public void setNotificationChannelSmsField (){
@@ -346,21 +311,27 @@ public class mWallet {
 
     public void setIDOfMerchantContractWithAgentForSettlement0Field (){
         WebElement merchantContractWithSettlement = driver.findElement(IDOfMerchantContractWithAgentForSettlement0Field);
-        merchantContractWithSettlement.click();
-        merchantContractWithSettlement.clear();
-        merchantContractWithSettlement.sendKeys(generateData.generateRandomNumber(5));
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        executor.executeScript("arguments[0].click();",merchantContractWithSettlement);
+        merchantContractWithSettlement.sendKeys(randomNumber);
     }
 
     public void setDateofMerchantContractWithAgentDate0Picker (){
         WebElement dateWidget = driver.findElement(dateofMerchantContractWithAgentDate0Picker);
-        List<WebElement> columns = dateWidget.findElements(By.tagName("td"));
-        for (WebElement cell:columns){
-             // Select 13th date
-            if (cell.getText().equals("13")){
-                cell.findElement(By.linkText("13")).click();
-            }
-        }
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        executor.executeScript("arguments[0].click();",dateWidget);
+        Actions actions = new Actions(driver);
+        actions.sendKeys(calendarDate);
+        actions.perform();
+    }
 
+    public void setAgreementContractScan0Button (){
+        WebElement contractWithAgent = driver.findElement(agreementContractScan0Button);
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        executor.executeScript("arguments[0].click();",contractWithAgent);
+        Actions actions = new Actions(driver);
+        actions.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
+        actions.perform();
     }
 
 
@@ -392,6 +363,7 @@ public class mWallet {
         setNextButtonCompany();
         setIDOfMerchantContractWithAgentForSettlement0Field();
         setDateofMerchantContractWithAgentDate0Picker();
+        setAgreementContractScan0Button();
 
 
     }

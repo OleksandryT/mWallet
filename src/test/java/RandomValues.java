@@ -1,8 +1,17 @@
 import org.apache.commons.lang3.RandomStringUtils;
 
-public class GenerateData {
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-    public String generateEmail(int length) {
+public abstract class RandomValues {
+
+    String randomAlphabetic = RandomStringUtils.randomAlphabetic(10);
+    String randomNumber = RandomStringUtils.randomNumeric(12);
+    String randomAlphaNumeric= RandomStringUtils.randomAlphanumeric(10);
+
+
+    public static String generateEmail(int length) {
         String allowedChars="abcdefghijklmnopqrstuvwxyz" +   //alphabets
                 "1234567890" +   //numbers
                 "_-.";   //special characters
@@ -12,19 +21,7 @@ public class GenerateData {
         return email;
     }
 
-    public String generateRandomString(int length){
-        return RandomStringUtils.randomAlphabetic(length);
-    }
-
-    public String generateRandomNumber(int length){
-        return RandomStringUtils.randomNumeric(length);
-    }
-
-    public String generateRandomAlphaNumeric(int length){
-        return RandomStringUtils.randomAlphanumeric(length);
-    }
-
-    public String generateUrl(int length) {
+    public static String generateUrl(int length) {
         String allowedChars="abcdefghijklmnopqrstuvwxyz" +   //alphabets
                 "1234567890" +   //numbers
                 "_-.";   //special characters
@@ -33,4 +30,8 @@ public class GenerateData {
         url=temp.substring(0,3)+"."+temp.substring(4,temp.length()-4)+"."+temp.substring(temp.length()-3);
         return url;
     }
+
+    DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+    String calendarDate = dateFormat.format(new Date());
+
 }
