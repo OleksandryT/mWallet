@@ -31,7 +31,7 @@ public abstract class RandomValues {
         return url;
     }
 
-    DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+    DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
     String calendarDate = dateFormat.format(new Date());
 
 }

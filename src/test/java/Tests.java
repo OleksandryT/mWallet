@@ -14,11 +14,10 @@ public class Tests extends BrowserSettings{
   }
 
   @Parameters ({"browser"})
-    @Test
+    @Test()
     public void merchantCreation (@Optional("Chrome")String browser)  {
         mWallet merchantMerchant = new mWallet(driver);
         merchantMerchant.merchantCreation();
-
   }
 
 }

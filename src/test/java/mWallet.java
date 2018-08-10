@@ -1,13 +1,10 @@
-import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import static  org.apache.commons.lang3.RandomStringUtils.*;
 
 public class mWallet extends RandomValues {
 
@@ -15,7 +12,6 @@ public class mWallet extends RandomValues {
     public mWallet (WebDriver driver){
         this.driver = driver;
     }
-
 
     String userIdName = "IlonaQA4";
     String passwordName = "Zxcvbnm10!)";
@@ -51,19 +47,19 @@ public class mWallet extends RandomValues {
     By notificationChannelEmailField = By.xpath("//*[@name = \"merchant_receive_email\"]");
     By nextButtonCompany = By.xpath(" //*[@name=\"companyDetailsFormNext\"]");
     By IDOfMerchantContractWithAgentForSettlement0Field = By.xpath("//*[@id=\"agreementContractId0\"]");
-    By dateofMerchantContractWithAgentDate0Picker = By.xpath(" //*[@id=\"datePickerAgreementDate0\"]/span/span");
+    By dateofMerchantContractWithAgentDate0Picker = By.xpath(" //*[@name=\"contractDate0\"]");
     By agreementContractScan0Button = By.xpath("//*[@id=\"agreementContractScan0\"]");
     By IDOfMerchantContractWithAgentForSettlement1Field = By.xpath("//*[@id=\"agreementContractId1\"]");
-    By dateofMerchantContractWithAgentDate1Picker = By.xpath(" //*[@id=\"datePickerAgreementDate1\"]/span/span");
+    By dateofMerchantContractWithAgentDate1Picker = By.xpath(" //*[@id=\"contractDate1\"]");
     By agreementContractScan1Button = By.xpath("//*[@id=\"agreementContractScan1\"]");
     By IDOfMerchantContractWithAgentForSettlement2Field = By.xpath("//*[@id=\"agreementContractId2\"]");
-    By dateofMerchantContractWithAgentDate2Picker = By.xpath(" //*[@id=\"datePickerAgreementDate2\"]/span/span");
+    By dateofMerchantContractWithAgentDate2Picker = By.xpath(" //*[@id=\"contractDate2\"]");
     By agreementContractScan2Button = By.xpath("//*[@id=\"agreementContractScan2\"]");
     By IDOfMerchantContractWithAgentForSettlement3Field = By.xpath("//*[@id=\"agreementContractId3\"]");
-    By dateofMerchantContractWithAgentDate3Picker = By.xpath(" //*[@id=\"datePickerAgreementDate3\"]/span/span");
+    By dateofMerchantContractWithAgentDate3Picker = By.xpath(" //*[@id=\"contractDate3\"]");
     By agreementContractScan3Button = By.xpath("//*[@id=\"agreementContractScan3\"]");
-    By scanCopyOfPassportButton = By.xpath("//*[@id=\"agreementOtherDocumentPassportScan\"]");
-    By scanCopyOfTaxIdButton = By.xpath("//*[@id=\"agreementOtherDocumentTaxIdScan\"]");
+    By scanCopyOfStatueButton = By.xpath("//*[@id=\"agreementOtherDocumentStatuteScan\"]");
+    By scanCopyOfTaxIdButton = By.xpath("//*[@id=\"agreementOtherDocumentTaxCertificateScan\"]");
     By scanStatementOfCsrButton = By.xpath("//*[@id=\"agreementOtherDocumentStatementFromCsrScan\"]");
     By scanStatementExtractFromCsrButton = By.xpath("//*[@id=\"agreementOtherDocumentExtractFromCsrScan\"]");
     By scanStatementQuestionnareButton = By.xpath("//*[@id=\"agreementOtherDocumentQuestionnaireScan\"]");
@@ -123,21 +119,11 @@ public class mWallet extends RandomValues {
     By saveButton = By.xpath("//*[@id=\"regMerchSave\"]");
 
 
-//    By transactionsField = By.xpath("//*[@translate=\"general_label_transactions\"]");
-    //
-//    public void transactionsButton() {
-//        WebElement transaction = driver.findElement(transactionsField);
-//        JavascriptExecutor executor = (JavascriptExecutor)driver;
-//        executor.executeScript("arguments[0].click();",transaction);
-//    }
-
-
-
     public void useridLocator (String userIdName) {
-           WebElement userL = driver.findElement(userIdFiled);
-            userL.click();
-            userL.clear();
-            userL.sendKeys(userIdName);
+        WebElement userL = driver.findElement(userIdFiled);
+        userL.click();
+        userL.clear();
+        userL.sendKeys(userIdName);
         }
 
     public void passwordLocator (String passwordName){
@@ -298,7 +284,17 @@ public class mWallet extends RandomValues {
     }
 
     public void setNotificationChannelSmsField (){
-        driver.findElement(notificationChannelSmsField).click();
+        WebElement sms = driver.findElement(notificationChannelSmsField);
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        wait.until(ExpectedConditions.elementToBeClickable(notificationChannelSmsField));
+        if (sms.isEnabled()){
+            JavascriptExecutor executor = (JavascriptExecutor)driver;
+            executor.executeScript("arguments[0].click();",sms);
+        }
+
+        else {
+            System.out.println("Radio button SMS wasn't clickable");
+        }
     }
 
     public void setNotificationChannelEmailField (){
@@ -306,7 +302,9 @@ public class mWallet extends RandomValues {
     }
 
     public void setNextButtonCompany (){
-        driver.findElement(nextButtonCompany).click();
+        WebElement nextButton1 = driver.findElement(nextButtonCompany);
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        executor.executeScript("arguments[0].click();",nextButton1);
     }
 
     public void setIDOfMerchantContractWithAgentForSettlement0Field (){
@@ -320,19 +318,122 @@ public class mWallet extends RandomValues {
         WebElement dateWidget = driver.findElement(dateofMerchantContractWithAgentDate0Picker);
         JavascriptExecutor executor = (JavascriptExecutor)driver;
         executor.executeScript("arguments[0].click();",dateWidget);
-        Actions actions = new Actions(driver);
-        actions.sendKeys(calendarDate);
-        actions.perform();
+        dateWidget.sendKeys(calendarDate);
     }
 
     public void setAgreementContractScan0Button (){
         WebElement contractWithAgent = driver.findElement(agreementContractScan0Button);
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        wait.until(ExpectedConditions.elementToBeClickable(agreementContractScan0Button));
         JavascriptExecutor executor = (JavascriptExecutor)driver;
         executor.executeScript("arguments[0].click();",contractWithAgent);
-        Actions actions = new Actions(driver);
-        actions.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
-        actions.perform();
+        contractWithAgent.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
     }
+
+    public void setIDOfMerchantContractWithAgentForSettlement1Field (){
+        WebElement merchantContractWithSettlement1 = driver.findElement(IDOfMerchantContractWithAgentForSettlement1Field);
+        JavascriptExecutor executor1 = (JavascriptExecutor)driver;
+        executor1.executeScript("arguments[0].click();",merchantContractWithSettlement1);
+        merchantContractWithSettlement1.sendKeys(randomNumber);
+    }
+
+    public void setDateofMerchantContractWithAgentDate1Picker (){
+        WebElement dateWidget1 = driver.findElement(dateofMerchantContractWithAgentDate1Picker);
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        executor.executeScript("arguments[0].click();",dateWidget1);
+        dateWidget1.sendKeys(calendarDate);
+    }
+
+    public void setAgreementContractScan1Button (){
+        WebElement contractWithAgent1 = driver.findElement(agreementContractScan1Button);
+        JavascriptExecutor executor1 = (JavascriptExecutor)driver;
+        executor1.executeScript("arguments[0].click();",contractWithAgent1);
+        contractWithAgent1.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
+    }
+
+    public void setIDOfMerchantContractWithAgentForSettlement2Field (){
+        WebElement merchantContractWithSettlement2 = driver.findElement(IDOfMerchantContractWithAgentForSettlement2Field);
+        JavascriptExecutor executor2 = (JavascriptExecutor)driver;
+        executor2.executeScript("arguments[0].click();",merchantContractWithSettlement2);
+        merchantContractWithSettlement2.sendKeys(randomNumber);
+    }
+
+    public void setDateofMerchantContractWithAgentDate2Picker (){
+        WebElement dateWidget2 = driver.findElement(dateofMerchantContractWithAgentDate2Picker);
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        executor.executeScript("arguments[0].click();",dateWidget2);
+        dateWidget2.sendKeys(calendarDate);
+    }
+
+    public void setAgreementContractScan2Button (){
+        WebElement contractWithAgent2 = driver.findElement(agreementContractScan2Button);
+        JavascriptExecutor executor2 = (JavascriptExecutor)driver;
+        executor2.executeScript("arguments[0].click();",contractWithAgent2);
+        contractWithAgent2.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
+    }
+
+    public void setIDOfMerchantContractWithAgentForSettlement3Field (){
+        WebElement merchantContractWithSettlement3 = driver.findElement(IDOfMerchantContractWithAgentForSettlement3Field);
+        JavascriptExecutor executor3 = (JavascriptExecutor)driver;
+        executor3.executeScript("arguments[0].click();",merchantContractWithSettlement3);
+        merchantContractWithSettlement3.sendKeys(randomNumber);
+    }
+
+    public void setDateofMerchantContractWithAgentDate3Picker (){
+        WebElement dateWidget3 = driver.findElement(dateofMerchantContractWithAgentDate3Picker);
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        executor.executeScript("arguments[0].click();",dateWidget3);
+        dateWidget3.sendKeys(calendarDate);
+    }
+
+    public void setAgreementContractScan3Button (){
+        WebElement contractWithAgent3 = driver.findElement(agreementContractScan3Button);
+        JavascriptExecutor executor3 = (JavascriptExecutor)driver;
+        executor3.executeScript("arguments[0].click();",contractWithAgent3);
+        contractWithAgent3.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
+    }
+
+    public void setScanCopyOfStatueButton (){
+        WebElement scanStatue = driver.findElement(scanCopyOfStatueButton);
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        executor.executeScript("arguments[0].click();",scanStatue);
+        scanStatue.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
+    }
+
+    public void setScanCopyOfTaxIdButton (){
+        WebElement scanTax = driver.findElement(scanCopyOfTaxIdButton);
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        executor.executeScript("arguments[0].click();",scanTax);
+        scanTax.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
+    }
+
+    public void setScanStatementOfCsrButton(){
+        WebElement scanCsr = driver.findElement(scanStatementOfCsrButton);
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        executor.executeScript("arguments[0].click();",scanCsr);
+        scanCsr.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
+    }
+
+    public void setScanStatementExtractFromCsrButton (){
+        WebElement scanCsrExtr = driver.findElement(scanStatementExtractFromCsrButton);
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        executor.executeScript("arguments[0].click();", scanCsrExtr);
+        scanCsrExtr.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
+    }
+
+    public  void setScanStatementQuestionnareButton (){
+        WebElement scanQuestionnare = driver.findElement(scanStatementQuestionnareButton);
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        executor.executeScript("arguments[0].click();",scanQuestionnare);
+        scanQuestionnare.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
+    }
+
+    public void setNextButton (){
+        WebDriverWait wait = new WebDriverWait(driver,20);
+        wait.until(ExpectedConditions.elementToBeClickable(NextButton));
+        driver.findElement(NextButton).click();
+    }
+
 
 
     public void merchantCreation() {
@@ -364,7 +465,22 @@ public class mWallet extends RandomValues {
         setIDOfMerchantContractWithAgentForSettlement0Field();
         setDateofMerchantContractWithAgentDate0Picker();
         setAgreementContractScan0Button();
-
+        setIDOfMerchantContractWithAgentForSettlement1Field();
+        setDateofMerchantContractWithAgentDate1Picker();
+        setAgreementContractScan1Button();
+        setIDOfMerchantContractWithAgentForSettlement2Field();
+        setDateofMerchantContractWithAgentDate2Picker();
+        setAgreementContractScan2Button();
+        setAgreementContractScan2Button();
+        setIDOfMerchantContractWithAgentForSettlement3Field();
+        setDateofMerchantContractWithAgentDate3Picker();
+        setAgreementContractScan3Button();
+        setScanCopyOfStatueButton();
+        setScanCopyOfTaxIdButton();
+        setScanStatementOfCsrButton();
+        setScanStatementExtractFromCsrButton();
+        setScanStatementQuestionnareButton();
+        setNextButton();
 
     }
 
