@@ -7,8 +7,10 @@ import java.util.Date;
 public abstract class RandomValues {
 
     String randomAlphabetic = RandomStringUtils.randomAlphabetic(10);
-    String randomNumber = RandomStringUtils.randomNumeric(12);
+    String randomNumberMSISDN = "38067"+ RandomStringUtils.randomNumeric(7);
+    String randomNumber = RandomStringUtils.randomNumeric(6);
     String randomAlphaNumeric= RandomStringUtils.randomAlphanumeric(10);
+    String daysForRefund = "1";
 
 
     public static String generateEmail(int length) {
