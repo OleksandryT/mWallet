@@ -1,12 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite thread-count="1" verbose="1" annotations="JDK" name="mWallet Suite" preserve-order="false" >
-    <test name="LogIn" >
-        <parameter name="browser" value="Chrome"/>
+<suite  name="mWallet Suite" preserve-order="true" verbose="1">
+    <test name="Back Office User" >
+
+        <parameter name="browser" value="Chrome"></parameter>
+        <groups>
+            <run>
+                <include name="BackOfficeUsers"></include>
+            </run>
+        </groups>
         <classes>
-            <class name="Tests.Smoke.BackOfficeUserLogIn.TestLogIn" />
-            <class name="Tests.Smoke.Merchants.TestMerchantCreation" />
+            <class name="TestLogIn.java"></class>
         </classes>
+
+    </test>
+
+    <test name="Merchant Creation">
+        <parameter name="browser" value="Chrome"> </parameter>
+            <groups>
+                <run>
+                <include name="Merchants"></include>
+                </run>
+            </groups>
+            <classes>
+                <class name="TestMerchantCreation.java></class>
+            </classes>
+
     </test>
 
 </suite>

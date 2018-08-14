@@ -9,9 +9,13 @@ import java.util.concurrent.TimeUnit;
 
 public class BrowserSettings {
 
-  protected WebDriver driver;
+  private WebDriver driver;
 
-  @BeforeSuite
+    public WebDriver getDriver() {
+        return driver;
+    }
+
+    @BeforeTest
   @Parameters(value = {"browser"})
     public void setBrowser (@Optional("Chrome")String browser) {
       System.setProperty("webdriver.chrome.driver", "C:\\Users\\ilonazhd\\Documents\\QA docs\\AUTOMATION\\chromedriver.exe");
