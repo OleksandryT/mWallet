@@ -1,19 +1,20 @@
-import org.apache.commons.lang3.RandomStringUtils;
+package RandomValuesForTests;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public abstract class RandomValues {
 
-    String randomAlphabetic = RandomStringUtils.randomAlphabetic(10);
-    String randomNumberMSISDN = "38067"+ RandomStringUtils.randomNumeric(7);
-    String randomNumber = RandomStringUtils.randomNumeric(6);
-    String randomAlphaNumeric= RandomStringUtils.randomAlphanumeric(10);
-    String daysForRefund = "1";
+    public static final String randomAlphabetic = RandomStringUtils.randomAlphabetic(10);
+    public static final String randomNumberMSISDN = "38067"+ RandomStringUtils.randomNumeric(7);
+    public static final String randomNumber = RandomStringUtils.randomNumeric(6);
+    public static final String randomAlphaNumeric= RandomStringUtils.randomAlphanumeric(10);
+    public static final String daysForRefund = "1";
 
 
-    public static String generateEmail(int length) {
+    public static final String generateEmail(int length) {
         String allowedChars="abcdefghijklmnopqrstuvwxyz" +   //alphabets
                 "1234567890" +   //numbers
                 "_-.";   //special characters
@@ -23,7 +24,7 @@ public abstract class RandomValues {
         return email;
     }
 
-    public static String generateUrl(int length) {
+    public static final String generateUrl(int length) {
         String allowedChars="abcdefghijklmnopqrstuvwxyz" +   //alphabets
                 "1234567890" +   //numbers
                 "_-.";   //special characters
@@ -33,7 +34,7 @@ public abstract class RandomValues {
         return url;
     }
 
-    DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-    String calendarDate = dateFormat.format(new Date());
+    public static final DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    public static final String calendarDate = dateFormat.format(new Date());
 
 }

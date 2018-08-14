@@ -1,10 +1,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Merchant creation" verbose="1" >
+<suite thread-count="1" verbose="1" annotations="JDK" name="mWallet Suite" preserve-order="false" >
     <test name="LogIn" >
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="Tests" />
+            <class name="Tests.Smoke.BackOfficeUserLogIn.TestLogIn" />
+            <class name="Tests.Smoke.Merchants.TestMerchantCreation" />
         </classes>
     </test>
 
