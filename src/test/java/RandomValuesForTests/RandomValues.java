@@ -4,6 +4,8 @@ import org.apache.commons.lang3.RandomStringUtils;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
+import java.util.UUID;
 
 public abstract class RandomValues {
 
@@ -16,6 +18,19 @@ public abstract class RandomValues {
     public static final DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
     public static final String calendarDate = dateFormat.format(new Date());
 
+    public static final String randomString () {
+        int leftLimit = 97; // letter 'a'
+        int rightLimit = 122; // letter 'z'
+        int targetStringLength = 10;
+        Random random = new Random();
+        StringBuilder buffer = new StringBuilder(targetStringLength);
+        for (int i = 0; i < 9; i++) {
+            int randomLimitedInt = leftLimit + (int)
+                    (random.nextFloat() * (rightLimit - leftLimit + 1));
+            buffer.append((char) randomLimitedInt);
+        }
+       return   buffer.toString();
+    }
 
     public static final String generateEmail(int length) {
         String allowedChars="abcdefghijklmnopqrstuvwxyz" +   //alphabets

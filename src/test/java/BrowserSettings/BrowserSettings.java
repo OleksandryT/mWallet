@@ -24,7 +24,7 @@ public class BrowserSettings {
 
   @AfterClass
     public void tearDown (){
-      driver.close();
+      driver.quit();
   }
 
 
