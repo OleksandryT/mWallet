@@ -9,27 +9,23 @@ import java.util.concurrent.TimeUnit;
 
 public class BrowserSettings {
 
-  private WebDriver driver;
+   protected WebDriver driver;
 
-    public WebDriver getDriver() {
-        return driver;
-    }
-
-    @BeforeTest
   @Parameters(value = {"browser"})
-    public void setBrowser (@Optional("Chrome")String browser) {
+  @BeforeClass(alwaysRun = true)
+    public void setBrowser (@Optional("Chrome") String browser) {
       System.setProperty("webdriver.chrome.driver", "C:\\Users\\ilonazhd\\Documents\\QA docs\\AUTOMATION\\chromedriver.exe");
       driver = new ChromeDriver(ChromeDriverService.createDefaultService());
-      driver.get("https://10.122.160.37/ui/mwallet/aui/#/");
       driver.manage().window().maximize();
       driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
     }
 
-//
-//  @AfterTest
-//    public void tearDown (){
-//      driver.close();
-//  }
+
+
+  @AfterClass
+    public void tearDown (){
+      driver.close();
+  }
 
 
 }

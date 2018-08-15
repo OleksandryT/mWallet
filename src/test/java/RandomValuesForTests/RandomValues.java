@@ -13,6 +13,9 @@ public abstract class RandomValues {
     public static final String randomAlphaNumeric= RandomStringUtils.randomAlphanumeric(10);
     public static final String daysForRefund = "1";
 
+    public static final DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    public static final String calendarDate = dateFormat.format(new Date());
+
 
     public static final String generateEmail(int length) {
         String allowedChars="abcdefghijklmnopqrstuvwxyz" +   //alphabets
@@ -34,7 +37,5 @@ public abstract class RandomValues {
         return url;
     }
 
-    public static final DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-    public static final String calendarDate = dateFormat.format(new Date());
 
 }
