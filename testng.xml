@@ -6,12 +6,13 @@
         <parameter name="browser" value="Chrome"></parameter>
         <groups>
             <run>
-                <include name="BackOfficeUsers"></include>
+                <include name="MyProfile"></include>
                 <include name="Merchants"/>
+                <include name="Customers"/>
             </run>
         </groups>
         <classes>
-            <class name="Tests.Smoke.BackOfficeUserLogIn.TestBackOfficeUsers"></class>
+            <class name="Tests.Smoke.Myprofilehelp.MyProfileTests"></class>
             <!--<class name="Tests.Smoke.Merchants.TestMerchantCreation"></class>-->
         </classes>
     </test>
