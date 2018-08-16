@@ -12,7 +12,7 @@
             </run>
         </groups>
         <classes>
-            <class name="Tests.Smoke.Myprofilehelp.MyProfileTests"></class>
+            <class name="Tests.Smoke.Myprofilehelp.TestMyProfile"></class>
             <!--<class name="Tests.Smoke.Merchants.TestMerchantCreation"></class>-->
         </classes>
     </test>

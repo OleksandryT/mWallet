@@ -7,6 +7,8 @@ import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import static Functions.MyprofileHelp.MyProfileHelp.*;
+
 public class TestMerchantCreation extends BrowserSettings {
 
     @Parameters ({"browser"})
@@ -14,8 +16,8 @@ public class TestMerchantCreation extends BrowserSettings {
     public void merchantCreation (@Optional ("Chrome")String browser)  {
         MyProfileHelp myProfile = new MyProfileHelp(driver);
         myProfile.goToMWallet();
-        myProfile.useridLocator();
-        myProfile.passwordLocator();
+        myProfile.useridLocator(userIdName);
+        myProfile.passwordLocator(oldPasswordName);
         myProfile.signInButton();
         MerchantCreation merchantMerchant = new MerchantCreation(driver);
         merchantMerchant.merchantCreation();
