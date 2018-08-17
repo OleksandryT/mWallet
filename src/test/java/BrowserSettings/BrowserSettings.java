@@ -20,12 +20,12 @@ public class BrowserSettings {
       driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
     }
 
-
-
-  @AfterClass
-    public void tearDown (){
-      driver.quit();
-  }
+//
+//
+//  @AfterClass
+//    public void tearDown (){
+//      driver.quit();
+//  }
 
 
 }
