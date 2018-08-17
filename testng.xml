@@ -9,11 +9,13 @@
                 <include name="MyProfile"></include>
                 <include name="Merchants"/>
                 <include name="Customers"/>
+                <include name="Transactions"/>
             </run>
         </groups>
         <classes>
             <class name="Tests.Smoke.Myprofilehelp.TestMyProfile"></class>
             <!--<class name="Tests.Smoke.Merchants.TestMerchantCreation"></class>-->
+            <!--<class name="Tests.Smoke.Transactions.TestTransations"></class>-->
         </classes>
     </test>
 

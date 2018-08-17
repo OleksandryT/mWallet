@@ -12,7 +12,7 @@ public abstract class RandomValues {
     public static final String randomAlphabetic = RandomStringUtils.randomAlphabetic(10);
     public static final String randomNumberMSISDN = "38067"+ RandomStringUtils.randomNumeric(7);
     public static final String randomNumber = RandomStringUtils.randomNumeric(6);
-    public static final String randomAlphaNumeric= RandomStringUtils.randomAlphanumeric(10);
+    public static final String randomAlphaNumeric = RandomStringUtils.randomAlphanumeric(10);
     public static final String daysForRefund = "1";
 
     public static final DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
