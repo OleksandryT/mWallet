@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite  name="mWallet Suite" verbose="1" preserve-order="true"  >
-    <test name="Back Office User" >
-        <parameter name="browser" value="Chrome"></parameter>
-        <groups>
-            <run>
-                <include name="MyProfile"></include>
-                <include name="Merchants"/>
-                <include name="Customers"/>
-                <include name="Transactions"/>
-            </run>
-        </groups>
-        <classes>
-            <class name="Tests.Smoke.Myprofilehelp.TestMyProfile"></class>
-            <!--<class name="Tests.Smoke.Merchants.TestMerchantCreation"></class>-->
-            <!--<class name="Tests.Smoke.Transactions.TestTransations"></class>-->
+<suite  name="mWallet Suite" verbose="1" preserve-order="true" >
+    <test name="Back Office User Functionality" >
+    <parameter name="browser" value="Chrome"></parameter>
+    <groups>
+        <run>
+            <include name="MyProfile"></include>
+            <include name="Transactions"/>
+            <include name="Merchants"/>
+        </run>
+    </groups>
+    <classes>
+        <class name="Tests.Smoke.Myprofilehelp.TestMyProfile"/>
+        <class name="Tests.Smoke.Transactions.TestTransactions"/>
+        <class name="Tests.Smoke.Merchants.TestMerchantCreation"/>
         </classes>
     </test>
-
 </suite>

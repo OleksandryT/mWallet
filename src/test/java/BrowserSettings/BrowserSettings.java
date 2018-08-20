@@ -9,10 +9,11 @@ import java.util.concurrent.TimeUnit;
 
 public class BrowserSettings {
 
-   protected WebDriver driver;
+   public static WebDriver driver;
+
 
   @Parameters(value = {"browser"})
-  @BeforeClass(alwaysRun = true)
+  @BeforeSuite(alwaysRun = true)
     public void setBrowser (@Optional("Chrome") String browser) {
       System.setProperty("webdriver.chrome.driver", "C:\\Users\\ilonazhd\\Documents\\QA docs\\AUTOMATION\\chromedriver.exe");
       driver = new ChromeDriver(ChromeDriverService.createDefaultService());
@@ -20,12 +21,12 @@ public class BrowserSettings {
       driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
     }
 
-//
-//
-//  @AfterClass
-//    public void tearDown (){
-//      driver.quit();
-//  }
+
+
+  @AfterSuite
+    public void tearDown (){
+      driver.close();
+  }
 
 
 }
