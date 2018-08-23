@@ -10,16 +10,15 @@ import org.testng.annotations.Test;
 public class TestTransactions extends BrowserSettings {
 
     @Test(groups = {"Transactions"}, priority = 0, dependsOnGroups = {"MyProfile"})
-    public void verifyAbilityToSearchAdminTransferSuccess() {
+    public void verifyAbilityToSearchAdminTransferSuccess() throws InterruptedException {
         TransactionHistory trx = new TransactionHistory(driver);
         trx.setTrxButton();
         trx.setTrxHistoryButton();
         trx.setTrxTypeAdminTransfer();
         trx.setTrxSuccessStatus();
         trx.setSearchButton();
+        Thread.sleep(5000);
         trx.successStatusTable();
-//        trx.setDetailsbutton1row();
-//        (new WebDriverWait(driver, 20)).until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//*[@id=\"transactionDetailsForm\"]/div[1]/div[2]/div[8]/div/label")))).getText();
-    }
+  }
 
 }
