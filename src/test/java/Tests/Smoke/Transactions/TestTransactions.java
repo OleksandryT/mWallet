@@ -3,8 +3,7 @@ package Tests.Smoke.Transactions;
 import BrowserSettings.BrowserSettings;
 import Functions.Transactions.TransactionHistory;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class TestTransactions extends BrowserSettings {
@@ -19,6 +18,8 @@ public class TestTransactions extends BrowserSettings {
         trx.setSearchButton();
         Thread.sleep(5000);
         trx.successStatusTable();
-  }
+        String trxTable = driver.findElement(By.xpath("//*[@id=\"manage\"]/table/tbody")).getText();
+        Assert.assertTrue(trxTable.contains("Success"));
 
+}
 }

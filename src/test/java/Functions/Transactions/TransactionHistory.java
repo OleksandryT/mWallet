@@ -4,7 +4,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.Iterator;
 import java.util.List;
 
 public class TransactionHistory {
@@ -235,31 +234,26 @@ public class TransactionHistory {
     }
 
     public void successStatusTable() {
+        System.out.println("Start reading table...");
 //        Find table
         WebElement trxTable = driver.findElement(table);
 //        Locate rows of table
-        List <WebElement> rows_table = trxTable.findElements(By.tagName("tr"));
+        List<WebElement> rows_table = trxTable.findElements(By.tagName("tr"));
 //         To calculate no of rows in the table
         int rows_count = rows_table.size();
 //        Loop will execute till the last row
-        for (int row =0; row <rows_count;row++){
+        for (int row = 0; row < rows_count; row++) {
 //            To locate columns(cells) of that specific row.
-            List <WebElement> columns_row = rows_table.get(row).findElements(By.tagName("td"));
+            List<WebElement> columns_row = rows_table.get(row).findElements(By.tagName("td"));
 //            To calculate columns(cells) of that specific row.
             int columns_count = columns_row.size();
 //            Iterate through the columns within particular row
-            for (int i =0; i < columns_count;i++){
+            for (int i = 0; i < columns_count; i++) {
                 String cellText = columns_row.get(i).getText();
-                System.out.println(cellText + "\t");
+                if (cellText == "Suspend" || cellText =="Fail" || cellText =="Rejected"){
+                break;
+                }
             }
-            System.out.println("");
         }
-//// No. of columns
-//        List <WebElement> col = driver.findElements(By.xpath("//*[@id=\"manage\"]/table/tbody/tr/th"));
-//        System.out.println("There are: " +col.size() + " columns");
-////        No. of rows
-//        List <WebElement> row = driver.findElements(By.xpath("//*[@id=\"manage\"]/table/tbody/tr/td"));
-//        System.out.println("There are: " +col.size() + " rows");
-
     }
 }
