@@ -9,12 +9,14 @@
             <include name="MyProfile"></include>
             <include name="Transactions"/>
             <include name="Merchants"/>
+            <include name="AdminTransfer"/>
         </run>
     </groups>
     <classes>
         <class name="Tests.Smoke.Myprofilehelp.TestMyProfile"/>
-        <class name="Tests.Smoke.Transactions.TestTransactions"/>
-        <class name="Tests.Smoke.Merchants.TestMerchantCreation"/>
+        <!--<class name="Tests.Smoke.Transactions.TestTransactions"/>-->
+        <!--<class name="Tests.Smoke.Merchants.TestMerchantCreation"/>-->
+        <class name="Tests.Smoke.EmoneyManagement.TestAdminTransfer"/>
         </classes>
     </test>
 </suite>
