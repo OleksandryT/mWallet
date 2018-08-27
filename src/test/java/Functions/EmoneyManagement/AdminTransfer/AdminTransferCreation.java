@@ -9,14 +9,12 @@ import org.openqa.selenium.support.ui.Select;
 public class AdminTransferCreation {
 
     private static WebDriver driver;
-
     public AdminTransferCreation(WebDriver driver) {
         this.driver = driver;
     }
-    private AdminTransferCreation(){}
 
-    private static String merchantSourceId = "009805915";
-    private static String paymentSystemDestinationId = "005671744";
+    private static String MERCHANT_SOURCE_ID = "009805915";
+    private static String PAYMENT_SYSTEM_DESTINATION_ID = "005671744";
     private static final String TXN_ID = driver.findElement(By.xpath("//*[@id=\"content\"]/div[4]/div/div/section[3]/div/form/div/div/div/label")).getText();
 
     public static final By EMONEY_MANAGEMENT = By.xpath("//*[@translate=\"general_label_emoney_management\"]");
@@ -31,10 +29,10 @@ public class AdminTransferCreation {
     public static final By SOURCE_MERCHANT_ID = By.xpath("//*[@placeholder='Source Merchant ID']");
     public static final By DESTINATION_MERCHANT_ID = By.xpath("//*[@placeholder='Destination Merchant ID']");
     public static final By GO_TO_ADMIN_TRANSFER = By.xpath("//*[@id='goToAdminTransferButton']");
-
+    public static final By CONFIRM_CREATION_OF_ADMIN_TRANSFER = By.xpath("//*[@id=\"saveAdmin\"]");
 
     public static String getMerchantSourceId() {
-        return merchantSourceId;
+        return MERCHANT_SOURCE_ID;
     }
 
     public static String getTxnId() {
@@ -42,10 +40,10 @@ public class AdminTransferCreation {
     }
 
     public static String getPaymentSystemDestinationId() {
-        return paymentSystemDestinationId;
+        return PAYMENT_SYSTEM_DESTINATION_ID;
     }
 
-    public static void setEmoneyManagement (){
+    public void setEmoneyManagement (){
         WebElement emoneyManagement = driver.findElement(EMONEY_MANAGEMENT);
         JavascriptExecutor js = (JavascriptExecutor)driver;
         js.executeScript("arguments[0].click();",emoneyManagement);
@@ -147,13 +145,13 @@ public class AdminTransferCreation {
     public static void setSourceMerchantId(){
         WebElement merchantSource = driver.findElement(SOURCE_MERCHANT_ID);
         merchantSource.click();
-        merchantSource.sendKeys(merchantSourceId);
+        merchantSource.sendKeys(MERCHANT_SOURCE_ID);
     }
 
     public static void setDestinationMerchantId (){
         WebElement merchantDestination = driver.findElement(DESTINATION_MERCHANT_ID);
         merchantDestination.click();
-        merchantDestination.sendKeys(paymentSystemDestinationId);
+        merchantDestination.sendKeys(PAYMENT_SYSTEM_DESTINATION_ID);
     }
 
     public static void setBankA (){
@@ -191,9 +189,12 @@ public class AdminTransferCreation {
         driver.findElement(NEXT).click();
     }
 
+    public static void setConfirmCreationOfAdminTransfer (){
+        driver.findElement(CONFIRM_CREATION_OF_ADMIN_TRANSFER).click();
+    }
+
     public static void setGoToAdminTransfer(){
         driver.findElement(GO_TO_ADMIN_TRANSFER).click();
     }
-
 
 }

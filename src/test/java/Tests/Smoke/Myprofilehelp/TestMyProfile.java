@@ -31,9 +31,9 @@ public class TestMyProfile extends BrowserSettings {
         myProfile.setEditAccountDetailsBottomFiled();
         myProfile.setFirstNameUpdateDetailsField();
         myProfile.setLastNameUpdateDetailsField();
-        myProfile.setEmailUpdateDetailsField(generateEmail(15));
-        myProfile.setContactPhoneUpdateDetailsField(randomNumberMSISDN);
-        myProfile.setNoteUpdateDetailsField(randomString());
+        myProfile.setEmailUpdateDetailsField(GENERATE_EMAIL(15));
+        myProfile.setContactPhoneUpdateDetailsField(RANDOM_NUMBER_MSISDN);
+        myProfile.setNoteUpdateDetailsField(RANDOM_STRING());
         myProfile.setNextUpdateDetailsField();
         myProfile.setConfirmUpdateDetailsField();
         System.out.println("user has already been updated");
@@ -52,8 +52,8 @@ public class TestMyProfile extends BrowserSettings {
         myProfile.setReEditField();
         myProfile.setFirstNameUpdateDetailsField();
         myProfile.setLastNameUpdateDetailsField();
-        myProfile.setEmailUpdateDetailsField(generateEmail(15));
-        myProfile.setNoteUpdateDetailsField(randomString());
+        myProfile.setEmailUpdateDetailsField(GENERATE_EMAIL(15));
+        myProfile.setNoteUpdateDetailsField(RANDOM_STRING());
         myProfile.setNextUpdateDetailsField();
         myProfile.setConfirmUpdateDetailsField();
         System.out.println("User has already been reEdited");
@@ -103,7 +103,7 @@ public class TestMyProfile extends BrowserSettings {
     @Test (groups = "MyProfile",priority = 5, enabled = false)
     public void verifyThatPasswordIsNotChangedIfOldPasswordIsInvalid() {
         MyProfileHelp myProfile = new MyProfileHelp(driver);
-        myProfile.setOldPasswordField(randomNumber);
+        myProfile.setOldPasswordField(RANDOM_NUMBER);
         myProfile.setNewPasswordFieldPasswordField(oldPasswordName);
         myProfile.setReNewPasswordField(oldPasswordName);
         myProfile.setSubmitPasswordChange();

@@ -2,6 +2,7 @@ package Tests.Smoke.EmoneyManagement;
 
 import BrowserSettings.BrowserSettings;
 import Functions.EmoneyManagement.AdminTransfer.AdminTransferCreation;
+import Functions.EmoneyManagement.AdminTransfer.AdminTransferPending;
 import org.apache.xpath.operations.String;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -36,16 +37,29 @@ public class TestAdminTransfer extends BrowserSettings {
         System.out.println("If one of the sources is OpCo Fee/Commission Account another one can't be OpCo Fee/Commission Account");
     }
 
-//    @Test (groups = {"AdminTransferCreation"}, dependsOnGroups = {"MyProfile"}, priority = 1)
-//    public static void verifyThatAdminTransferCannotBeApprovedByCreator (){
-//        AdminTransferCreation adminTransfer = new AdminTransferCreation(driver);
-//        adminTransfer.setEmoneyManagement();
-//        adminTransfer.setAdminTransfer();
-//        adminTransfer.setSourceTypeDropdown();
-//        adminTransfer.setSourceTypeOpCo();
-//        adminTransfer.setDestinationTypeDropdown();
-//        String DESTINATION_TYPE_DROPDOWN = driver.findElement(By.xpath("//*[@name='transferDestinationType']")).getText();
-//        Assert.assertFalse(DESTINATION_TYPE_DROPDOWN.contains("OpCo Fee/Commission Account"));
-//        System.out.println("If one of the sources is OpCo Fee/Commission Account another one can't be OpCo Fee/Commission Account");
-//    }
+    @Test (groups = {"AdminTransferCreation"}, dependsOnGroups = {"MyProfile"}, priority = 1)
+    public static void verifyThatAdminTransferCannotBeApprovedByCreator (){
+        AdminTransferCreation adminTransfer = new AdminTransferCreation(driver);
+        adminTransfer.setEmoneyManagement();
+        adminTransfer.setAdminTransfer();
+        adminTransfer.setSourceTypeDropdown();
+        adminTransfer.setSourceTypeSettlement();
+        adminTransfer.setDestinationTypeDropdown();
+        adminTransfer.setDestinationTypeFCRoot();
+        adminTransfer.setBankA();
+        adminTransfer.setAmount("100");
+        adminTransfer.setNote("Auto test");
+        adminTransfer.setNext();
+        adminTransfer.setConfirmCreationOfAdminTransfer();
+        System.out.println("TXN ID is : " + adminTransfer.getTxnId());
+        adminTransfer.setGoToAdminTransfer();
+
+        adminTransfer.setEmoneyManagement();
+        AdminTransferPending adminPending = new AdminTransferPending(driver);
+        adminPending.setPendingAdminTransfer();
+        adminPending.searchByTxnID();
+        adminPending.setConfirmBottom();
+        Assert.assertEquals(adminPending.getSuccessfulMessage(), "This Admin Transfer has been successfully approved");
+        System.out.println("Admin transfer has successfully been created by First Super BO Admin and approved by Second Super BO Admin");
+    }
 }

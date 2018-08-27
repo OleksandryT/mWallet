@@ -1,5 +1,6 @@
 package Functions.MyprofileHelp;
 
+import RandomValuesForTests.BackOfficeUser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -9,10 +10,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static RandomValuesForTests.RandomValues.*;
 
-public class MyProfileHelp {
+public class MyProfileHelp extends BackOfficeUser {
 
     private WebDriver driver;
-    public MyProfileHelp(WebDriver driver) { this.driver = driver; }
+    public MyProfileHelp(WebDriver driver) {
+        this.driver = driver; }
 
     public static final By userIdFiled = By.xpath("//*[@id=\"floating\"]/form/table/tbody/tr[1]/td[2]/input");
     public static final By passwordField = By.xpath("//*[@id=\"floating\"]/form/table/tbody/tr[2]/td[2]/input");
@@ -41,12 +43,38 @@ public class MyProfileHelp {
     public static final By cancelPasswordChangeButton = By.xpath("//*[@class='sa-button-container']/button[contains(text(),'Cancel')]");
     public static final By goToMyAccountButton = By.xpath("//*[@id='adminAcntEdtOk']");
     public static final By areYouWantToChangePassword = By.xpath("//*[@class='sweet-alert showSweetAlert visible']");
-    public static final String userIdName = "test1";
-    public static final String oldPasswordName = "Qazwsx44$$";
-    public static final String newPasswordName = "Qazwsx55%%";
-    public static final String url = "https://10.122.160.37/ui/mwallet/aui/#/";
+    private static final String userIdName = "test1";
+    private static final String userIdName_2 = "test2";
+    private static final String PasswordName_2 = "Qazwsx11!!";
+    private static final String oldPasswordName = "Qazwsx44$$";
+    private static final String newPasswordName = "Qazwsx55%%";
+    private static final String url = "https://10.122.160.37/ui/mwallet/aui/#/";
 
-    public void goToMWallet (){
+    public static String getNewPasswordName() {
+        return newPasswordName;
+    }
+
+    public static String getOldPasswordName() {
+        return oldPasswordName;
+    }
+
+    public static String getPasswordName_2() {
+        return PasswordName_2;
+    }
+
+    public static String getUserIdName() {
+        return userIdName;
+    }
+
+    public static String getUserIdName_2() {
+        return userIdName_2;
+    }
+
+    public static String getUrl() {
+        return url;
+    }
+
+    public void goToMWallet(String url) {
         driver.get(url);
     }
 
@@ -78,7 +106,7 @@ public class MyProfileHelp {
     }
 
     public void setEmailField (){
-        driver.findElement(By.id(generateEmail(15)));
+        driver.findElement(By.id(GENERATE_EMAIL(15)));
     }
 
     public void setContactPhoneNumberField (){
@@ -135,7 +163,7 @@ public class MyProfileHelp {
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", firstname);
         firstname.clear();
-        firstname.sendKeys(randomString());
+        firstname.sendKeys(RANDOM_STRING());
     }
 
     public void setLastNameUpdateDetailsField (){
@@ -143,7 +171,7 @@ public class MyProfileHelp {
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", lastName);
         lastName.clear();
-        lastName.sendKeys(randomString());
+        lastName.sendKeys(RANDOM_STRING());
     }
 
     public void setEmailUpdateDetailsField (String randomEmail){
@@ -151,7 +179,7 @@ public class MyProfileHelp {
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", email);
         email.clear();
-        email.sendKeys(generateEmail(15));
+        email.sendKeys(GENERATE_EMAIL(15));
     }
 
     public void setContactPhoneUpdateDetailsField (String randomNumber){
@@ -159,7 +187,7 @@ public class MyProfileHelp {
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", contactPhone);
         contactPhone.clear();
-        contactPhone.sendKeys(randomNumberMSISDN);
+        contactPhone.sendKeys(RANDOM_NUMBER_MSISDN);
     }
 
     public void setNoteUpdateDetailsField (String random){
@@ -167,7 +195,7 @@ public class MyProfileHelp {
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", note);
         note.clear();
-        note.sendKeys(randomString());
+        note.sendKeys(RANDOM_STRING());
     }
 
     public void setNextUpdateDetailsField (){
