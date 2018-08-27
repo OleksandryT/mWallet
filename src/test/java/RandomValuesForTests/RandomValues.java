@@ -9,16 +9,16 @@ import java.util.UUID;
 
 public abstract class RandomValues {
 
-    public static final String randomAlphabetic = RandomStringUtils.randomAlphabetic(10);
-    public static final String randomNumberMSISDN = "38067"+ RandomStringUtils.randomNumeric(7);
-    public static final String randomNumber = RandomStringUtils.randomNumeric(6);
-    public static final String randomAlphaNumeric = RandomStringUtils.randomAlphanumeric(10);
-    public static final String daysForRefund = "1";
+    public static final String RANDOM_ALPHABETIC = RandomStringUtils.randomAlphabetic(10);
+    public static final String RANDOM_NUMBER_MSISDN = "38067"+ RandomStringUtils.randomNumeric(7);
+    public static final String RANDOM_NUMBER = RandomStringUtils.randomNumeric(6);
+    public static final String RANDOM_ALPHA_NUMERIC = RandomStringUtils.randomAlphanumeric(10);
+    public static final String DAYS_FOR_REFUND = "1";
 
-    public static final DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-    public static final String calendarDate = dateFormat.format(new Date());
+    public static final DateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
+    public static final String CALENDAR_DATE = DATE_FORMAT.format(new Date());
 
-    public static final String randomString () {
+    public static final String RANDOM_STRING () {
         int leftLimit = 97; // letter 'a'
         int rightLimit = 122; // letter 'z'
         int targetStringLength = 10;
@@ -32,7 +32,7 @@ public abstract class RandomValues {
        return   buffer.toString();
     }
 
-    public static final String generateEmail(int length) {
+    public static final String GENERATE_EMAIL(int length) {
         String allowedChars="abcdefghijklmnopqrstuvwxyz" +   //alphabets
                 "1234567890" +   //numbers
                 "_-.";   //special characters
@@ -42,7 +42,7 @@ public abstract class RandomValues {
         return email;
     }
 
-    public static final String generateUrl(int length) {
+    public static final String GENERATE_URL(int length) {
         String allowedChars="abcdefghijklmnopqrstuvwxyz" +   //alphabets
                 "1234567890" +   //numbers
                 "_-.";   //special characters

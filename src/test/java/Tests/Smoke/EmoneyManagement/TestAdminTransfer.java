@@ -2,6 +2,7 @@ package Tests.Smoke.EmoneyManagement;
 
 import BrowserSettings.BrowserSettings;
 import Functions.EmoneyManagement.AdminTransfer.AdminTransferCreation;
+import org.apache.xpath.operations.String;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -17,7 +18,7 @@ public class TestAdminTransfer extends BrowserSettings {
         adminTransfer.setSourceTypeMerchantSVA();
         adminTransfer.setSourceMerchantId();
         adminTransfer.setDestinationTypeDropdown();
-        String DESTINATION_TYPE_DROPDOWN = driver.findElement(By.xpath("//*[@name='transferDestinationType']")).getText();
+        java.lang.String DESTINATION_TYPE_DROPDOWN = driver.findElement(By.xpath("//*[@name='transferDestinationType']")).getText();
         Assert.assertFalse(DESTINATION_TYPE_DROPDOWN.contains("Merchant SVA"));
         System.out.println("If one of the sources is Merchant SVA another one can't be Merchant SVA ");
     }
@@ -30,7 +31,7 @@ public class TestAdminTransfer extends BrowserSettings {
         adminTransfer.setSourceTypeDropdown();
         adminTransfer.setSourceTypeOpCo();
         adminTransfer.setDestinationTypeDropdown();
-        String DESTINATION_TYPE_DROPDOWN = driver.findElement(By.xpath("//*[@name='transferDestinationType']")).getText();
+        java.lang.String DESTINATION_TYPE_DROPDOWN = driver.findElement(By.xpath("//*[@name='transferDestinationType']")).getText();
         Assert.assertFalse(DESTINATION_TYPE_DROPDOWN.contains("OpCo Fee/Commission Account"));
         System.out.println("If one of the sources is OpCo Fee/Commission Account another one can't be OpCo Fee/Commission Account");
     }
