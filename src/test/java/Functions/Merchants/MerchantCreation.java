@@ -1,7 +1,6 @@
 package Functions.Merchants;
 
 
-import BrowserSettings.BrowserSettings;
 import RandomValuesForTests.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -132,7 +131,11 @@ public class MerchantCreation implements Merchants {
     public static final By BANK_DETAIL_RECIPIENT_PAYMENT_PURPOSE_FIELD_2 = By.xpath("//*[@id=\"bankDetailPaymentPurposebd2\"]");
     public static final By PAYMENT_PURPOSE_FIELD = By.xpath("//*[@id=\"bankDetailPaymentPurposeepr\"]");
     public static final By SAVE_BUTTON = By.xpath("//*[@id=\"regMerchSave\"]");
+    private static final By MERCHANT_ID = By.xpath("//*[@id=\"content\"]/div[4]/div/div/section[7]/div/form/merch-general-information/div[2]/div[1]/div/label");
 
+    public String getMerchantId() {
+        return String.valueOf(MERCHANT_ID);
+    }
 
     public void merchantLocator() {
         WebElement merchantField = driver.findElement(MERCHANTS_FIELD);

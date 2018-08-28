@@ -14,6 +14,7 @@ public class MyProfileHelp extends BackOfficeUser {
 
     private WebDriver driver;
     public MyProfileHelp(WebDriver driver) {
+        super(driver);
         this.driver = driver; }
 
     public static final By userIdFiled = By.xpath("//*[@id=\"floating\"]/form/table/tbody/tr[1]/td[2]/input");
@@ -94,6 +95,11 @@ public class MyProfileHelp extends BackOfficeUser {
 
     public void signInButton() {
         driver.findElement(signIn).click();
+    }
+
+    @Override
+    public void loggOut() {
+        super.loggOut();
     }
 
     public void setWelcomeField (){

@@ -15,9 +15,9 @@ public class TestMyProfile extends BrowserSettings {
     @Test(groups = {"MyProfile"}, priority = 0)
     public void verifyLogIn () {
         MyProfileHelp myProfile = new MyProfileHelp(driver);
-        myProfile.goToMWallet();
-        myProfile.useridLocator(userIdName);
-        myProfile.passwordLocator(oldPasswordName);
+        myProfile.goToMWallet(getUrl());
+        myProfile.useridLocator(getUserIdName());
+        myProfile.passwordLocator(getOldPasswordName());
         myProfile.signInButton();
         WebDriverWait wait = new WebDriverWait(driver,20);
         wait.until(ExpectedConditions.titleIs("Back Office Portal"));
@@ -25,7 +25,7 @@ public class TestMyProfile extends BrowserSettings {
 
     }
 
-    @Test (groups = "MyProfile",priority = 1)
+    @Test (groups = "MyProfile",priority = 1,enabled = false)
     public void verifyAbilityToEditAllAccountDetails(){
         MyProfileHelp myProfile = new MyProfileHelp(driver);
         myProfile.setEditAccountDetailsBottomFiled();
@@ -46,7 +46,7 @@ public class TestMyProfile extends BrowserSettings {
 
     }
 
-    @Test (groups = "MyProfile",priority = 2)
+    @Test (groups = "MyProfile",priority = 2,enabled = false)
     public void verifyAbilityToREEditAllAccountDetails()  {
         MyProfileHelp myProfile = new MyProfileHelp(driver);
         myProfile.setReEditField();
@@ -70,9 +70,9 @@ public class TestMyProfile extends BrowserSettings {
         MyProfileHelp myProfile = new MyProfileHelp(driver);
         myProfile.setGoToMyAccountButton();
         myProfile.setChangePasswordBottomField();
-        myProfile.setOldPasswordField(oldPasswordName);
-        myProfile.setNewPasswordFieldPasswordField(newPasswordName);
-        myProfile.setReNewPasswordField(newPasswordName);
+        myProfile.setOldPasswordField(getOldPasswordName());
+        myProfile.setNewPasswordFieldPasswordField(getNewPasswordName());
+        myProfile.setReNewPasswordField(getNewPasswordName());
         myProfile.setSubmitPasswordChange();
         myProfile.setConfirmPasswordChangeButton();
         WebDriverWait wait = new WebDriverWait(driver,30);
@@ -87,9 +87,9 @@ public class TestMyProfile extends BrowserSettings {
     @Test (groups = "MyProfile",priority = 4, enabled = false)
     public void verifyThatPasswordIsNotChangedIfNewPasswordIsAsPreviousOne() {
         MyProfileHelp myProfile = new MyProfileHelp(driver);
-        myProfile.setOldPasswordField(newPasswordName);
-        myProfile.setNewPasswordFieldPasswordField(oldPasswordName);
-        myProfile.setReNewPasswordField(oldPasswordName);
+        myProfile.setOldPasswordField(getNewPasswordName());
+        myProfile.setNewPasswordFieldPasswordField(getOldPasswordName());
+        myProfile.setReNewPasswordField(getOldPasswordName());
         myProfile.setSubmitPasswordChange();
         myProfile.setConfirmPasswordChangeButton();
         WebDriverWait wait = new WebDriverWait(driver,30);
@@ -104,8 +104,8 @@ public class TestMyProfile extends BrowserSettings {
     public void verifyThatPasswordIsNotChangedIfOldPasswordIsInvalid() {
         MyProfileHelp myProfile = new MyProfileHelp(driver);
         myProfile.setOldPasswordField(RANDOM_NUMBER);
-        myProfile.setNewPasswordFieldPasswordField(oldPasswordName);
-        myProfile.setReNewPasswordField(oldPasswordName);
+        myProfile.setNewPasswordFieldPasswordField(getOldPasswordName());
+        myProfile.setReNewPasswordField(getOldPasswordName());
         myProfile.setSubmitPasswordChange();
         myProfile.setConfirmPasswordChangeButton();
         WebDriverWait wait = new WebDriverWait(driver,30);
