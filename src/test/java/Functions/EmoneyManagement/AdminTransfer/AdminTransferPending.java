@@ -1,26 +1,18 @@
 package Functions.EmoneyManagement.AdminTransfer;
 
 import RandomValuesForTests.BackOfficeUser;
-import Tests.Smoke.EmoneyManagement.TestAdminTransfer;
-import org.apache.xpath.jaxp.JAXPVariableStack;
+import RandomValuesForTests.EmoneyManagement;
 import org.openqa.selenium.*;
-import Functions.EmoneyManagement.AdminTransfer.AdminTransferCreation;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import sun.nio.ch.DefaultAsynchronousChannelProvider;
 
 import static RandomValuesForTests.RandomValues.*;
 
-
-
-import java.util.List;
-
-public class AdminTransferPending extends BackOfficeUser {
+public class AdminTransferPending implements EmoneyManagement {
 
     private static WebDriver driver;
     public AdminTransferPending(WebDriver driver) {
-        super(driver);
         this.driver = driver;
     }
 
@@ -41,38 +33,14 @@ public class AdminTransferPending extends BackOfficeUser {
     public static final By TXN_ID = By.xpath("//*[@id=\"content\"]/div[4]/div/div/section[3]/div/form/div/div/div/label");
     public static By FIRST_ROW_WITH_TRANSACTION = By.xpath("//*[@id=\"manage\"]/table/tbody/tr[2]/td[1]");
 
-    @Override
-    public void goToMWallet(String url) {
-        driver.get(url);
-    }
-
-    @Override
-    public void passwordLocator(String oldPasswordName) {
-        super.passwordLocator(oldPasswordName);
-    }
-
-    @Override
-    public void signInButton() {
-        super.signInButton();
-    }
-
-    @Override
-    public void useridLocator(String userIdName) {
-        super.useridLocator(userIdName);
-    }
-
     public String getSuccessfulMessage() {
         return successfulMessage;
     }
 
-    public  void eMoneyManagement (){
-        AdminTransferCreation ac = new AdminTransferCreation(driver);
-        ac.setEmoneyManagement();
-    }
-
-    public static String transactionCreated (){
-        String transaction = driver.findElement(TXN_ID).getText();
-        return transaction;
+    public void setEmoneyManagement() {
+        WebElement emoneyManagement = driver.findElement(EMONEY_MANAGEMENT);
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("arguments[0].click();",emoneyManagement);
     }
 
     public  void setPendingAdminTransfer (){
@@ -84,22 +52,9 @@ public class AdminTransferPending extends BackOfficeUser {
         WebElement searchByFilterCriteria = driver.findElement(SEARCH_BY_FILTER_CRITERIA);
         WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.elementToBeClickable(searchByFilterCriteria));
-        if(searchByFilterCriteria.isEnabled()){
-            searchByFilterCriteria.click();
-        }
+        JavascriptExecutor javascriptExecutor = (JavascriptExecutor)driver;
+        javascriptExecutor.executeScript("arguments[0].click();",searchByFilterCriteria);
     }
-//
-//    public void transactionId () {
-//        WebElement trxID = driver.findElement(TRANSACTION_ID);
-//        WebDriverWait wait1 = new WebDriverWait(driver, 20);
-//        wait1.until(ExpectedConditions.elementToBeClickable(trxID));
-//        if (trxID.isEnabled()) {
-//            trxID.click();
-//            trxID.clear();
-//            trxID.sendKeys();
-//        } else
-//            System.out.println("Transaction field was disabled");
-//    }
 
     public void serahcForCreatedTrx(){
         WebElement searchButton = driver.findElement(SEARCH);
@@ -120,6 +75,8 @@ public class AdminTransferPending extends BackOfficeUser {
             }
 
     public  void setConfirmBottom (){
+        WebDriverWait wait = new WebDriverWait(driver,20);
+        wait.until(ExpectedConditions.elementToBeClickable(CONFIRM_BOTTOM));
         driver.findElement(CONFIRM_BOTTOM).click();
     }
 
@@ -130,6 +87,7 @@ public class AdminTransferPending extends BackOfficeUser {
     public  void setNotes (){
         driver.findElement(NOTES).sendKeys("autoTest"+RANDOM_ALPHABETIC);
     }
+
 
 }
 

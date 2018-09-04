@@ -18,9 +18,8 @@ public abstract class BackOfficeUser {
 
     private static final By LOG_OUT = By.xpath("//*[@translate='general_label_logout']");
 
-    public void goToMWallet (String url){
-        driver.get(url);
-    }
+    public abstract void goToMWallet(String url);
+
     public void useridLocator(String userIdName){
         WebElement userL = driver.findElement(userIdFiled);
         userL.click();

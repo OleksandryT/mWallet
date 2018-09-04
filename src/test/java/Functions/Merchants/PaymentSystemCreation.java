@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static Functions.Merchants.MerchantCreation.*;
 import static RandomValuesForTests.RandomValues.*;
 
-public class PaymentSystemCreation implements Merchants {
+public class PaymentSystemCreation extends Merchants {
 
     private WebDriver driver;
 

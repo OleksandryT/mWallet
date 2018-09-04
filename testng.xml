@@ -10,6 +10,7 @@
             <include name="Transactions"/>
             <include name="Merchants"/>
             <include name="AdminTransfer"/>
+            <include name="AdminReverse"/>
         </run>
     </groups>
     <classes>
@@ -17,6 +18,7 @@
         <!--<class name="Tests.Smoke.Transactions.TestTransactions"/>-->
         <!--<class name="Tests.Smoke.Merchants.TestMerchantCreation"/>-->
         <class name="Tests.Smoke.EmoneyManagement.TestAdminTransfer"/>
+        <class name="Tests.Smoke.EmoneyManagement.TestAdminReverse"/>
         </classes>
     </test>
 </suite>

@@ -17,6 +17,8 @@ public class MyProfileHelp extends BackOfficeUser {
         super(driver);
         this.driver = driver; }
 
+
+
     public static final By userIdFiled = By.xpath("//*[@id=\"floating\"]/form/table/tbody/tr[1]/td[2]/input");
     public static final By passwordField = By.xpath("//*[@id=\"floating\"]/form/table/tbody/tr[2]/td[2]/input");
     public static final By signIn = By.cssSelector("#login");
@@ -75,10 +77,6 @@ public class MyProfileHelp extends BackOfficeUser {
         return url;
     }
 
-    public void goToMWallet(String url) {
-        driver.get(url);
-    }
-
     public void useridLocator(String userIdName) {
         WebElement userL = driver.findElement(userIdFiled);
         userL.click();
@@ -100,6 +98,11 @@ public class MyProfileHelp extends BackOfficeUser {
     @Override
     public void loggOut() {
         super.loggOut();
+    }
+
+    @Override
+    public void goToMWallet(String url) {
+        driver.get(url);
     }
 
     public void setWelcomeField (){

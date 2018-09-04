@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static RandomValuesForTests.RandomValues.*;
 
-public class MerchantCreation implements Merchants {
+public class MerchantCreation extends Merchants {
 
     private WebDriver driver;
 

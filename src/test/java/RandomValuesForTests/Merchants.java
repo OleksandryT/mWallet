@@ -1,224 +1,219 @@
 package RandomValuesForTests;
 
-public interface Merchants {
+public abstract class Merchants {
 
-     void merchantLocator() ;
+     public abstract void merchantLocator() ;
 
-     void createMerchantLocator();
+ public abstract void createMerchantLocator();
 
-     void merchnatTypeDropboxLocator();
+ public abstract void merchnatTypeDropboxLocator();
 
-     void merchantTypeMerchantLocator();
+ public abstract void merchantTypeMerchantLocator();
 
-     void fullnameLocator();
+ public abstract  void fullnameLocator();
 
-     void shortNameLocator();
+ public abstract void shortNameLocator();
 
-    void setTradeNameOrganizationField();
+ public abstract void setTradeNameOrganizationField();
 
-     void setOrganizationForm();
+ public abstract  void setOrganizationForm();
 
-     void setBusinessEntityDropbox();
+ public abstract   void setBusinessEntityDropbox();
 
-     void setBusinessEntityTypePrivateField();
+ public abstract   void setBusinessEntityTypePrivateField();
 
-     void setBusinessEntityTypeLegalField();
+ public abstract   void setBusinessEntityTypeLegalField();
 
-     void setListOfMerchantsPointsOfSaleCreateNewPointOfSaleButton() ;
+ public abstract  void setListOfMerchantsPointsOfSaleCreateNewPointOfSaleButton() ;
 
-     void setPosName();
+ public abstract  void setPosName();
 
-     void setPosAddress();
+ public abstract   void setPosAddress();
+ public abstract void addpos();
 
-     void addpos();
+ public abstract  void setListOfregionswhereMerchantOperatesDropdown();
 
-     void setListOfregionswhereMerchantOperatesDropdown();
+ public abstract   void setListOfRegionsVinnytskaobl();
 
-     void setListOfRegionsVinnytskaobl();
+ public abstract   void setLegalAddress();
 
-     void setLegalAddress();
+ public abstract  void setActualAddressFiled();
 
-     void setActualAddressFiled();
+ public abstract  void setCorrespondenceAddress();
 
-     void setCorrespondenceAddress();
+ public abstract  void setPhoneNumberField();
 
-     void setPhoneNumberField();
+ public abstract  void setContactEmail();
 
-     void setContactEmail();
+ public abstract   void setContactWebsite();
 
-     void setContactWebsite();
+ public abstract   void setContactCallCenterNumberField();
 
-     void setContactCallCenterNumberField();
+ public abstract  void setNotificationChannelSmsField();
 
-     void setNotificationChannelSmsField();
+ public abstract  void setNotificationChannelEmailField();
 
-     void setNotificationChannelEmailField();
+ public abstract     void setNextButtonCompany();
 
-     void setNextButtonCompany();
+ public abstract  void setIDOfMerchantContractWithAgentForSettlement0Field();
 
-     void setIDOfMerchantContractWithAgentForSettlement0Field();
+ public abstract   void setDateofMerchantContractWithAgentDate0Picker();
 
-     void setDateofMerchantContractWithAgentDate0Picker();
+ public abstract  void setAgreementContractScan0Button();
 
-     void setAgreementContractScan0Button();
+ public abstract     void setIDOfMerchantContractWithAgentForSettlement1Field();
 
-     void setIDOfMerchantContractWithAgentForSettlement1Field();
+ public abstract    void setDateofMerchantContractWithAgentDate1Picker();
 
-     void setDateofMerchantContractWithAgentDate1Picker();
+ public abstract    void setAgreementContractScan1Button();
 
-     void setAgreementContractScan1Button();
+ public abstract   void setIDOfMerchantContractWithAgentForSettlement2Field();
 
-     void setIDOfMerchantContractWithAgentForSettlement2Field();
+ public abstract   void setDateofMerchantContractWithAgentDate2Picker();
 
-     void setDateofMerchantContractWithAgentDate2Picker();
+ public abstract    void setAgreementContractScan2Button();
 
-     void setAgreementContractScan2Button();
+ public abstract   void setIDOfMerchantContractWithAgentForSettlement3Field();
 
-     void setIDOfMerchantContractWithAgentForSettlement3Field();
+ public abstract    void setDateofMerchantContractWithAgentDate3Picker();
 
-     void setDateofMerchantContractWithAgentDate3Picker();
+ public abstract    void setAgreementContractScan3Button();
 
-     void setAgreementContractScan3Button();
+ public abstract   void setScanCopyOfStatueButton();
 
-     void setScanCopyOfStatueButton();
+ public abstract   void setScanCopyOfTaxIdButton();
 
-     void setScanCopyOfTaxIdButton();
+ public abstract   void setScanStatementOfCsrButton();
 
-     void setScanStatementOfCsrButton();
+ public abstract  void setScanStatementExtractFromCsrButton();
 
-     void setScanStatementExtractFromCsrButton();
+ public abstract  void setScanStatementQuestionnareButton();
 
-     void setScanStatementQuestionnareButton();
+ public abstract   void setNextButton1();
 
-     void setNextButton1();
+ public abstract  void setFullNameContactField();
 
-     void setFullNameContactField();
+ public abstract   void setPositionContactField();
 
-     void setPositionContactField();
+ public abstract   void setCountryOfResidence();
 
-     void setCountryOfResidence();
+ public abstract   void setMobileNumberContactField();
 
-     void setMobileNumberContactField();
+ public abstract   void setWorkEmailContactField();
+ public abstract void setAccountFullNameContactField();
 
-     void setWorkEmailContactField();
+ public abstract    void setAccountPositionContactField();
 
-     void setAccountFullNameContactField();
+ public abstract  void setAccountCountryOfResidence();
 
-     void setAccountPositionContactField();
+ public abstract   void setAccountMobileNumberContactField();
 
-     void setAccountCountryOfResidence();
+ public abstract    void setAccountWorkEmailContactField();
 
-     void setAccountMobileNumberContactField();
+ public abstract    void setOperationFullNameContactField();
 
-     void setAccountWorkEmailContactField();
+ public abstract    void setOperationPositionContactField();
 
-     void setOperationFullNameContactField();
+ public abstract  void setOperationMobileNumberContactField();
 
-     void setOperationPositionContactField();
+ public abstract  void setOperationWorkEmailContactField();
 
-     void setOperationMobileNumberContactField();
+ public abstract   void setFullNameContactITField();
 
-     void setOperationWorkEmailContactField();
+ public abstract   void setPositionContactITField();
 
-     void setFullNameContactITField();
+ public abstract   void setMobileNumberContactITField();
 
-     void setPositionContactITField();
+ public abstract   void setWorkEmailContactITField();
 
-     void setMobileNumberContactITField();
+ public abstract   void setFullNameContactFinField();
 
-     void setWorkEmailContactITField();
+ public abstract   void setPositionContactFinField();
 
-     void setFullNameContactFinField();
+ public abstract    void setMobileNumberContactFinField();
 
-     void setPositionContactFinField();
+ public abstract   void setWorkEmailContactFinField();
 
-     void setMobileNumberContactFinField();
+ public abstract   void setAccountNoCompanyDetailsField();
 
-     void setWorkEmailContactFinField();
+ public abstract    void setBankNameCompanyDetailsField();
+ public abstract void setBankIdComapnyDetailsField();;
 
-     void setAccountNoCompanyDetailsField();
+ public abstract    void setStateEnterpriseRegistryIdField();
 
-     void setBankNameCompanyDetailsField();
+ public abstract   void setContractSigneeNameField();
 
-     void setBankIdComapnyDetailsField();;
+ public abstract   void setContractSigneePositionField();
 
-     void setStateEnterpriseRegistryIdField();
+ public abstract    void setContractSigneeBasisField();
 
-     void setContractSigneeNameField();
+ public abstract   void setContractSigneeFullnameField();
 
-     void setContractSigneePositionField();
+ public abstract   void setContractSigneePositionField1();
 
-     void setContractSigneeBasisField();
+ public abstract  void setContractSigneeMobileNumberField();
 
-     void setContractSigneeFullnameField();
+ public abstract   void setSigneePassportScanButton();
 
-     void setContractSigneePositionField1();
+ public abstract   void setSigneeTaxIdScanButton();
 
-     void setContractSigneeMobileNumberField();
+ public abstract   void setSigneeAuthorizingScanButton();
 
-     void setSigneePassportScanButton();
+ public abstract   void setNextButton2();
 
-     void setSigneeTaxIdScanButton();
+ public abstract   void setNumberOfWorkingDaysForFundsInbankField();
 
-     void setSigneeAuthorizingScanButton();
+ public abstract   void setMerchantApiField();
 
-     void setNextButton2();
+ public abstract   void setFeeForRefundField();
 
-     void setNumberOfWorkingDaysForFundsInbankField();
+ public abstract  void setTurnoverOverLastYearField();
 
-     void setMerchantApiField();
+ public abstract  void setTestServerIpField();
 
-     void setFeeForRefundField();
+ public abstract  void setTestServerPortField();
 
-     void setTurnoverOverLastYearField();
+ public abstract   void setTestProductionServerIpField();
 
-     void setTestServerIpField();
+ public abstract  void setTestProductionServerPortField();
+ public abstract void setBankdetailRecipientNameField0();
 
-     void setTestServerPortField();
+ public abstract   void setBankdetailRecipientIdField0();
 
-     void setTestProductionServerIpField();
+ public abstract   void setBankdetailRecipientAccountNoField0();
 
-     void setTestProductionServerPortField();
+ public abstract   void setBankdetailRecipientBankCodeField0 ();
 
-     void setBankdetailRecipientNameField0();
+ public abstract   void setBankdetailRecipientBankNameField0 ();
 
-     void setBankdetailRecipientIdField0();
+ public abstract   void setBankdetailRecipientPaymentPurposeField0();
 
-     void setBankdetailRecipientAccountNoField0();
+ public abstract   void setBankdetailRecipientNameField1 ();
 
-     void setBankdetailRecipientBankCodeField0 ();
+ public abstract  void setBankdetailRecipientIdField1 ();
 
-     void setBankdetailRecipientBankNameField0 ();
+ public abstract   void setBankdetailRecipientAccountNoField1 ();
 
-     void setBankdetailRecipientPaymentPurposeField0();
+ public abstract   void setBankdetailRecipientBankCodeField1 ();
 
-     void setBankdetailRecipientNameField1 ();
+ public abstract  void setBankdetailRecipientBankNameField1();
 
-     void setBankdetailRecipientIdField1 ();
+ public abstract   void setBankdetailRecipientPaymentPurposeField1();
 
-     void setBankdetailRecipientAccountNoField1 ();
+ public abstract   void setBankdetailRecipientNameField2 ();
 
-     void setBankdetailRecipientBankCodeField1 ();
+ public abstract   void setBankdetailRecipientIdField2 ();
 
-     void setBankdetailRecipientBankNameField1();
+ public abstract   void setBankdetailRecipientAccountNoField2 ();
 
-     void setBankdetailRecipientPaymentPurposeField1();
+ public abstract  void setBankdetailRecipientBankCodeField2 ();
 
-     void setBankdetailRecipientNameField2 ();
+ public abstract   void setBankdetailRecipientBankNameField2 ();
 
-     void setBankdetailRecipientIdField2 ();
+ public abstract   void setBankdetailRecipientPaymentPurposeField2 ();
+ public abstract void setPaymentPurposeField ();
 
-     void setBankdetailRecipientAccountNoField2 ();
+ public abstract  void setNextButton3();
 
-     void setBankdetailRecipientBankCodeField2 ();
-
-     void setBankdetailRecipientBankNameField2 ();
-
-     void setBankdetailRecipientPaymentPurposeField2 ();
-
-     void setPaymentPurposeField ();
-
-     void setNextButton3();
-
-      void setSaveButton ();
+ public abstract    void setSaveButton ();
 }

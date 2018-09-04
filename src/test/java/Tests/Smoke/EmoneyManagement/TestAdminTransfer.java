@@ -1,18 +1,14 @@
 package Tests.Smoke.EmoneyManagement;
-
 import BrowserSettings.BrowserSettings;
 import Functions.EmoneyManagement.AdminTransfer.AdminTransferCreation;
 import Functions.EmoneyManagement.AdminTransfer.AdminTransferPending;
 import Functions.MyprofileHelp.MyProfileHelp;
-import RandomValuesForTests.BackOfficeUser;
-import org.apache.xpath.operations.String;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import static Functions.EmoneyManagement.AdminTransfer.AdminTransferPending.TRANSACTION_ID;
 import static Functions.EmoneyManagement.AdminTransfer.AdminTransferPending.TXN_ID;
 

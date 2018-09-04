@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import static RandomValuesForTests.RandomValues.*;
 
-public class AggregatorCreation implements Merchants {
+public class AggregatorCreation extends Merchants {
 
     private WebDriver driver;
     public AggregatorCreation(WebDriver driver) {
