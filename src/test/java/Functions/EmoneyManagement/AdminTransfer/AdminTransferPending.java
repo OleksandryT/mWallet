@@ -43,6 +43,12 @@ public class AdminTransferPending implements EmoneyManagement {
         js.executeScript("arguments[0].click();",emoneyManagement);
     }
 
+    public void setFirstRowWithTransaction() {
+    }
+
+    public void setDetails() {
+    }
+
     public  void setPendingAdminTransfer (){
         WebElement pendingAdmin = driver.findElement(PENDING_ADMIN_TRANSFER);
         JavascriptExecutor js = (JavascriptExecutor)driver;

@@ -17,7 +17,7 @@
         <class name="Tests.Smoke.Myprofilehelp.TestMyProfile"/>
         <!--<class name="Tests.Smoke.Transactions.TestTransactions"/>-->
         <!--<class name="Tests.Smoke.Merchants.TestMerchantCreation"/>-->
-        <class name="Tests.Smoke.EmoneyManagement.TestAdminTransfer"/>
+        <!--<class name="Tests.Smoke.EmoneyManagement.TestAdminTransfer"/>-->
         <class name="Tests.Smoke.EmoneyManagement.TestAdminReverse"/>
         </classes>
     </test>

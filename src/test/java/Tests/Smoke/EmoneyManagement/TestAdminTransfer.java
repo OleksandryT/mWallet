@@ -76,7 +76,6 @@ public class TestAdminTransfer extends BrowserSettings {
             trxID.sendKeys(txn_id);
         } else
             System.out.println("Transaction field was disabled");
-//        adminPending.transactionId();
         adminPending.serahcForCreatedTrx();
         adminPending.setNotes();
         adminPending.setConfirmBottom();

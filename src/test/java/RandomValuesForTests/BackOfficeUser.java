@@ -1,9 +1,13 @@
 package RandomValuesForTests;
 
+import org.apache.xpath.jaxp.JAXPVariableStack;
 import org.openqa.grid.web.servlet.handler.WebDriverRequest;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static Functions.MyprofileHelp.MyProfileHelp.passwordField;
 import static Functions.MyprofileHelp.MyProfileHelp.signIn;
@@ -37,7 +41,10 @@ public abstract class BackOfficeUser {
     }
 
     public void loggOut (){
-        driver.findElement(LOG_OUT).click();
-
+        WebElement logOut = driver.findElement(LOG_OUT);
+        WebDriverWait wait = new WebDriverWait(driver,10);
+        wait.until(ExpectedConditions.elementToBeClickable(logOut));
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("arguments[0].click();",logOut);
     }
 }

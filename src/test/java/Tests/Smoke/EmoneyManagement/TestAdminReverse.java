@@ -9,8 +9,8 @@ import org.testng.annotations.Test;
 
 public class TestAdminReverse extends BrowserSettings {
 
-    @Test(groups = {"AdminReverse"}, dependsOnGroups = {"AdminTransfer"},priority = 0)
-    public void verifySuccessfulAdminReverse (){
+    @Test(groups = {"AdminReverse"}, dependsOnGroups = {"MyProfile"},priority = 0)
+    public void verifySuccessfulConfirmationOfAdminReverse (){
         AdminReverseCreation adminReverse = new AdminReverseCreation(driver);
         adminReverse.setEmoneyManagement();
         adminReverse.setAdminReverse();
@@ -30,7 +30,41 @@ public class TestAdminReverse extends BrowserSettings {
         AdminReversePending adminPending = new AdminReversePending(driver);
         adminPending.setEmoneyManagement();
         adminPending.setPendingAdminReverse();
-        adminPending.searchByTxnID();
+        adminPending.searchButtonAndDetails();
+        adminPending.setConfimrReverseButton();
+        String success = "Reversal transaction successfully confirmed.";
+        Assert.assertTrue(true,success);
+        System.out.println("Admin reverse was successfully confirmed");
     }
+
+    @Test(groups = {"AdminReverse"}, dependsOnGroups = {"MyProfile"},priority = 0)
+    public void verifySuccessfulRejectionOfAdminReverse (){
+        AdminReverseCreation adminReverse = new AdminReverseCreation(driver);
+        adminReverse.setEmoneyManagement();
+        adminReverse.setAdminReverse();
+        adminReverse.setTxnIdField_2();
+        adminReverse.setNotes();
+        adminReverse.setReverseThisTransactionButoon();
+        adminReverse.setConfirmThisTransactionButton();
+        adminReverse.setGoToAdminReversalButton();
+        AdminReversePending adminReversePending = new AdminReversePending(driver);
+        adminReversePending.setEmoneyManagement();
+        adminReversePending.setPendingAdminReverse();
+        MyProfileHelp userLogOut = new MyProfileHelp(driver);
+        userLogOut.loggOut();
+        userLogOut.useridLocator(MyProfileHelp.getUserIdName());
+        userLogOut.passwordLocator(MyProfileHelp.getOldPasswordName());
+        userLogOut.signInButton();
+        AdminReversePending adminPending = new AdminReversePending(driver);
+        adminPending.setEmoneyManagement();
+        adminPending.setPendingAdminReverse();
+        adminPending.searchButtonAndDetails();
+        adminPending.setCommentsForRejection();
+        adminPending.setRejectReverseButton();
+        String successOfRejection = "Reversal transaction successfully rejected.";
+        Assert.assertTrue(true,successOfRejection);
+        System.out.println("Admin reverse was successfully rejected.");
+    }
+
 
 }

@@ -45,6 +45,12 @@ public class AdminTransferCreation implements EmoneyManagement {
         js.executeScript("arguments[0].click();",emoneyManagement);
     }
 
+    public void setFirstRowWithTransaction() {
+    }
+
+    public void setDetails() {
+    }
+
     public  void setAdminTransfer (){
         WebElement adminTransfer = driver.findElement(ADMIN_TRANSFER);
         JavascriptExecutor js = (JavascriptExecutor)driver;

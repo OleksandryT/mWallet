@@ -18,7 +18,8 @@ public class AdminReverseCreation implements EmoneyManagement {
         this.driver = driver;
     }
 
-    private String TXN_ID_FOR_REVERSE = "9938411";
+    public  static final String TXN_ID_FOR_REVERSE = "9422694";
+    public  static final String TXN_ID_FOR_REVERSE_2 = "9422574";
     private String errorMessageReversedTxn = "The Transaction has been already reversed.";
     private String confirmationSuccessMessage = "Admin reversal is successful";
 
@@ -35,15 +36,15 @@ public class AdminReverseCreation implements EmoneyManagement {
 
 
     public String getErrorMessageReversersedTxn() {
-        return errorMessageReversedTxn;
+        return this.errorMessageReversedTxn;
     }
 
     public String getTxnIdForReverse() {
-        return TXN_ID_FOR_REVERSE;
+        return this.TXN_ID_FOR_REVERSE;
     }
 
     public String getConfirmationSuccessMessage() {
-        return confirmationSuccessMessage;
+        return this.confirmationSuccessMessage;
     }
 
     public void setEmoneyManagement() {
@@ -52,6 +53,12 @@ public class AdminReverseCreation implements EmoneyManagement {
         wait.until(ExpectedConditions.elementToBeClickable(emoneyManagement));
         JavascriptExecutor javascriptExecutor = (JavascriptExecutor)driver;
         javascriptExecutor.executeScript("arguments[0].click();",emoneyManagement);
+    }
+
+    public void setFirstRowWithTransaction() {
+    }
+
+    public void setDetails() {
     }
 
     public void setAdminReverse (){
@@ -68,6 +75,11 @@ public class AdminReverseCreation implements EmoneyManagement {
         txnIdField.sendKeys(TXN_ID_FOR_REVERSE);
     }
 
+    public void setTxnIdField_2 (){
+        WebElement txnIdField = driver.findElement(TXN_ID_FIELD);
+        txnIdField.click();
+        txnIdField.sendKeys(TXN_ID_FOR_REVERSE_2);
+    }
     public void setNotes (){
         WebElement notes = driver.findElement(NOTES);
         notes.sendKeys(RANDOM_ALPHABETIC);
@@ -96,13 +108,13 @@ public class AdminReverseCreation implements EmoneyManagement {
     }
 
     public void setGoToAdminReversalButton (){
-        if (driver.getPageSource().contains(errorMessageReversedTxn)){
+        if (driver.getPageSource().contains(getErrorMessageReversersedTxn())){
             WebElement goToAdminreversal = driver.findElement(GO_TO_ADMIN_REVERSAL_BUTTON);
             JavascriptExecutor javascriptExecutor = (JavascriptExecutor)driver;
             javascriptExecutor.executeScript("arguments[0].click();",goToAdminreversal);
             System.out.println("Reversal has already been reversed.");
         }
-        else if (driver.getPageSource().contains(confirmationSuccessMessage)) {
+        else if (driver.getPageSource().contains(getConfirmationSuccessMessage())) {
             WebElement goToAdminreversal = driver.findElement(GO_TO_ADMIN_REVERSAL_BUTTON);
             JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
             javascriptExecutor.executeScript("arguments[0].click();", goToAdminreversal);
