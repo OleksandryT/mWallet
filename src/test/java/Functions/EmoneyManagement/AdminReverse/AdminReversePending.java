@@ -1,16 +1,12 @@
 package Functions.EmoneyManagement.AdminReverse;
 
 import RandomValuesForTests.EmoneyManagement;
-import org.apache.commons.net.imap.IMAPClient;
-import org.omg.CORBA.TypeCodePackage.BadKind;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.concurrent.ExecutionException;
 
 import static RandomValuesForTests.RandomValues.*;
 
@@ -53,23 +49,7 @@ public class AdminReversePending implements EmoneyManagement {
         javascriptExecutor.executeScript("arguments[0].click();", adminReversePending);
     }
 
-//    public void searchByTxnID() {
-//        WebElement searchByTransactionId = driver.findElement(SEARCH_BY_TRANSACTION_ID);
-//        WebDriverWait wait = new WebDriverWait(driver, 20);
-//        wait.until(ExpectedConditions.elementToBeClickable(searchByTransactionId));
-//        JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
-//        javascriptExecutor.executeScript("arguments[0].click();", searchByTransactionId);
-//        WebElement trxIdInput = driver.findElement(TRANSACTION_ID_INPUT);
-//        JavascriptExecutor js = (JavascriptExecutor) driver;
-//        js.executeScript("arguments[0].click();", trxIdInput);
-//        trxIdInput.sendKeys(AdminReverseCreation.TXN_ID_FOR_REVERSE);
-//    }
-
     public void searchButtonAndDetails() {
-//        WebElement search = driver.findElement(SEARCH_BUTTON);
-//        JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
-//        javascriptExecutor.executeScript("arguments[0].click();", search);
-//        String reverseId = AdminReverseCreation.TXN_ID_FOR_REVERSE;
         WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.visibilityOfElementLocated(FIRST_ROW_WITH_TRANSACTION));
         String firstResult = driver.findElement(FIRST_ROW_WITH_TRANSACTION).getText();

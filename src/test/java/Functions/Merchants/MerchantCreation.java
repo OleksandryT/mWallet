@@ -134,7 +134,7 @@ public class MerchantCreation extends Merchants {
     private static final By MERCHANT_ID = By.xpath("//*[@id=\"content\"]/div[4]/div/div/section[7]/div/form/merch-general-information/div[2]/div[1]/div/label");
 
     public String getMerchantId() {
-        return String.valueOf(MERCHANT_ID);
+        return MERCHANT_ID.toString();
     }
 
     public void merchantLocator() {

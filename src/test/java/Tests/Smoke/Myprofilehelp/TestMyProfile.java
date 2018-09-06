@@ -2,17 +2,17 @@ package Tests.Smoke.Myprofilehelp;
 import BrowserSettings.BrowserSettings;
 import Functions.MyprofileHelp.MyProfileHelp;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import static Functions.MyprofileHelp.MyProfileHelp.*;
 import static RandomValuesForTests.RandomValues.*;
 
 public class TestMyProfile extends BrowserSettings {
 
-    @Test(groups = {"MyProfile"}, priority = 0)
+    @Test(alwaysRun = true, groups = {"MyProfile"},priority = 0)
     public void verifyLogIn () {
         MyProfileHelp myProfile = new MyProfileHelp(driver);
         myProfile.goToMWallet(getUrl());
@@ -22,20 +22,19 @@ public class TestMyProfile extends BrowserSettings {
         WebDriverWait wait = new WebDriverWait(driver,20);
         wait.until(ExpectedConditions.titleIs("Back Office Portal"));
         Assert.assertEquals(driver.getTitle(), "Back Office Portal");
-
     }
 
-    @Test (groups = "MyProfile",priority = 1,enabled = false)
+    @Test (groups = {"MyProfile"},priority = 1)
     public void verifyAbilityToEditAllAccountDetails(){
-        MyProfileHelp myProfile = new MyProfileHelp(driver);
-        myProfile.setEditAccountDetailsBottomFiled();
-        myProfile.setFirstNameUpdateDetailsField();
-        myProfile.setLastNameUpdateDetailsField();
-        myProfile.setEmailUpdateDetailsField(GENERATE_EMAIL(15));
-        myProfile.setContactPhoneUpdateDetailsField(RANDOM_NUMBER_MSISDN);
-        myProfile.setNoteUpdateDetailsField(RANDOM_STRING());
-        myProfile.setNextUpdateDetailsField();
-        myProfile.setConfirmUpdateDetailsField();
+        MyProfileHelp myProfile1 = new MyProfileHelp(driver);
+        myProfile1.setEditAccountDetailsBottomFiled();
+        myProfile1.setFirstNameUpdateDetailsField();
+        myProfile1.setLastNameUpdateDetailsField();
+        myProfile1.setEmailUpdateDetailsField(GENERATE_EMAIL(15));
+        myProfile1.setContactPhoneUpdateDetailsField(RANDOM_NUMBER_MSISDN);
+        myProfile1.setNoteUpdateDetailsField(RANDOM_STRING());
+        myProfile1.setNextUpdateDetailsField();
+        myProfile1.setConfirmUpdateDetailsField();
         System.out.println("user has already been updated");
         String welcomeField = driver.findElement(By.xpath(" //*[@id=\"welcomeUser\"]")).getText();
         System.out.println(welcomeField);
@@ -43,10 +42,9 @@ public class TestMyProfile extends BrowserSettings {
         System.out.println(success);
         String successMessageText = "Success : Admin updated successfully";
         Assert.assertEquals(success,successMessageText);
-
     }
 
-    @Test (groups = "MyProfile",priority = 2,enabled = false)
+    @Test (groups = {"MyProfile"},priority = 2)
     public void verifyAbilityToREEditAllAccountDetails()  {
         MyProfileHelp myProfile = new MyProfileHelp(driver);
         myProfile.setReEditField();
@@ -65,7 +63,7 @@ public class TestMyProfile extends BrowserSettings {
         Assert.assertEquals(success,successMessageText);
     }
 
-    @Test (groups = "MyProfile",priority = 3, enabled = false)
+    @Test (groups = {"MyProfile"}, enabled = false)
     public void verifyAbilityToChangePassword() {
         MyProfileHelp myProfile = new MyProfileHelp(driver);
         myProfile.setGoToMyAccountButton();
@@ -84,7 +82,7 @@ public class TestMyProfile extends BrowserSettings {
         Assert.assertEquals(changePassSuccess,successPassText);
     }
 
-    @Test (groups = "MyProfile",priority = 4, enabled = false)
+    @Test (groups = {"MyProfile"}, enabled = false)
     public void verifyThatPasswordIsNotChangedIfNewPasswordIsAsPreviousOne() {
         MyProfileHelp myProfile = new MyProfileHelp(driver);
         myProfile.setOldPasswordField(getNewPasswordName());
@@ -100,7 +98,7 @@ public class TestMyProfile extends BrowserSettings {
         Assert.assertEquals(eRrorMessage,eRrorMessageText);
     }
 
-    @Test (groups = "MyProfile",priority = 5, enabled = false)
+    @Test (groups = {"MyProfile"},enabled = false)
     public void verifyThatPasswordIsNotChangedIfOldPasswordIsInvalid() {
         MyProfileHelp myProfile = new MyProfileHelp(driver);
         myProfile.setOldPasswordField(RANDOM_NUMBER);

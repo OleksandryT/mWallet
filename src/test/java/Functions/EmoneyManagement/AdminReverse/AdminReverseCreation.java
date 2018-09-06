@@ -18,8 +18,8 @@ public class AdminReverseCreation implements EmoneyManagement {
         this.driver = driver;
     }
 
-    public  static final String TXN_ID_FOR_REVERSE = "9422694";
-    public  static final String TXN_ID_FOR_REVERSE_2 = "9422574";
+    public  static final String TXN_ID_FOR_REVERSE = "9934672";
+    public  static final String TXN_ID_FOR_REVERSE_2 = "9934670";
     private String errorMessageReversedTxn = "The Transaction has been already reversed.";
     private String confirmationSuccessMessage = "Admin reversal is successful";
 

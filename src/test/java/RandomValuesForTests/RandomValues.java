@@ -32,9 +32,9 @@ public abstract class RandomValues {
     }
 
     public static final String GENERATE_EMAIL(int length) {
-        String allowedChars="abcdefghijklmnopqrstuvwxyz" +   //alphabets
-                "1234567890" +   //numbers
-                "_-.";   //special characters
+        String allowedChars="abcdefghijklmnopqrstuvwxyz" +
+                "1234567890" +
+                "_-.";
         String email="";
         String temp=RandomStringUtils.random(length,allowedChars);
         email=temp.substring(0,temp.length()-9)+"@test.org";
@@ -42,9 +42,9 @@ public abstract class RandomValues {
     }
 
     public static final String GENERATE_URL(int length) {
-        String allowedChars="abcdefghijklmnopqrstuvwxyz" +   //alphabets
-                "1234567890" +   //numbers
-                "_-.";   //special characters
+        String allowedChars="abcdefghijklmnopqrstuvwxyz" +
+                "1234567890" +
+                "_-.";
         String url="";
         String temp=RandomStringUtils.random(length,allowedChars);
         url=temp.substring(0,3)+"."+temp.substring(4,temp.length()-4)+"."+temp.substring(temp.length()-3);
