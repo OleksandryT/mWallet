@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 import static Functions.EmoneyManagement.AdminTransfer.AdminTransferPending.TRANSACTION_ID;
 import static Functions.EmoneyManagement.AdminTransfer.AdminTransferPending.TXN_ID;
 
-@Test
+@Test(dependsOnGroups = {"MyProfile"})
 public class TestAdminTransfer extends BrowserSettings {
 
     @Test (groups = {"AdminTransfer"})
@@ -29,7 +29,7 @@ public class TestAdminTransfer extends BrowserSettings {
         System.out.println("If one of the sources is Merchant SVA another one can't be Merchant SVA ");
     }
 
-    @Test (groups = {"AdminTransfer"})
+    @Test (groups = {"AdminTransfer"},dependsOnMethods = {"verifyThatBothSourceAndDestinationCannotBeMerchant"})
     public static void verifyThatSourceAndDestinationCannotBeEqual (){
         AdminTransferCreation adminTransfer = new AdminTransferCreation(driver);
         adminTransfer.setEmoneyManagement();
@@ -42,7 +42,7 @@ public class TestAdminTransfer extends BrowserSettings {
         System.out.println("If one of the sources is OpCo Fee/Commission Account another one can't be OpCo Fee/Commission Account");
     }
 
-    @Test (groups = {"AdminTransfer"})
+    @Test (groups = {"AdminTransfer"}, dependsOnMethods = {"verifyThatSourceAndDestinationCannotBeEqual"})
     public  void verifyThatAdminTransferCanBeApproved (){
         java.lang.String txn_id;
         AdminTransferCreation adminTransfer = new AdminTransferCreation(driver);
@@ -54,7 +54,7 @@ public class TestAdminTransfer extends BrowserSettings {
         adminTransfer.setDestinationTypeFCRoot();
         adminTransfer.setBankA();
         adminTransfer.setAmount("100");
-        adminTransfer.setNote("Auto test");
+        adminTransfer.setNote();
         adminTransfer.setNext();
         adminTransfer.setConfirmCreationOfAdminTransfer();
         txn_id = driver.findElement(TXN_ID).getText();

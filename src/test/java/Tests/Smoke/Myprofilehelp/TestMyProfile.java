@@ -12,7 +12,7 @@ import static RandomValuesForTests.RandomValues.*;
 
 public class TestMyProfile extends BrowserSettings {
 
-    @Test(alwaysRun = true, groups = {"MyProfile"},priority = 0)
+    @Test( groups = {"MyProfile"})
     public void verifyLogIn () {
         MyProfileHelp myProfile = new MyProfileHelp(driver);
         myProfile.goToMWallet(getUrl());
@@ -24,7 +24,7 @@ public class TestMyProfile extends BrowserSettings {
         Assert.assertEquals(driver.getTitle(), "Back Office Portal");
     }
 
-    @Test (groups = {"MyProfile"},priority = 1)
+    @Test (groups = {"MyProfile"},dependsOnMethods = {"verifyLogIn"})
     public void verifyAbilityToEditAllAccountDetails(){
         MyProfileHelp myProfile1 = new MyProfileHelp(driver);
         myProfile1.setEditAccountDetailsBottomFiled();
@@ -44,7 +44,7 @@ public class TestMyProfile extends BrowserSettings {
         Assert.assertEquals(success,successMessageText);
     }
 
-    @Test (groups = {"MyProfile"},priority = 2)
+    @Test (groups = {"MyProfile"},priority = 2,dependsOnMethods = {"verifyAbilityToEditAllAccountDetails"})
     public void verifyAbilityToREEditAllAccountDetails()  {
         MyProfileHelp myProfile = new MyProfileHelp(driver);
         myProfile.setReEditField();
@@ -63,7 +63,7 @@ public class TestMyProfile extends BrowserSettings {
         Assert.assertEquals(success,successMessageText);
     }
 
-    @Test (groups = {"MyProfile"}, enabled = false)
+    @Test (groups = {"MyProfile"},priority = 3, dependsOnMethods = {"verifyAbilityToREEditAllAccountDetails"},enabled = false)
     public void verifyAbilityToChangePassword() {
         MyProfileHelp myProfile = new MyProfileHelp(driver);
         myProfile.setGoToMyAccountButton();
@@ -82,7 +82,7 @@ public class TestMyProfile extends BrowserSettings {
         Assert.assertEquals(changePassSuccess,successPassText);
     }
 
-    @Test (groups = {"MyProfile"}, enabled = false)
+    @Test (groups = {"MyProfile"}, priority = 4, dependsOnMethods = {"verifyAbilityToChangePassword"},enabled = false)
     public void verifyThatPasswordIsNotChangedIfNewPasswordIsAsPreviousOne() {
         MyProfileHelp myProfile = new MyProfileHelp(driver);
         myProfile.setOldPasswordField(getNewPasswordName());
@@ -98,7 +98,7 @@ public class TestMyProfile extends BrowserSettings {
         Assert.assertEquals(eRrorMessage,eRrorMessageText);
     }
 
-    @Test (groups = {"MyProfile"},enabled = false)
+    @Test (groups = {"MyProfile"},priority = 5, dependsOnMethods = {"verifyThatPasswordIsNotChangedIfNewPasswordIsAsPreviousOne"},enabled = false)
     public void verifyThatPasswordIsNotChangedIfOldPasswordIsInvalid() {
         MyProfileHelp myProfile = new MyProfileHelp(driver);
         myProfile.setOldPasswordField(RANDOM_NUMBER);

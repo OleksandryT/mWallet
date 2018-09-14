@@ -1,6 +1,7 @@
 package Functions.EmoneyManagement.AdminTransfer;
 
 import RandomValuesForTests.EmoneyManagement;
+import RandomValuesForTests.RandomValues;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -173,14 +174,15 @@ public class AdminTransferCreation implements EmoneyManagement {
 
     public  void setAmount (String sum){
         WebElement amount = driver.findElement(AMOUNT);
-        amount.click();
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("arguments[0].click();",amount);
         amount.sendKeys(sum);
     }
 
-    public  void setNote(String text){
+    public  void setNote(){
         WebElement note = driver.findElement(NOTE);
         note.click();
-        note.sendKeys(text);
+        note.sendKeys(RandomValues.RANDOM_ALPHABETIC);
     }
 
     public  void setClear (){

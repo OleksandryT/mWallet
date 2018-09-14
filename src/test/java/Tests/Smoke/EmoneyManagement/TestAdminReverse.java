@@ -7,7 +7,7 @@ import Functions.MyprofileHelp.MyProfileHelp;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-@Test
+@Test(dependsOnGroups = {"AdminTransfer"})
 public class TestAdminReverse extends BrowserSettings {
 
     @Test(groups = {"AdminReverse"})
@@ -25,8 +25,8 @@ public class TestAdminReverse extends BrowserSettings {
         adminReversePending.setPendingAdminReverse();
         MyProfileHelp userLogOut = new MyProfileHelp(driver);
         userLogOut.loggOut();
-        userLogOut.useridLocator(MyProfileHelp.getUserIdName());
-        userLogOut.passwordLocator(MyProfileHelp.getOldPasswordName());
+        userLogOut.useridLocator(MyProfileHelp.getUserIdName_2());
+        userLogOut.passwordLocator(MyProfileHelp.getPasswordName_2());
         userLogOut.signInButton();
         AdminReversePending adminPending = new AdminReversePending(driver);
         adminPending.setEmoneyManagement();
@@ -38,7 +38,7 @@ public class TestAdminReverse extends BrowserSettings {
         System.out.println("Admin reverse was successfully confirmed");
     }
 
-    @Test(groups = {"AdminReverse"})
+    @Test(groups = {"AdminReverse"},dependsOnMethods = {"verifySuccessfulConfirmationOfAdminReverse"})
     public void verifyThatConfirmedAdminReverseCantBeReversedAgain (){
         AdminReverseCreation adminReverse = new AdminReverseCreation(driver);
         adminReverse.setEmoneyManagement();
@@ -52,7 +52,7 @@ public class TestAdminReverse extends BrowserSettings {
         System.out.println("Admin reverse was successfully confirmed");
     }
 
-    @Test(groups = {"AdminReverse"})
+    @Test(groups = {"AdminReverse"},dependsOnMethods = {"verifyThatConfirmedAdminReverseCantBeReversedAgain"})
     public void verifySuccessfulRejectionOfAdminReverse (){
         AdminReverseCreation adminReverse = new AdminReverseCreation(driver);
         adminReverse.setEmoneyManagement();
@@ -82,7 +82,7 @@ public class TestAdminReverse extends BrowserSettings {
     }
 
 
-    @Test(groups = {"AdminReverse"})
+    @Test(groups = {"AdminReverse"},dependsOnMethods = {"verifySuccessfulRejectionOfAdminReverse"})
     public void verifyThatRejectedReverseCanBeReversedAndConfirmedAgain (){
         AdminReverseCreation adminReverse = new AdminReverseCreation(driver);
         adminReverse.setEmoneyManagement();
@@ -97,8 +97,8 @@ public class TestAdminReverse extends BrowserSettings {
         adminReversePending.setPendingAdminReverse();
         MyProfileHelp userLogOut = new MyProfileHelp(driver);
         userLogOut.loggOut();
-        userLogOut.useridLocator(MyProfileHelp.getUserIdName());
-        userLogOut.passwordLocator(MyProfileHelp.getOldPasswordName());
+        userLogOut.useridLocator(MyProfileHelp.getUserIdName_2());
+        userLogOut.passwordLocator(MyProfileHelp.getPasswordName_2());
         userLogOut.signInButton();
         AdminReversePending adminPending = new AdminReversePending(driver);
         adminPending.setEmoneyManagement();

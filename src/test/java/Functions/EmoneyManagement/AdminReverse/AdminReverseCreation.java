@@ -1,7 +1,6 @@
 package Functions.EmoneyManagement.AdminReverse;
 
 import RandomValuesForTests.EmoneyManagement;
-import RandomValuesForTests.RandomValues;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -18,10 +17,10 @@ public class AdminReverseCreation implements EmoneyManagement {
         this.driver = driver;
     }
 
-    public  static final String TXN_ID_FOR_REVERSE = "9934672";
-    public  static final String TXN_ID_FOR_REVERSE_2 = "9934670";
-    private String errorMessageReversedTxn = "The Transaction has been already reversed.";
-    private String confirmationSuccessMessage = "Admin reversal is successful";
+    public  static final java.lang.String TXN_ID_FOR_REVERSE = "9934672";
+    public  static final java.lang.String TXN_ID_FOR_REVERSE_2 = "9934670";
+    private java.lang.String errorMessageReversedTxn = "The Transaction has been already reversed.";
+    private java.lang.String confirmationSuccessMessage = "Admin reversal is successful";
 
     public static final By TRANSACTION_ID_ON_CONFIRMATION_PAGE = By.xpath("//*[@id=\"content\"]/div[4]/form/div[2]/div[2]/div[1]/div/label");
     public static final By ADMIN_REVERSE = By.xpath("//*[@translate ='general_label_admin_reverse']");
@@ -35,11 +34,11 @@ public class AdminReverseCreation implements EmoneyManagement {
     public static final By GO_TO_ADMIN_REVERSAL_BUTTON = By.xpath("//*[@translate='general_go_to_reversal']");
 
 
-    public String getErrorMessageReversersedTxn() {
-        return this.errorMessageReversedTxn;
+    public java.lang.String getErrorMessageReversersedTxn() {
+        return errorMessageReversedTxn;
     }
 
-    public String getTxnIdForReverse() {
+    public java.lang.String getTxnIdForReverse() {
         return this.TXN_ID_FOR_REVERSE;
     }
 

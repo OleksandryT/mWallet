@@ -15,7 +15,7 @@ public class BrowserSettings {
   @Parameters(value = {"browser"})
   @BeforeSuite(alwaysRun = true)
     public void setBrowser (@Optional("Chrome") String browser) {
-      System.setProperty("webdriver.chrome.driver", "C:\\Users\\ilonazhd\\Documents\\QA docs\\AUTOMATION\\chromedriver.exe");
+      System.setProperty("webdriver.chrome.driver", "C:\\IlonaQA_Kyivstar_mWallet\\Automation_mWallet\\chrome_driver\\chromedriver_win32\\chromedriver.exe");
       driver = new ChromeDriver(ChromeDriverService.createDefaultService());
       driver.manage().window().maximize();
       driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);

@@ -73,7 +73,9 @@ public class AdminTransferPending implements EmoneyManagement {
                 if (firstRowFound.equals(current_trx)){
                     WebDriverWait wait  = new WebDriverWait(driver, 30);
                     wait.until(ExpectedConditions.elementToBeClickable(DETAILS));
-                    driver.findElement(DETAILS).click();
+                    WebElement details = driver.findElement(DETAILS);
+                    JavascriptExecutor ja = (JavascriptExecutor)driver;
+                    ja.executeScript("arguments[0].click();",details);
                     System.out.println("TxnID was found between pendings and details view has been opened");
                 }
                 else
