@@ -12,4 +12,5 @@ public interface EmoneyManagement {
 
     By DETAILS = By.xpath("//*[@id=\"manage\"]/table/tbody/tr[2]/td[9]/a");
     void setDetails();
+
 }
