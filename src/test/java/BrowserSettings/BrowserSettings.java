@@ -22,11 +22,11 @@ public class BrowserSettings {
     }
 
 
-
-  @AfterSuite
-    public void tearDown (){
-      driver.close();
-  }
+//
+//  @AfterSuite
+//    public void tearDown (){
+//      driver.close();
+//  }
 
 
 }
