@@ -25,8 +25,8 @@ public class TestAdminReverse extends BrowserSettings {
         adminReversePending.setPendingAdminReverse();
         MyProfileHelp userLogOut = new MyProfileHelp(driver);
         userLogOut.loggOut();
-        userLogOut.useridLocator(MyProfileHelp.getUserIdName_2());
-        userLogOut.passwordLocator(MyProfileHelp.getPasswordName_2());
+        userLogOut.useridLocator(MyProfileHelp.getUserIdName());
+        userLogOut.passwordLocator(MyProfileHelp.getOldPasswordName());
         userLogOut.signInButton();
         AdminReversePending adminPending = new AdminReversePending(driver);
         adminPending.setEmoneyManagement();
@@ -67,8 +67,8 @@ public class TestAdminReverse extends BrowserSettings {
         adminReversePending.setPendingAdminReverse();
         MyProfileHelp userLogOut = new MyProfileHelp(driver);
         userLogOut.loggOut();
-        userLogOut.useridLocator(MyProfileHelp.getUserIdName());
-        userLogOut.passwordLocator(MyProfileHelp.getOldPasswordName());
+        userLogOut.useridLocator(MyProfileHelp.getUserIdName_2());
+        userLogOut.passwordLocator(MyProfileHelp.getPasswordName_2());
         userLogOut.signInButton();
         AdminReversePending adminPending = new AdminReversePending(driver);
         adminPending.setEmoneyManagement();
@@ -97,8 +97,8 @@ public class TestAdminReverse extends BrowserSettings {
         adminReversePending.setPendingAdminReverse();
         MyProfileHelp userLogOut = new MyProfileHelp(driver);
         userLogOut.loggOut();
-        userLogOut.useridLocator(MyProfileHelp.getUserIdName_2());
-        userLogOut.passwordLocator(MyProfileHelp.getPasswordName_2());
+        userLogOut.useridLocator(MyProfileHelp.getUserIdName());
+        userLogOut.passwordLocator(MyProfileHelp.getOldPasswordName());
         userLogOut.signInButton();
         AdminReversePending adminPending = new AdminReversePending(driver);
         adminPending.setEmoneyManagement();

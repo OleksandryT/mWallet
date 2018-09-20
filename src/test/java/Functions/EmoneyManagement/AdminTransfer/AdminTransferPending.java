@@ -1,15 +1,14 @@
 package Functions.EmoneyManagement.AdminTransfer;
 
-import RandomValuesForTests.BackOfficeUser;
-import RandomValuesForTests.EmoneyManagement;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import static Functions.EmoneyManagement.AdminTransfer.AdminTransferCreation.EMONEY_MANAGEMENT;
 import static RandomValuesForTests.RandomValues.*;
 
-public class AdminTransferPending implements EmoneyManagement {
+public class AdminTransferPending  {
 
     private static WebDriver driver;
     public AdminTransferPending(WebDriver driver) {
@@ -35,18 +34,6 @@ public class AdminTransferPending implements EmoneyManagement {
 
     public String getSuccessfulMessage() {
         return successfulMessage;
-    }
-
-    public void setEmoneyManagement() {
-        WebElement emoneyManagement = driver.findElement(EMONEY_MANAGEMENT);
-        JavascriptExecutor js = (JavascriptExecutor)driver;
-        js.executeScript("arguments[0].click();",emoneyManagement);
-    }
-
-    public void setFirstRowWithTransaction() {
-    }
-
-    public void setDetails() {
     }
 
     public  void setPendingAdminTransfer (){

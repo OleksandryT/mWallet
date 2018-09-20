@@ -1,6 +1,5 @@
 package Functions.EmoneyManagement.AdminReverse;
 
-import RandomValuesForTests.EmoneyManagement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -8,9 +7,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import static Functions.EmoneyManagement.AdminTransfer.AdminTransferCreation.EMONEY_MANAGEMENT;
 import static RandomValuesForTests.RandomValues.*;
 
-public class AdminReverseCreation implements EmoneyManagement {
+public class AdminReverseCreation {
 
     private WebDriver driver;
     public AdminReverseCreation (WebDriver driver) {
@@ -52,12 +52,6 @@ public class AdminReverseCreation implements EmoneyManagement {
         wait.until(ExpectedConditions.elementToBeClickable(emoneyManagement));
         JavascriptExecutor javascriptExecutor = (JavascriptExecutor)driver;
         javascriptExecutor.executeScript("arguments[0].click();",emoneyManagement);
-    }
-
-    public void setFirstRowWithTransaction() {
-    }
-
-    public void setDetails() {
     }
 
     public void setAdminReverse (){

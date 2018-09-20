@@ -1,6 +1,5 @@
 package Functions.EmoneyManagement.AdminTransfer;
 
-import RandomValuesForTests.EmoneyManagement;
 import RandomValuesForTests.RandomValues;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -8,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-public class AdminTransferCreation implements EmoneyManagement {
+public class AdminTransferCreation {
 
     private static WebDriver driver;
     public AdminTransferCreation(WebDriver driver) {
@@ -32,24 +31,11 @@ public class AdminTransferCreation implements EmoneyManagement {
     private static String MERCHANT_SOURCE_ID = "009805915";
     private static String PAYMENT_SYSTEM_DESTINATION_ID = "005671744";
 
-    public static String getMerchantSourceId() {
-        return MERCHANT_SOURCE_ID;
-    }
-
-    public static String getPaymentSystemDestinationId() {
-        return PAYMENT_SYSTEM_DESTINATION_ID;
-    }
 
     public void setEmoneyManagement (){
         WebElement emoneyManagement = driver.findElement(EMONEY_MANAGEMENT);
         JavascriptExecutor js = (JavascriptExecutor)driver;
         js.executeScript("arguments[0].click();",emoneyManagement);
-    }
-
-    public void setFirstRowWithTransaction() {
-    }
-
-    public void setDetails() {
     }
 
     public  void setAdminTransfer (){

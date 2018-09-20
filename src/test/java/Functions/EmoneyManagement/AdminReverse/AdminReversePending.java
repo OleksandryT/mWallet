@@ -1,6 +1,5 @@
 package Functions.EmoneyManagement.AdminReverse;
 
-import RandomValuesForTests.EmoneyManagement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -8,9 +7,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import static Functions.EmoneyManagement.AdminTransfer.AdminTransferCreation.EMONEY_MANAGEMENT;
 import static RandomValuesForTests.RandomValues.*;
 
-public class AdminReversePending implements EmoneyManagement {
+public class AdminReversePending {
 
     private WebDriver driver;
 
@@ -24,7 +24,7 @@ public class AdminReversePending implements EmoneyManagement {
     public static final By SEARCH_BUTTON = By.xpath("//*[@id=\"searchTransactionForm\"]/div[2]/div[2]/div[2]/button");
     public static final By CLEAR_BUTTON = By.xpath("//*[@id=\"searchTransactionForm\"]/div[2]/div[2]/div[2]/input");
     public static final By FIRST_ROW_WITH_TRANSACTION = By.xpath("//*[@id=\"manage\"]/table/tbody/tr[2]/td[1]");
-    public static final By DETAILS = By.xpath("//*[@id=\"manage\"]/table/tbody/tr[2]/td[10]/a");
+    public static final By DETAILS = By.xpath("//*[@id=\"manage\"]/table/tbody/tr[2]/td[9]/a");
     public static final By CONFIMR_REVERSE_BUTTON = By.xpath("//*[@ng-click=\"confirmReversal()\"]");
     public static final By REJECT_REVERSE_BUTTON = By.xpath("//*[@ng-click=\"rejectReversal()\"]");
     public static final By COMMENTS_FOR_REJECTION = By.xpath("//*[@ng-model=\"txnSelected.rejectReason\"]");
@@ -35,12 +35,6 @@ public class AdminReversePending implements EmoneyManagement {
         WebElement emoneyManagement = driver.findElement(EMONEY_MANAGEMENT);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();", emoneyManagement);
-    }
-
-    public void setFirstRowWithTransaction() {
-    }
-
-    public void setDetails() {
     }
 
     public void setPendingAdminReverse() {

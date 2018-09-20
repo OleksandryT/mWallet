@@ -325,7 +325,7 @@ public class MerchantCreation extends Merchants {
         wait.until(ExpectedConditions.elementToBeClickable(AGREEMENT_CONTRACT_SCAN_0_BUTTON));
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", contractWithAgent);
-        contractWithAgent.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
+        contractWithAgent.sendKeys("C:\\Users\\ilona\\Desktop\\test.png");
     }
 
     public void setIDOfMerchantContractWithAgentForSettlement1Field() {
@@ -346,7 +346,7 @@ public class MerchantCreation extends Merchants {
         WebElement contractWithAgent1 = driver.findElement(AGREEMENT_CONTRACT_SCAN_1_BUTTON);
         JavascriptExecutor executor1 = (JavascriptExecutor) driver;
         executor1.executeScript("arguments[0].click();", contractWithAgent1);
-        contractWithAgent1.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
+        contractWithAgent1.sendKeys("C:\\Users\\ilona\\Desktop\\test.png");
     }
 
     public void setIDOfMerchantContractWithAgentForSettlement2Field() {
@@ -367,7 +367,7 @@ public class MerchantCreation extends Merchants {
         WebElement contractWithAgent2 = driver.findElement(AGREEMENT_CONTRACT_SCAN_2_BUTTON);
         JavascriptExecutor executor2 = (JavascriptExecutor) driver;
         executor2.executeScript("arguments[0].click();", contractWithAgent2);
-        contractWithAgent2.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
+        contractWithAgent2.sendKeys("C:\\Users\\ilona\\Desktop\\test.png");
     }
 
     public void setIDOfMerchantContractWithAgentForSettlement3Field() {
@@ -388,42 +388,42 @@ public class MerchantCreation extends Merchants {
         WebElement contractWithAgent3 = driver.findElement(AGREEMENT_CONTRACT_SCAN_3_BUTTON);
         JavascriptExecutor executor3 = (JavascriptExecutor) driver;
         executor3.executeScript("arguments[0].click();", contractWithAgent3);
-        contractWithAgent3.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
+        contractWithAgent3.sendKeys("C:\\Users\\ilona\\Desktop\\test.png");
     }
 
     public void setScanCopyOfStatueButton() {
         WebElement scanStatue = driver.findElement(SCAN_COPY_OF_STATUE_BUTTON);
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", scanStatue);
-        scanStatue.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
+        scanStatue.sendKeys("C:\\Users\\ilona\\Desktop\\test.png");
     }
 
     public void setScanCopyOfTaxIdButton() {
         WebElement scanTax = driver.findElement(SCAN_COPY_OF_TAX_ID_BUTTON);
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", scanTax);
-        scanTax.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
+        scanTax.sendKeys("C:\\Users\\ilona\\Desktop\\test.png");
     }
 
     public void setScanStatementOfCsrButton() {
         WebElement scanCsr = driver.findElement(SCAN_STATEMENT_OF_CSR_BUTTON);
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", scanCsr);
-        scanCsr.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
+        scanCsr.sendKeys("C:\\Users\\ilona\\Desktop\\test.png");
     }
 
     public void setScanStatementExtractFromCsrButton() {
         WebElement scanCsrExtr = driver.findElement(SCAN_STATEMENT_EXTRACT_FROM_CSR_BUTTON);
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", scanCsrExtr);
-        scanCsrExtr.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
+        scanCsrExtr.sendKeys("C:\\Users\\ilona\\Desktop\\test.png");
     }
 
     public void setScanStatementQuestionnareButton() {
         WebElement scanQuestionnare = driver.findElement(SCAN_STATEMENT_QUESTIONNARE_BUTTON);
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", scanQuestionnare);
-        scanQuestionnare.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
+        scanQuestionnare.sendKeys("C:\\Users\\ilona\\Desktop\\test.png");
     }
 
     public void setNextButton1() {
@@ -665,21 +665,21 @@ public class MerchantCreation extends Merchants {
         WebElement signeePassport = driver.findElement(SIGNEE_PASSPORT_SCAN_BUTTON);
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", signeePassport);
-        signeePassport.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
+        signeePassport.sendKeys("C:\\Users\\ilona\\Desktop\\test.png");
     }
 
     public void setSigneeTaxIdScanButton() {
         WebElement signeeTax = driver.findElement(SIGNEE_TAX_ID_SCAN_BUTTON);
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", signeeTax);
-        signeeTax.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
+        signeeTax.sendKeys("C:\\Users\\ilona\\Desktop\\test.png");
     }
 
     public void setSigneeAuthorizingScanButton() {
         WebElement signeeAuthorize = driver.findElement(SIGNEE_AUTHORIZING_SCAN_BUTTON);
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", signeeAuthorize);
-        signeeAuthorize.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
+        signeeAuthorize.sendKeys("C:\\Users\\ilona\\Desktop\\test.png");
     }
 
     public void setNextButton2() {

@@ -36,7 +36,7 @@ public class MyProfileHelp extends BackOfficeUser {
     public static final By contactPhoneUpdateDetailsField = By.xpath("//*[@id = 'regAdmnContact']");
     public static final By noteUpdateDetailsField = By.xpath("//*[@id = 'regAdmnFreetex']");
     public static final By nextUpdateDetailsField = By.xpath("//*[@id = 'adminAcntEdtUpdate']");
-    public static final By confirmUpdateDetailsField = By.xpath("//*[@id = 'updateDistributorConfirm']");
+    public static final By confirmUpdateDetailsField = By.xpath("//*[@ng-click = 'updateAdmin()']");
     public static final By reEditField = By.xpath("//*[@ng-click = 'reEditMyAccount()']");
     public static final By oldPasswordField = By.xpath("//*[@id = 'admnChngPassOld']");
     public static final By newPasswordField = By.xpath("//*[@id = 'admnChngPassNew1']");
@@ -217,8 +217,8 @@ public class MyProfileHelp extends BackOfficeUser {
         WebElement confirmButton = driver.findElement(confirmUpdateDetailsField);
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", confirmButton);
-        WebDriverWait wait = new WebDriverWait(driver,20);
-        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//*[@id=\"adminAcntReEdt\"]"))));
+//        WebDriverWait wait = new WebDriverWait(driver,20);
+//        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//*[@id=\"adminAcntReEdt\"]"))));
     }
 
     public void setReEditField (){
