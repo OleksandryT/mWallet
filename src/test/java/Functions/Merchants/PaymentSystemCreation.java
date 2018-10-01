@@ -12,6 +12,11 @@ import static RandomValuesForTests.RandomValues.*;
 
 public class PaymentSystemCreation extends Merchants {
 
+    /*
+     * вынести все переменные в отдельный класс, что бы они не засоряли класс
+     * переименовать методы в такие, чо бы можно было понимать что каждый метод делает
+     * */
+
     private WebDriver driver;
 
     public PaymentSystemCreation(WebDriver driver) {

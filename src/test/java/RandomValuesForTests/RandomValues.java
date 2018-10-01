@@ -10,13 +10,12 @@ public abstract class RandomValues {
 
     public static final String RANDOM_ALPHABETIC = RandomStringUtils.randomAlphabetic(10);
     public static final String RANDOM_NUMBER_MSISDN = "38067"+ RandomStringUtils.randomNumeric(7);
-    public static final String RANDOM_NUMBER = RandomStringUtils.randomNumeric(6);
+    public static final String RANDOM_NUMBER = RandomStringUtils.randomNumeric(4);
     public static final String RANDOM_ALPHA_NUMERIC = RandomStringUtils.randomAlphanumeric(10);
-    public static final String DAYS_FOR_REFUND = "5.5";
+    public static final String DAYS_FOR_REFUND = "5";
 
     public static final DateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
     public static final String CALENDAR_DATE = DATE_FORMAT.format(new Date());
-
     public static final String RANDOM_STRING () {
         int leftLimit = 97; // letter 'a'
         int rightLimit = 122; // letter 'z'

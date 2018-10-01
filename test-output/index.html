@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <meta charset='utf-8'>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <br/>
+      <span class="top-banner-font-1">1 suite</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" class="collapse-all-link" title="Collapse/expand all the suites">
+          <img class="collapse-all-icon" src="collapseall.gif">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" class="navigator-link" panel-name="suite-mWallet_Suite">
+              <span class="suite-name border-passed">mWallet Suite</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="test-xml-mWallet_Suite">
+                    <span>C:\IlonaQA_Kyivstar_mWallet\Automation_mWallet\mwallet\testng.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="testlist-mWallet_Suite">
+                    <span class="test-stats">1 test</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="group-mWallet_Suite">
+                    <span>4 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="times-mWallet_Suite">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="reporter-mWallet_Suite">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-mWallet_Suite">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="chronological-mWallet_Suite">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">10 methods,   10 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-mWallet_Suite" class="hide-methods passed suite-mWallet_Suite"> (hide)</a> <!-- hide-methods passed suite-mWallet_Suite -->
+                      <a href="#" panel-name="suite-mWallet_Suite" class="show-methods passed suite-mWallet_Suite"> (show)</a> <!-- show-methods passed suite-mWallet_Suite -->
+                    </span>
+                    <div class="method-list-content passed suite-mWallet_Suite">
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-mWallet_Suite" title="Tests.Smoke.Myprofilehelp.TestMyProfile" hash-for-method="verifyAbilityToEditAllAccountDetails">verifyAbilityToEditAllAccountDetails</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-mWallet_Suite" title="Tests.Smoke.Myprofilehelp.TestMyProfile" hash-for-method="verifyLogIn">verifyLogIn</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-mWallet_Suite" title="Tests.Smoke.EmoneyManagement.TestAdminReverse" hash-for-method="verifySuccessfulConfirmationOfAdminReverse">verifySuccessfulConfirmationOfAdminReverse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-mWallet_Suite" title="Tests.Smoke.EmoneyManagement.TestAdminReverse" hash-for-method="verifySuccessfulRejectionOfAdminReverse">verifySuccessfulRejectionOfAdminReverse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-mWallet_Suite" title="Tests.Smoke.EmoneyManagement.TestManualRetirement" hash-for-method="verifySuccessfullCreationOfRetirementWithExactAmount">verifySuccessfullCreationOfRetirementWithExactAmount</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-mWallet_Suite" title="Tests.Smoke.EmoneyManagement.TestAdminTransfer" hash-for-method="verifyThatAdminTransferCanBeApproved">verifyThatAdminTransferCanBeApproved</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-mWallet_Suite" title="Tests.Smoke.EmoneyManagement.TestAdminTransfer" hash-for-method="verifyThatBothSourceAndDestinationCannotBeMerchant">verifyThatBothSourceAndDestinationCannotBeMerchant</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-mWallet_Suite" title="Tests.Smoke.EmoneyManagement.TestAdminReverse" hash-for-method="verifyThatConfirmedAdminReverseCantBeReversedAgain">verifyThatConfirmedAdminReverseCantBeReversedAgain</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-mWallet_Suite" title="Tests.Smoke.EmoneyManagement.TestAdminReverse" hash-for-method="verifyThatRejectedReverseCanBeReversedAndConfirmedAgain">verifyThatRejectedReverseCanBeReversedAndConfirmedAgain</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-mWallet_Suite" title="Tests.Smoke.EmoneyManagement.TestAdminTransfer" hash-for-method="verifyThatSourceAndDestinationCannotBeEqual">verifyThatSourceAndDestinationCannotBeEqual</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-mWallet_Suite -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-mWallet_Suite" class="panel mWallet_Suite">
+          <div class="suite-mWallet_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">Tests.Smoke.EmoneyManagement.TestManualRetirement</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifySuccessfullCreationOfRetirementWithExactAmount">
+                  </a> <!-- verifySuccessfullCreationOfRetirementWithExactAmount -->
+                  <span class="method-name">verifySuccessfullCreationOfRetirementWithExactAmount</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-mWallet_Suite-class-passed -->
+          <div class="suite-mWallet_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">Tests.Smoke.EmoneyManagement.TestAdminTransfer</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyThatAdminTransferCanBeApproved">
+                  </a> <!-- verifyThatAdminTransferCanBeApproved -->
+                  <span class="method-name">verifyThatAdminTransferCanBeApproved</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyThatBothSourceAndDestinationCannotBeMerchant">
+                  </a> <!-- verifyThatBothSourceAndDestinationCannotBeMerchant -->
+                  <span class="method-name">verifyThatBothSourceAndDestinationCannotBeMerchant</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyThatSourceAndDestinationCannotBeEqual">
+                  </a> <!-- verifyThatSourceAndDestinationCannotBeEqual -->
+                  <span class="method-name">verifyThatSourceAndDestinationCannotBeEqual</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-mWallet_Suite-class-passed -->
+          <div class="suite-mWallet_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">Tests.Smoke.Myprofilehelp.TestMyProfile</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyAbilityToEditAllAccountDetails">
+                  </a> <!-- verifyAbilityToEditAllAccountDetails -->
+                  <span class="method-name">verifyAbilityToEditAllAccountDetails</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyLogIn">
+                  </a> <!-- verifyLogIn -->
+                  <span class="method-name">verifyLogIn</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-mWallet_Suite-class-passed -->
+          <div class="suite-mWallet_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">Tests.Smoke.EmoneyManagement.TestAdminReverse</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifySuccessfulConfirmationOfAdminReverse">
+                  </a> <!-- verifySuccessfulConfirmationOfAdminReverse -->
+                  <span class="method-name">verifySuccessfulConfirmationOfAdminReverse</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifySuccessfulRejectionOfAdminReverse">
+                  </a> <!-- verifySuccessfulRejectionOfAdminReverse -->
+                  <span class="method-name">verifySuccessfulRejectionOfAdminReverse</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyThatConfirmedAdminReverseCantBeReversedAgain">
+                  </a> <!-- verifyThatConfirmedAdminReverseCantBeReversedAgain -->
+                  <span class="method-name">verifyThatConfirmedAdminReverseCantBeReversedAgain</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyThatRejectedReverseCanBeReversedAndConfirmedAgain">
+                  </a> <!-- verifyThatRejectedReverseCanBeReversedAndConfirmedAgain -->
+                  <span class="method-name">verifyThatRejectedReverseCanBeReversedAndConfirmedAgain</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-mWallet_Suite-class-passed -->
+        </div> <!-- panel mWallet_Suite -->
+        <div panel-name="test-xml-mWallet_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">C:\IlonaQA_Kyivstar_mWallet\Automation_mWallet\mwallet\testng.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;mWallet Suite&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;Back Office User Functionality&quot;&gt;
+    &lt;parameter name=&quot;browser&quot; value=&quot;Chrome&quot;/&gt;
+    &lt;groups&gt;
+      &lt;run&gt;
+        &lt;include name=&quot;MyProfile&quot;/&gt;
+        &lt;include name=&quot;Merchants&quot;/&gt;
+        &lt;include name=&quot;AdminTransfer&quot;/&gt;
+        &lt;include name=&quot;AdminReverse&quot;/&gt;
+        &lt;include name=&quot;ManageRetirement&quot;/&gt;
+      &lt;/run&gt;
+    &lt;/groups&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;Tests.Smoke.Myprofilehelp.TestMyProfile&quot;/&gt;
+      &lt;class name=&quot;Tests.Smoke.EmoneyManagement.TestAdminTransfer&quot;/&gt;
+      &lt;class name=&quot;Tests.Smoke.EmoneyManagement.TestAdminReverse&quot;/&gt;
+      &lt;class name=&quot;Tests.Smoke.EmoneyManagement.TestManualRetirement&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Back Office User Functionality --&gt;
+&lt;/suite&gt; &lt;!-- mWallet Suite --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-mWallet_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for mWallet Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">Back Office User Functionality (4 classes)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-mWallet_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for mWallet Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="test-group">
+              <span class="test-group-name">AdminReverse</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">verifySuccessfulConfirmationOfAdminReverse</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">verifySuccessfulRejectionOfAdminReverse</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">verifyThatConfirmedAdminReverseCantBeReversedAgain</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">verifyThatRejectedReverseCanBeReversedAndConfirmedAgain</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+            <div class="test-group">
+              <span class="test-group-name">AdminTransfer</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">verifyThatAdminTransferCanBeApproved</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">verifyThatBothSourceAndDestinationCannotBeMerchant</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">verifyThatSourceAndDestinationCannotBeEqual</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+            <div class="test-group">
+              <span class="test-group-name">ManageRetirement</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">verifySuccessfullCreationOfRetirementWithExactAmount</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+            <div class="test-group">
+              <span class="test-group-name">MyProfile</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">verifyAbilityToEditAllAccountDetails</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">verifyLogIn</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-mWallet_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for mWallet Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_mWallet_Suite');
+function tableData_mWallet_Suite() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(10);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'verifyLogIn')
+data.setCell(0, 2, 'Tests.Smoke.Myprofilehelp.TestMyProfile')
+data.setCell(0, 3, 8825);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'verifyThatAdminTransferCanBeApproved')
+data.setCell(1, 2, 'Tests.Smoke.EmoneyManagement.TestAdminTransfer')
+data.setCell(1, 3, 6040);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'verifySuccessfulConfirmationOfAdminReverse')
+data.setCell(2, 2, 'Tests.Smoke.EmoneyManagement.TestAdminReverse')
+data.setCell(2, 3, 5096);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'verifySuccessfulRejectionOfAdminReverse')
+data.setCell(3, 2, 'Tests.Smoke.EmoneyManagement.TestAdminReverse')
+data.setCell(3, 3, 4965);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'verifyAbilityToEditAllAccountDetails')
+data.setCell(4, 2, 'Tests.Smoke.Myprofilehelp.TestMyProfile')
+data.setCell(4, 3, 4506);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'verifyThatRejectedReverseCanBeReversedAndConfirmedAgain')
+data.setCell(5, 2, 'Tests.Smoke.EmoneyManagement.TestAdminReverse')
+data.setCell(5, 3, 4286);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'verifySuccessfullCreationOfRetirementWithExactAmount')
+data.setCell(6, 2, 'Tests.Smoke.EmoneyManagement.TestManualRetirement')
+data.setCell(6, 3, 1802);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'verifyThatConfirmedAdminReverseCantBeReversedAgain')
+data.setCell(7, 2, 'Tests.Smoke.EmoneyManagement.TestAdminReverse')
+data.setCell(7, 3, 1770);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'verifyThatBothSourceAndDestinationCannotBeMerchant')
+data.setCell(8, 2, 'Tests.Smoke.EmoneyManagement.TestAdminTransfer')
+data.setCell(8, 3, 1442);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'verifyThatSourceAndDestinationCannotBeEqual')
+data.setCell(9, 2, 'Tests.Smoke.EmoneyManagement.TestAdminTransfer')
+data.setCell(9, 3, 667);
+window.suiteTableData['mWallet_Suite']= { tableData: data, tableDiv: 'times-div-mWallet_Suite'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 39 seconds</span>
+              <div id="times-div-mWallet_Suite">
+              </div> <!-- times-div-mWallet_Suite -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-mWallet_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for mWallet Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-mWallet_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">7 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">Tests.Smoke.EmoneyManagement.TestManualRetirement</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">setBrowser</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">Tests.Smoke.EmoneyManagement.TestAdminTransfer</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">setBrowser</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">Tests.Smoke.Myprofilehelp.TestMyProfile</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">verifyAbilityToREEditAllAccountDetails</span>
+                <br/>
+                <span class="ignored-method-name">verifyThatPasswordIsNotChangedIfNewPasswordIsAsPreviousOne</span>
+                <br/>
+                <span class="ignored-method-name">verifyAbilityToChangePassword</span>
+                <br/>
+                <span class="ignored-method-name">verifyThatPasswordIsNotChangedIfOldPasswordIsInvalid</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">Tests.Smoke.EmoneyManagement.TestAdminReverse</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">setBrowser</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-mWallet_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">Tests.Smoke.Myprofilehelp.TestMyProfile</div> <!-- chronological-class-name -->
+              <div class="configuration-suite before">
+                <span class="method-name">setBrowser(Chrome)</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-suite before -->
+              <div class="test-method">
+                <span class="method-name">verifyLogIn</span>
+                <span class="method-start">4786 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyAbilityToEditAllAccountDetails</span>
+                <span class="method-start">13614 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">Tests.Smoke.EmoneyManagement.TestAdminTransfer</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">verifyThatBothSourceAndDestinationCannotBeMerchant</span>
+                <span class="method-start">18121 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyThatSourceAndDestinationCannotBeEqual</span>
+                <span class="method-start">19564 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyThatAdminTransferCanBeApproved</span>
+                <span class="method-start">20232 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">Tests.Smoke.EmoneyManagement.TestAdminReverse</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">verifySuccessfulConfirmationOfAdminReverse</span>
+                <span class="method-start">26273 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyThatConfirmedAdminReverseCantBeReversedAgain</span>
+                <span class="method-start">31369 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifySuccessfulRejectionOfAdminReverse</span>
+                <span class="method-start">33140 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyThatRejectedReverseCanBeReversedAndConfirmedAgain</span>
+                <span class="method-start">38105 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">Tests.Smoke.EmoneyManagement.TestManualRetirement</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">verifySuccessfullCreationOfRetirementWithExactAmount</span>
+                <span class="method-start">42392 ms</span>
+              </div> <!-- test-method -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+</html>

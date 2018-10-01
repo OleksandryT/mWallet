@@ -7,11 +7,18 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.concurrent.TimeUnit;
 
 import static RandomValuesForTests.RandomValues.*;
 
 public class MerchantCreation extends Merchants {
+/*
+* вынести все переменные в отдельный класс, что бы они не засоряли класс
+* переименовать методы в такие, чо бы можно было понимать что каждый метод делает
+* */
 
     private WebDriver driver;
 
@@ -133,8 +140,11 @@ public class MerchantCreation extends Merchants {
     public static final By SAVE_BUTTON = By.xpath("//*[@id=\"regMerchSave\"]");
     private static final By MERCHANT_ID = By.xpath("//*[@id=\"content\"]/div[4]/div/div/section[7]/div/form/merch-general-information/div[2]/div[1]/div/label");
 
-    public String getMerchantId() {
-        return MERCHANT_ID.toString();
+    public WebElement getMerchantId() {
+        WebElement id = driver.findElement(MERCHANT_ID);
+        id.click();
+        id.getAttribute("innerHTML");
+        return id;
     }
 
     public void merchantLocator() {
@@ -150,16 +160,21 @@ public class MerchantCreation extends Merchants {
     }
 
     public void merchnatTypeDropboxLocator() {
-        driver.findElement(MERCHANT_TYPE_DROPBOX).click();
+        Select dropboxMerchant = new Select(driver.findElement(MERCHANT_TYPE_DROPBOX));
+        dropboxMerchant.selectByVisibleText("Merchant");
+
     }
 
     public void merchantTypeMerchantLocator() {
-        driver.findElement(MERCHANT_TYPE_MERCHANT_FIELD).click();
+//        WebElement merchant = driver.findElement(MERCHANT_TYPE_MERCHANT_FIELD);
+//        JavascriptExecutor js = (JavascriptExecutor)driver;
+//        js.executeScript("arguments.click();", merchant);
     }
 
     public void fullnameLocator() {
         WebElement fullname = driver.findElement(FULL_NAME_FIELD);
-        fullname.click();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", fullname);
         fullname.clear();
         fullname.sendKeys(RANDOM_ALPHABETIC);
     }
@@ -1014,6 +1029,7 @@ public class MerchantCreation extends Merchants {
         setPaymentPurposeField();
         setNextButton3();
         setSaveButton();
+        driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
     }
 
 }

@@ -133,7 +133,8 @@ public class AdminTransferCreation {
 
     public  void setSourceMerchantId(){
         WebElement merchantSource = driver.findElement(SOURCE_MERCHANT_ID);
-        merchantSource.click();
+        JavascriptExecutor ja = (JavascriptExecutor)driver;
+        ja.executeScript("arguments[0].click();",merchantSource);
         merchantSource.sendKeys(MERCHANT_SOURCE_ID);
     }
 

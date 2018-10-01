@@ -12,6 +12,13 @@ import static RandomValuesForTests.RandomValues.*;
 
 public class AdminReverseCreation {
 
+    /*
+     * вынести все переменные в отдельный класс, что бы они не засоряли класс
+     * переименовать методы в такие, что бы можно было понимать что каждый метод делает
+     * javascript executor вынести в отдельный метод
+     * сделать отдельный лкасс с методами и от него икстендиться(убрать не получившийся абстрактный класс. инерфейс)
+     *
+     * */
     private WebDriver driver;
     public AdminReverseCreation (WebDriver driver) {
         this.driver = driver;
@@ -64,7 +71,8 @@ public class AdminReverseCreation {
 
     public void setTxnIdField (){
         WebElement txnIdField = driver.findElement(TXN_ID_FIELD);
-        txnIdField.click();
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("arguments[0].click();", txnIdField);
         txnIdField.sendKeys(TXN_ID_FOR_REVERSE);
     }
 

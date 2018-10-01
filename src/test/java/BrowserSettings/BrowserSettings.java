@@ -9,8 +9,14 @@ import java.util.concurrent.TimeUnit;
 
 public class BrowserSettings {
 
-   public static WebDriver driver;
+  /*
+  * метод в методе можно использовать с помощью this
+  * заверуть методы в методы и сократить методы в тестовых классах
+  * исбавляться от Стрингов в классах и методах - использовать файлы - так секьюрнее
+  * если какие либо тесты начинаются одинаково можно использовать @BeforeTest (или что то похожее) выписать в этот метод методы и не вписывать каждый раз , а тесты будут повторяться все равно
+  * */
 
+   public static WebDriver driver;
 
   @Parameters(value = {"browser"})
   @BeforeSuite(alwaysRun = true)
@@ -22,11 +28,11 @@ public class BrowserSettings {
     }
 
 
-//
-//  @AfterSuite
-//    public void tearDown (){
-//      driver.close();
-//  }
+
+  @AfterSuite
+    public void tearDown (){
+      driver.close();
+  }
 
 
 }

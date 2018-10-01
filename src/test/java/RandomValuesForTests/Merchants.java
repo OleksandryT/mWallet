@@ -2,7 +2,7 @@ package RandomValuesForTests;
 
 public abstract class Merchants {
 
-     public abstract void merchantLocator() ;
+ public abstract void merchantLocator() ;
 
  public abstract void createMerchantLocator();
 

@@ -79,6 +79,7 @@ public class MyProfileHelp extends BackOfficeUser {
 
     public void useridLocator(String userIdName) {
         WebElement userL = driver.findElement(userIdFiled);
+
         userL.click();
         userL.clear();
         userL.sendKeys(userIdName);
