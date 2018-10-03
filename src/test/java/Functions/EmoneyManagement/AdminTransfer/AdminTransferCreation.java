@@ -1,6 +1,6 @@
 package Functions.EmoneyManagement.AdminTransfer;
 
-import RandomValuesForTests.RandomValues;
+import Utilities.RandomValues.RandomValues;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;

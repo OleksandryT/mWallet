@@ -4,14 +4,17 @@ import BrowserSettings.BrowserSettings;
 import Functions.EmoneyManagement.AdminReverse.AdminReverseCreation;
 import Functions.EmoneyManagement.AdminReverse.AdminReversePending;
 import Functions.MyprofileHelp.MyProfileHelp;
+
+import com.relevantcodes.extentreports.LogStatus;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-@Test(dependsOnGroups = {"AdminTransfer"})
+@Test(groups = {"AdminReverse"},dependsOnGroups = {"AdminTransfer"})
 public class TestAdminReverse extends BrowserSettings {
 
-    @Test(groups = {"AdminReverse"})
+    @Test
     public void verifySuccessfulConfirmationOfAdminReverse (){
+        logger = extentReports.startTest("verifySuccessfulConfirmationOfAdminReverse");
         AdminReverseCreation adminReverse = new AdminReverseCreation(driver);
         adminReverse.setEmoneyManagement();
         adminReverse.setAdminReverse();
@@ -35,11 +38,14 @@ public class TestAdminReverse extends BrowserSettings {
         adminPending.setConfimrReverseButton();
         String success = "Reversal transaction successfully confirmed.";
         Assert.assertTrue(true,success);
+        Assert.assertTrue(true);
         System.out.println("Admin reverse was successfully confirmed");
+        logger.log(LogStatus.PASS,"Test case passed is verifySuccessfulConfirmationOfAdminReverse");
     }
 
-    @Test(groups = {"AdminReverse"},dependsOnMethods = {"verifySuccessfulConfirmationOfAdminReverse"})
+    @Test(dependsOnMethods = {"verifySuccessfulConfirmationOfAdminReverse"})
     public void verifyThatConfirmedAdminReverseCantBeReversedAgain (){
+        logger = extentReports.startTest("verifyThatConfirmedAdminReverseCantBeReversedAgain");
         AdminReverseCreation adminReverse = new AdminReverseCreation(driver);
         adminReverse.setEmoneyManagement();
         adminReverse.setAdminReverse();
@@ -50,10 +56,13 @@ public class TestAdminReverse extends BrowserSettings {
         String hasBeenReversed = "The Transaction has already been reversed.";
         Assert.assertTrue(true,hasBeenReversed);
         System.out.println("Admin reverse was successfully confirmed");
+        Assert.assertTrue(true);
+        logger.log(LogStatus.PASS,"Test case passed is verifyThatConfirmedAdminReverseCantBeReversedAgain");
     }
 
-    @Test(groups = {"AdminReverse"},dependsOnMethods = {"verifyThatConfirmedAdminReverseCantBeReversedAgain"})
+    @Test(dependsOnMethods = {"verifyThatConfirmedAdminReverseCantBeReversedAgain"})
     public void verifySuccessfulRejectionOfAdminReverse (){
+        logger = extentReports.startTest("verifySuccessfulRejectionOfAdminReverse");
         AdminReverseCreation adminReverse = new AdminReverseCreation(driver);
         adminReverse.setEmoneyManagement();
         adminReverse.setAdminReverse();
@@ -79,11 +88,14 @@ public class TestAdminReverse extends BrowserSettings {
         String successOfRejection = "Reversal transaction successfully rejected.";
         Assert.assertTrue(true,successOfRejection);
         System.out.println("Admin reverse was successfully rejected.");
+        Assert.assertTrue(true);
+        logger.log(LogStatus.PASS,"Test case passed is verifySuccessfulRejectionOfAdminReverse");
     }
 
 
-    @Test(groups = {"AdminReverse"},dependsOnMethods = {"verifySuccessfulRejectionOfAdminReverse"})
+    @Test(dependsOnMethods = {"verifySuccessfulRejectionOfAdminReverse"})
     public void verifyThatRejectedReverseCanBeReversedAndConfirmedAgain (){
+        logger = extentReports.startTest("verifySuccessfulRejectionOfAdminReverse");
         AdminReverseCreation adminReverse = new AdminReverseCreation(driver);
         adminReverse.setEmoneyManagement();
         adminReverse.setAdminReverse();
@@ -109,6 +121,8 @@ public class TestAdminReverse extends BrowserSettings {
         String success = "Reversal transaction successfully confirmed.";
         Assert.assertTrue(true,success);
         System.out.println("Admin reverse was successfully confirmed");
+        Assert.assertTrue(true);
+        logger.log(LogStatus.PASS,"Test case passed is verifyThatRejectedReverseCanBeReversedAndConfirmedAgain");
     }
 
 

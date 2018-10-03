@@ -1,7 +1,5 @@
-package RandomValuesForTests;
+package Utilities;
 
-import org.apache.xpath.jaxp.JAXPVariableStack;
-import org.openqa.grid.web.servlet.handler.WebDriverRequest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;

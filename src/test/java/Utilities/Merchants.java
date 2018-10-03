@@ -1,4 +1,4 @@
-package RandomValuesForTests;
+package Utilities;
 
 public abstract class Merchants {
 

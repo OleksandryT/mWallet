@@ -3,20 +3,24 @@ import BrowserSettings.BrowserSettings;
 import Functions.EmoneyManagement.AdminTransfer.AdminTransferCreation;
 import Functions.EmoneyManagement.AdminTransfer.AdminTransferPending;
 import Functions.MyprofileHelp.MyProfileHelp;
+import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+
 import static Functions.EmoneyManagement.AdminTransfer.AdminTransferPending.TRANSACTION_ID;
 import static Functions.EmoneyManagement.AdminTransfer.AdminTransferPending.TXN_ID;
 
-@Test(dependsOnGroups = {"MyProfile"})
+@Test(groups = {"AdminTransfer"},dependsOnGroups = {"MyProfile"})
 public class TestAdminTransfer extends BrowserSettings {
 
-    @Test (groups = {"AdminTransfer"})
-    public static void verifyThatBothSourceAndDestinationCannotBeMerchant (){
+    @Test
+    public  void verifyThatBothSourceAndDestinationCannotBeMerchant (){
+        logger = extentReports.startTest("verifyThatBothSourceAndDestinationCannotBeMerchant");
         AdminTransferCreation adminTransfer = new AdminTransferCreation(driver);
         adminTransfer.setEmoneyManagement();
         adminTransfer.setAdminTransfer();
@@ -27,10 +31,13 @@ public class TestAdminTransfer extends BrowserSettings {
         java.lang.String DESTINATION_TYPE_DROPDOWN = driver.findElement(By.xpath("//*[@name='transferDestinationType']")).getText();
         Assert.assertFalse(DESTINATION_TYPE_DROPDOWN.contains("Merchant SVA"));
         System.out.println("If one of the sources is Merchant SVA another one can't be Merchant SVA ");
+        Assert.assertTrue(true);
+        logger.log(LogStatus.PASS,"Test case passed is verifyThatBothSourceAndDestinationCannotBeMerchant");
     }
 
-    @Test (groups = {"AdminTransfer"},dependsOnMethods = {"verifyThatBothSourceAndDestinationCannotBeMerchant"})
-    public static void verifyThatSourceAndDestinationCannotBeEqual (){
+    @Test (dependsOnMethods = {"verifyThatBothSourceAndDestinationCannotBeMerchant"})
+    public  void verifyThatSourceAndDestinationCannotBeEqual (){
+        logger = extentReports.startTest("verifyThatSourceAndDestinationCannotBeEqual");
         AdminTransferCreation adminTransfer = new AdminTransferCreation(driver);
         adminTransfer.setEmoneyManagement();
         adminTransfer.setAdminTransfer();
@@ -40,10 +47,13 @@ public class TestAdminTransfer extends BrowserSettings {
         java.lang.String DESTINATION_TYPE_DROPDOWN = driver.findElement(By.xpath("//*[@name='transferDestinationType']")).getText();
         Assert.assertFalse(DESTINATION_TYPE_DROPDOWN.contains("OpCo Fee/Commission Account"));
         System.out.println("If one of the sources is OpCo Fee/Commission Account another one can't be OpCo Fee/Commission Account");
+        Assert.assertTrue(true);
+        logger.log(LogStatus.PASS,"Test case passed is verifyThatSourceAndDestinationCannotBeEqual");
     }
 
-    @Test (groups = {"AdminTransfer"}, dependsOnMethods = {"verifyThatSourceAndDestinationCannotBeEqual"})
+    @Test (dependsOnMethods = {"verifyThatSourceAndDestinationCannotBeEqual"})
     public  void verifyThatAdminTransferCanBeApproved (){
+        logger = extentReports.startTest("verifyThatAdminTransferCanBeApproved");
         java.lang.String txn_id;
         AdminTransferCreation adminTransfer = new AdminTransferCreation(driver);
         adminTransfer.setEmoneyManagement();
@@ -82,5 +92,9 @@ public class TestAdminTransfer extends BrowserSettings {
         adminPending.setConfirmBottom();
         Assert.assertEquals(adminPending.getSuccessfulMessage(), "This Admin Transfer has been successfully approved");
         System.out.println("Admin transfer has successfully been created by First Super BO Admin and approved by Second Super BO Admin");
+        Assert.assertTrue(true);
+        logger.log(LogStatus.PASS,"Test case passed is verifyThatAdminTransferCanBeApproved");
     }
+
+
 }

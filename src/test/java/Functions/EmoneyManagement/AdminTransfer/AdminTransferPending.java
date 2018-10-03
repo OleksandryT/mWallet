@@ -5,8 +5,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static Functions.EmoneyManagement.AdminTransfer.AdminTransferCreation.EMONEY_MANAGEMENT;
-import static RandomValuesForTests.RandomValues.*;
+import static Utilities.RandomValues.RandomValues.*;
 
 public class AdminTransferPending  {
 

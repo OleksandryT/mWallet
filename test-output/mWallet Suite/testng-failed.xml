@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [mWallet Suite]">
+  <listeners>
+    <listener class-name="Utilities.Listeners.TestListener"/>
+    <listener class-name="Utilities.Listeners.AnnotationTransformer"/>
+  </listeners>
   <test thread-count="5" name="Back Office User Functionality(failed)">
     <parameter name="browser" value="Chrome"/>
     <groups>
       <run>
         <include name="MyProfile"/>
+        <include name="Transactions"/>
         <include name="Merchants"/>
         <include name="AdminTransfer"/>
         <include name="AdminReverse"/>
@@ -13,36 +18,14 @@
       </run>
     </groups>
     <classes>
-      <class name="Tests.Smoke.EmoneyManagement.TestManualRetirement">
-        <methods>
-          <include name="verifySuccessfullCreationOfRetirementWithExactAmount"/>
-          <include name="setBrowser"/>
-        </methods>
-      </class> <!-- Tests.Smoke.EmoneyManagement.TestManualRetirement -->
-      <class name="Tests.Smoke.EmoneyManagement.TestAdminTransfer">
-        <methods>
-          <include name="verifyThatBothSourceAndDestinationCannotBeMerchant"/>
-          <include name="verifyThatAdminTransferCanBeApproved"/>
-          <include name="setBrowser"/>
-          <include name="verifyThatSourceAndDestinationCannotBeEqual"/>
-        </methods>
-      </class> <!-- Tests.Smoke.EmoneyManagement.TestAdminTransfer -->
       <class name="Tests.Smoke.Myprofilehelp.TestMyProfile">
         <methods>
           <include name="verifyLogIn"/>
+          <include name="verifyAbilityToREEditAllAccountDetails"/>
+          <include name="startTest"/>
           <include name="verifyAbilityToEditAllAccountDetails"/>
-          <include name="setBrowser"/>
         </methods>
       </class> <!-- Tests.Smoke.Myprofilehelp.TestMyProfile -->
-      <class name="Tests.Smoke.EmoneyManagement.TestAdminReverse">
-        <methods>
-          <include name="verifySuccessfulConfirmationOfAdminReverse"/>
-          <include name="verifySuccessfulRejectionOfAdminReverse"/>
-          <include name="verifyThatRejectedReverseCanBeReversedAndConfirmedAgain"/>
-          <include name="setBrowser"/>
-          <include name="verifyThatConfirmedAdminReverseCantBeReversedAgain"/>
-        </methods>
-      </class> <!-- Tests.Smoke.EmoneyManagement.TestAdminReverse -->
     </classes>
   </test> <!-- Back Office User Functionality(failed) -->
 </suite> <!-- Failed suite [mWallet Suite] -->

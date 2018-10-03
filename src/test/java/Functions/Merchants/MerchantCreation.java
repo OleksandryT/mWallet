@@ -1,7 +1,8 @@
 package Functions.Merchants;
 
 
-import RandomValuesForTests.*;
+import Utilities.*;
+import Utilities.RandomValues.RandomValues;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -12,15 +13,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
-import static RandomValuesForTests.RandomValues.*;
+import static Utilities.RandomValues.RandomValues.*;
 
 public class MerchantCreation extends Merchants {
-/*
+    /*
 * вынести все переменные в отдельный класс, что бы они не засоряли класс
 * переименовать методы в такие, чо бы можно было понимать что каждый метод делает
 * */
 
-    private WebDriver driver;
+    private static WebDriver driver;
 
     public MerchantCreation(WebDriver driver) {
         this.driver = driver;
@@ -28,6 +29,7 @@ public class MerchantCreation extends Merchants {
 
     private MerchantCreation(){}
 
+    public static final By MERCHANT_ID = By.xpath("//*[@id=\"content\"]/div[4]/div/div/section[7]/div/form/merch-general-information/div[2]/div[1]/div/label");
     public static final By MERCHANTS_FIELD = By.xpath("//*[@id=\"wrapper\"]/ul/li[4]/a");
     public static final By CREATE_MERCHANT_FIELD = By.xpath("/html/body/div[4]/navp/div[3]/div/ul/li[4]/ul/li[3]/a");
     public static final By MERCHANT_TYPE_DROPBOX = By.xpath("//*[@id=\"merchantType\"]");
@@ -138,13 +140,11 @@ public class MerchantCreation extends Merchants {
     public static final By BANK_DETAIL_RECIPIENT_PAYMENT_PURPOSE_FIELD_2 = By.xpath("//*[@id=\"bankDetailPaymentPurposebd2\"]");
     public static final By PAYMENT_PURPOSE_FIELD = By.xpath("//*[@id=\"bankDetailPaymentPurposeepr\"]");
     public static final By SAVE_BUTTON = By.xpath("//*[@id=\"regMerchSave\"]");
-    private static final By MERCHANT_ID = By.xpath("//*[@id=\"content\"]/div[4]/div/div/section[7]/div/form/merch-general-information/div[2]/div[1]/div/label");
 
-    public WebElement getMerchantId() {
-        WebElement id = driver.findElement(MERCHANT_ID);
-        id.click();
-        id.getAttribute("innerHTML");
-        return id;
+
+    public static String merchantId() {
+        String merchant_new = driver.findElement(MERCHANT_ID).getText();
+        return merchant_new;
     }
 
     public void merchantLocator() {

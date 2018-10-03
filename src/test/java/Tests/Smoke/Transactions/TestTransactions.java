@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+@Test(dependsOnGroups = {"Merchants"})
 public class TestTransactions extends BrowserSettings {
 
     @Test(groups = {"Transactions"}, priority = 0, dependsOnGroups = {"MyProfile"})

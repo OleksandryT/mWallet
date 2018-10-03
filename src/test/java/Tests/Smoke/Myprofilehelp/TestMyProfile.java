@@ -1,19 +1,23 @@
 package Tests.Smoke.Myprofilehelp;
 import BrowserSettings.BrowserSettings;
 import Functions.MyprofileHelp.MyProfileHelp;
+import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
-import static Functions.MyprofileHelp.MyProfileHelp.*;
-import static RandomValuesForTests.RandomValues.*;
+import org.testng.annotations.*;
 
+import static Functions.MyprofileHelp.MyProfileHelp.*;
+import static Utilities.RandomValues.RandomValues.*;
+
+@Test( groups = {"MyProfile"})
 public class TestMyProfile extends BrowserSettings {
 
-    @Test( groups = {"MyProfile"})
+    @Test
     public void verifyLogIn () {
+        logger = extentReports.startTest("verifyLogIn");
+        Assert.assertTrue(true);
         MyProfileHelp myProfile = new MyProfileHelp(driver);
         myProfile.goToMWallet(getUrl());
         myProfile.useridLocator(getUserIdName());
@@ -22,10 +26,13 @@ public class TestMyProfile extends BrowserSettings {
         WebDriverWait wait = new WebDriverWait(driver,20);
         wait.until(ExpectedConditions.titleIs("Back Office Portal"));
         Assert.assertEquals(driver.getTitle(), "Back Office Portal");
+        logger.log(LogStatus.PASS,"Test case passed is verifyLogIn");
+
     }
 
-    @Test (groups = {"MyProfile"},dependsOnMethods = {"verifyLogIn"})
+    @Test (dependsOnMethods = {"verifyLogIn"})
     public void verifyAbilityToEditAllAccountDetails(){
+        logger = extentReports.startTest("verifyAbilityToEditAllAccountDetails");
         MyProfileHelp myProfile1 = new MyProfileHelp(driver);
         myProfile1.setEditAccountDetailsBottomFiled();
         myProfile1.setFirstNameUpdateDetailsField();
@@ -42,10 +49,13 @@ public class TestMyProfile extends BrowserSettings {
         System.out.println(success);
         String successMessageText = "Success : Admin updated successfully";
         Assert.assertTrue(driver.getPageSource().contains(success),successMessageText);
+        Assert.assertTrue(true);
+        logger.log(LogStatus.PASS,"Test case passed is verifyAbilityToEditAllAccountDetails");
     }
 
-    @Test (groups = {"MyProfile"},priority = 2,dependsOnMethods = {"verifyAbilityToEditAllAccountDetails"},enabled = false)
+    @Test (dependsOnMethods = {"verifyAbilityToEditAllAccountDetails"})
     public void verifyAbilityToREEditAllAccountDetails()  {
+        logger = extentReports.startTest("verifyAbilityToEditAllAccountDetails");
         MyProfileHelp myProfile = new MyProfileHelp(driver);
         myProfile.setReEditField();
         myProfile.setFirstNameUpdateDetailsField();
@@ -61,9 +71,11 @@ public class TestMyProfile extends BrowserSettings {
         System.out.println(success);
         String successMessageText = "Success : Admin updated successfully";
         Assert.assertTrue(driver.getPageSource().contains(success),successMessageText);
+        Assert.assertTrue(true);
+        logger.log(LogStatus.PASS,"Test case passed is verifyAbilityToREEditAllAccountDetails");
     }
 
-    @Test (groups = {"MyProfile"},priority = 3, dependsOnMethods = {"verifyAbilityToREEditAllAccountDetails"},enabled = false)
+    @Test (dependsOnMethods = {"verifyAbilityToREEditAllAccountDetails"}, enabled = false)
     public void verifyAbilityToChangePassword() {
         MyProfileHelp myProfile = new MyProfileHelp(driver);
         myProfile.setGoToMyAccountButton();
@@ -82,7 +94,7 @@ public class TestMyProfile extends BrowserSettings {
         Assert.assertEquals(changePassSuccess,successPassText);
     }
 
-    @Test (groups = {"MyProfile"}, priority = 4, dependsOnMethods = {"verifyAbilityToChangePassword"},enabled = false)
+    @Test (dependsOnMethods = {"verifyAbilityToChangePassword"},enabled = false)
     public void verifyThatPasswordIsNotChangedIfNewPasswordIsAsPreviousOne() {
         MyProfileHelp myProfile = new MyProfileHelp(driver);
         myProfile.setOldPasswordField(getNewPasswordName());
@@ -98,7 +110,7 @@ public class TestMyProfile extends BrowserSettings {
         Assert.assertEquals(eRrorMessage,eRrorMessageText);
     }
 
-    @Test (groups = {"MyProfile"},priority = 5, dependsOnMethods = {"verifyThatPasswordIsNotChangedIfNewPasswordIsAsPreviousOne"},enabled = false)
+    @Test (dependsOnMethods = {"verifyThatPasswordIsNotChangedIfNewPasswordIsAsPreviousOne"},enabled = false)
     public void verifyThatPasswordIsNotChangedIfOldPasswordIsInvalid() {
         MyProfileHelp myProfile = new MyProfileHelp(driver);
         myProfile.setOldPasswordField(RANDOM_NUMBER);
@@ -113,6 +125,12 @@ public class TestMyProfile extends BrowserSettings {
         String eRrorMessageText = "Error : Your Password has not been changed. Invalid old Password";
         Assert.assertEquals(eRrorMessage,eRrorMessageText);
     }
+
+//    @AfterClass
+//    public void endTest (){
+//        extentReports.flush();
+//        extentReports.close();
+//    }
 
 
 }
