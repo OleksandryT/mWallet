@@ -3,6 +3,7 @@ import BrowserSettings.BrowserSettings;
 import Functions.MyprofileHelp.MyProfileHelp;
 import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -11,12 +12,17 @@ import org.testng.annotations.*;
 import static Functions.MyprofileHelp.MyProfileHelp.*;
 import static Utilities.RandomValues.RandomValues.*;
 
+
 @Test( groups = {"MyProfile"})
 public class TestMyProfile extends BrowserSettings {
 
+    @Override
+    public WebDriver getDriver() {
+        return super.getDriver();
+    }
+
     @Test
     public void verifyLogIn () {
-        logger = extentReports.startTest("verifyLogIn");
         Assert.assertTrue(true);
         MyProfileHelp myProfile = new MyProfileHelp(driver);
         myProfile.goToMWallet(getUrl());
@@ -26,54 +32,54 @@ public class TestMyProfile extends BrowserSettings {
         WebDriverWait wait = new WebDriverWait(driver,20);
         wait.until(ExpectedConditions.titleIs("Back Office Portal"));
         Assert.assertEquals(driver.getTitle(), "Back Office Portal");
-        logger.log(LogStatus.PASS,"Test case passed is verifyLogIn");
+//        logger.log(S);
 
     }
 
-    @Test (dependsOnMethods = {"verifyLogIn"})
-    public void verifyAbilityToEditAllAccountDetails(){
-        logger = extentReports.startTest("verifyAbilityToEditAllAccountDetails");
-        MyProfileHelp myProfile1 = new MyProfileHelp(driver);
-        myProfile1.setEditAccountDetailsBottomFiled();
-        myProfile1.setFirstNameUpdateDetailsField();
-        myProfile1.setLastNameUpdateDetailsField();
-        myProfile1.setEmailUpdateDetailsField(GENERATE_EMAIL(15));
-        myProfile1.setContactPhoneUpdateDetailsField(RANDOM_NUMBER_MSISDN);
-        myProfile1.setNoteUpdateDetailsField(RANDOM_STRING());
-        myProfile1.setNextUpdateDetailsField();
-        myProfile1.setConfirmUpdateDetailsField();
-        System.out.println("user has already been updated");
-        String welcomeField = driver.findElement(By.xpath(" //*[@id=\"welcomeUser\"]")).getText();
-        System.out.println(welcomeField);
-        String success = driver.findElement(By.xpath("//*[@id=\"updateAdminSuccessMessage\"]")).getText();
-        System.out.println(success);
-        String successMessageText = "Success : Admin updated successfully";
-        Assert.assertTrue(driver.getPageSource().contains(success),successMessageText);
-        Assert.assertTrue(true);
-        logger.log(LogStatus.PASS,"Test case passed is verifyAbilityToEditAllAccountDetails");
-    }
-
-    @Test (dependsOnMethods = {"verifyAbilityToEditAllAccountDetails"})
-    public void verifyAbilityToREEditAllAccountDetails()  {
-        logger = extentReports.startTest("verifyAbilityToEditAllAccountDetails");
-        MyProfileHelp myProfile = new MyProfileHelp(driver);
-        myProfile.setReEditField();
-        myProfile.setFirstNameUpdateDetailsField();
-        myProfile.setLastNameUpdateDetailsField();
-        myProfile.setEmailUpdateDetailsField(GENERATE_EMAIL(15));
-        myProfile.setNoteUpdateDetailsField(RANDOM_STRING());
-        myProfile.setNextUpdateDetailsField();
-        myProfile.setConfirmUpdateDetailsField();
-        System.out.println("User has already been reEdited");
-        String welcomeField = driver.findElement(By.xpath(" //*[@id=\"welcomeUser\"]")).getText();
-        System.out.println(welcomeField);
-        String success = driver.findElement(By.xpath("//*[@id=\"updateAdminSuccessMessage\"]")).getText();
-        System.out.println(success);
-        String successMessageText = "Success : Admin updated successfully";
-        Assert.assertTrue(driver.getPageSource().contains(success),successMessageText);
-        Assert.assertTrue(true);
-        logger.log(LogStatus.PASS,"Test case passed is verifyAbilityToREEditAllAccountDetails");
-    }
+//    @Test (dependsOnMethods = {"verifyLogIn"})
+//    public void verifyAbilityToEditAllAccountDetails(){
+////        logger = extentReports.startTest("verifyAbilityToEditAllAccountDetails");
+//        MyProfileHelp myProfile1 = new MyProfileHelp(driver);
+//        myProfile1.setEditAccountDetailsBottomFiled();
+//        myProfile1.setFirstNameUpdateDetailsField();
+//        myProfile1.setLastNameUpdateDetailsField();
+//        myProfile1.setEmailUpdateDetailsField(GENERATE_EMAIL(15));
+//        myProfile1.setContactPhoneUpdateDetailsField(RANDOM_NUMBER_MSISDN);
+//        myProfile1.setNoteUpdateDetailsField(RANDOM_STRING());
+//        myProfile1.setNextUpdateDetailsField();
+//        myProfile1.setConfirmUpdateDetailsField();
+//        System.out.println("user has already been updated");
+//        String welcomeField = driver.findElement(By.xpath(" //*[@id=\"welcomeUser\"]")).getText();
+//        System.out.println(welcomeField);
+//        String success = driver.findElement(By.xpath("//*[@id=\"updateAdminSuccessMessage\"]")).getText();
+//        System.out.println(success);
+//        String successMessageText = "Success : Admin updated successfully";
+//        Assert.assertTrue(driver.getPageSource().contains(success),successMessageText);
+//        Assert.assertTrue(true);
+////        logger.log(LogStatus.PASS,"Test case passed is verifyAbilityToEditAllAccountDetails");
+//    }
+//
+//    @Test (dependsOnMethods = {"verifyAbilityToEditAllAccountDetails"})
+//    public void verifyAbilityToREEditAllAccountDetails()  {
+////        logger = extentReports.startTest("verifyAbilityToEditAllAccountDetails");
+//        MyProfileHelp myProfile = new MyProfileHelp(driver);
+//        myProfile.setReEditField();
+//        myProfile.setFirstNameUpdateDetailsField();
+//        myProfile.setLastNameUpdateDetailsField();
+//        myProfile.setEmailUpdateDetailsField(GENERATE_EMAIL(15));
+//        myProfile.setNoteUpdateDetailsField(RANDOM_STRING());
+//        myProfile.setNextUpdateDetailsField();
+//        myProfile.setConfirmUpdateDetailsField();
+//        System.out.println("User has already been reEdited");
+//        String welcomeField = driver.findElement(By.xpath(" //*[@id=\"welcomeUser\"]")).getText();
+//        System.out.println(welcomeField);
+//        String success = driver.findElement(By.xpath("//*[@id=\"updateAdminSuccessMessage\"]")).getText();
+//        System.out.println(success);
+//        String successMessageText = "Success : Admin updated successfully";
+//        Assert.assertTrue(driver.getPageSource().contains(success),successMessageText);
+//        Assert.assertTrue(true);
+////        logger.log(LogStatus.PASS,"Test case passed is verifyAbilityToREEditAllAccountDetails");
+//    }
 
     @Test (dependsOnMethods = {"verifyAbilityToREEditAllAccountDetails"}, enabled = false)
     public void verifyAbilityToChangePassword() {

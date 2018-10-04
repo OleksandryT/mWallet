@@ -1,6 +1,7 @@
 package Utilities.OracleDataBase;
 
 import org.testng.annotations.AfterGroups;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeGroups;
 
 import java.sql.Connection;
@@ -12,6 +13,7 @@ import java.sql.Statement;
 public class ConnectToMySQL
 {
 
+    @AfterSuite
     public static void main(String[] args) throws Exception {
         Connection conn = null;
         Statement stmt = null;
@@ -23,7 +25,7 @@ public class ConnectToMySQL
         // Execute a query
         stmt = conn.createStatement();
 
-        resultSet = stmt.executeQuery("select * from merchant where merchant_id ='009697372'");
+        resultSet = stmt.executeQuery("select * from sc_service where full_name ='IZ_Bulk_P2P_Prepaid_Test113356'");
         while (resultSet .next()) {
             System.out.println(resultSet .getString(1) + "  " + resultSet.getString(2) + "  " + resultSet.getString(3) + "  "
                     + resultSet.getString(4) + "  " + resultSet.getString(5) + "  " + resultSet.getString(6) + "  " + resultSet.getString(7) + "  " + resultSet.getString(8));

@@ -168,7 +168,8 @@ public class AdminTransferCreation {
 
     public  void setNote(){
         WebElement note = driver.findElement(NOTE);
-        note.click();
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("arguments[0].click();",note);
         note.sendKeys(RandomValues.RANDOM_ALPHABETIC);
     }
 

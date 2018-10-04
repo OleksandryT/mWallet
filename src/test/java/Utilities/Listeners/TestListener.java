@@ -16,7 +16,6 @@ public class TestListener extends BrowserSettings implements ITestListener
     private static String getTestMethodName(ITestResult iTestResult) {
         return iTestResult.getMethod().getConstructorOrMethod().getName();
     }
-
     //Before starting all tests, below method runs.
     @Override
     public void onStart(ITestContext iTestContext) {
@@ -62,6 +61,8 @@ public class TestListener extends BrowserSettings implements ITestListener
         //Extentreports log and screenshot operations for failed tests.
         ExtentTestManager.getTest().log(LogStatus.FAIL,"Test Failed",
                 ExtentTestManager.getTest().addBase64ScreenShot(base64Screenshot));
+        ExtentTestManager.getTest().log(LogStatus.FAIL,iTestResult.getThrowable().toString());
+
     }
 
     @Override
@@ -69,10 +70,14 @@ public class TestListener extends BrowserSettings implements ITestListener
         System.out.println("I am in onTestSkipped method "+  getTestMethodName(iTestResult) + " skipped");
         //Extentreports log operation for skipped tests.
         ExtentTestManager.getTest().log(LogStatus.SKIP, "Test Skipped");
+        ExtentTestManager.getTest().log(LogStatus.SKIP,iTestResult.getThrowable().toString());
+        ExtentTestManager.getTest().log(LogStatus.SKIP, (Throwable) iTestResult.getMethod());
+
     }
 
     @Override
     public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
         System.out.println("Test failed but it is in defined success ratio " + getTestMethodName(iTestResult));
     }
+
 }

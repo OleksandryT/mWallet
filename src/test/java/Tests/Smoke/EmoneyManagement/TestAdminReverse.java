@@ -14,7 +14,6 @@ public class TestAdminReverse extends BrowserSettings {
 
     @Test
     public void verifySuccessfulConfirmationOfAdminReverse (){
-        logger = extentReports.startTest("verifySuccessfulConfirmationOfAdminReverse");
         AdminReverseCreation adminReverse = new AdminReverseCreation(driver);
         adminReverse.setEmoneyManagement();
         adminReverse.setAdminReverse();
@@ -40,12 +39,10 @@ public class TestAdminReverse extends BrowserSettings {
         Assert.assertTrue(true,success);
         Assert.assertTrue(true);
         System.out.println("Admin reverse was successfully confirmed");
-        logger.log(LogStatus.PASS,"Test case passed is verifySuccessfulConfirmationOfAdminReverse");
     }
 
     @Test(dependsOnMethods = {"verifySuccessfulConfirmationOfAdminReverse"})
     public void verifyThatConfirmedAdminReverseCantBeReversedAgain (){
-        logger = extentReports.startTest("verifyThatConfirmedAdminReverseCantBeReversedAgain");
         AdminReverseCreation adminReverse = new AdminReverseCreation(driver);
         adminReverse.setEmoneyManagement();
         adminReverse.setAdminReverse();
@@ -57,12 +54,10 @@ public class TestAdminReverse extends BrowserSettings {
         Assert.assertTrue(true,hasBeenReversed);
         System.out.println("Admin reverse was successfully confirmed");
         Assert.assertTrue(true);
-        logger.log(LogStatus.PASS,"Test case passed is verifyThatConfirmedAdminReverseCantBeReversedAgain");
     }
 
     @Test(dependsOnMethods = {"verifyThatConfirmedAdminReverseCantBeReversedAgain"})
     public void verifySuccessfulRejectionOfAdminReverse (){
-        logger = extentReports.startTest("verifySuccessfulRejectionOfAdminReverse");
         AdminReverseCreation adminReverse = new AdminReverseCreation(driver);
         adminReverse.setEmoneyManagement();
         adminReverse.setAdminReverse();
@@ -89,13 +84,11 @@ public class TestAdminReverse extends BrowserSettings {
         Assert.assertTrue(true,successOfRejection);
         System.out.println("Admin reverse was successfully rejected.");
         Assert.assertTrue(true);
-        logger.log(LogStatus.PASS,"Test case passed is verifySuccessfulRejectionOfAdminReverse");
     }
 
 
     @Test(dependsOnMethods = {"verifySuccessfulRejectionOfAdminReverse"})
     public void verifyThatRejectedReverseCanBeReversedAndConfirmedAgain (){
-        logger = extentReports.startTest("verifySuccessfulRejectionOfAdminReverse");
         AdminReverseCreation adminReverse = new AdminReverseCreation(driver);
         adminReverse.setEmoneyManagement();
         adminReverse.setAdminReverse();
@@ -122,7 +115,6 @@ public class TestAdminReverse extends BrowserSettings {
         Assert.assertTrue(true,success);
         System.out.println("Admin reverse was successfully confirmed");
         Assert.assertTrue(true);
-        logger.log(LogStatus.PASS,"Test case passed is verifyThatRejectedReverseCanBeReversedAndConfirmedAgain");
     }
 
 

@@ -310,7 +310,7 @@ public class MerchantCreation extends Merchants {
 
     public void setNextButtonCompany() {
         WebElement nextButton1 = driver.findElement(NEXT_BUTTON_COMPANY);
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(NEXT_BUTTON_COMPANY));
         if (nextButton1.isEnabled()) {
             JavascriptExecutor executor = (JavascriptExecutor) driver;

@@ -28,7 +28,6 @@ public class TestMerchantCreation extends BrowserSettings {
 
     @Test
     public void merchantCreation () throws InterruptedException, SQLException, ClassNotFoundException {
-        logger = extentReports.startTest("merchantCreation");
         // Open a connection
         MerchantCreation merchantMerchant = new MerchantCreation(driver);
         merchantMerchant.merchantCreation();

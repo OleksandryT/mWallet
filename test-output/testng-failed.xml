@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [mWallet Suite]">
+<suite thread-count="2" guice-stage="DEVELOPMENT" name="Failed suite [mWallet Suite]" parallel="tests">
   <listeners>
     <listener class-name="Utilities.Listeners.TestListener"/>
     <listener class-name="Utilities.Listeners.AnnotationTransformer"/>
   </listeners>
-  <test thread-count="5" name="Back Office User Functionality(failed)">
+  <test thread-count="2" name="Back Office User Functionality in Chrome(failed)" parallel="tests">
     <parameter name="browser" value="Chrome"/>
     <groups>
       <run>
@@ -15,17 +15,22 @@
         <include name="AdminTransfer"/>
         <include name="AdminReverse"/>
         <include name="ManageRetirement"/>
+        <include name="Service"/>
       </run>
     </groups>
     <classes>
       <class name="Tests.Smoke.Myprofilehelp.TestMyProfile">
         <methods>
           <include name="verifyLogIn"/>
-          <include name="verifyAbilityToREEditAllAccountDetails"/>
           <include name="startTest"/>
-          <include name="verifyAbilityToEditAllAccountDetails"/>
         </methods>
       </class> <!-- Tests.Smoke.Myprofilehelp.TestMyProfile -->
+      <class name="Tests.Smoke.Services.TestServiceBulkCreation">
+        <methods>
+          <include name="verifyCreationOfP2PPrepaidService"/>
+          <include name="startTest"/>
+        </methods>
+      </class> <!-- Tests.Smoke.Services.TestServiceBulkCreation -->
     </classes>
-  </test> <!-- Back Office User Functionality(failed) -->
+  </test> <!-- Back Office User Functionality in Chrome(failed) -->
 </suite> <!-- Failed suite [mWallet Suite] -->

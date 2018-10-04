@@ -20,7 +20,6 @@ public class TestAdminTransfer extends BrowserSettings {
 
     @Test
     public  void verifyThatBothSourceAndDestinationCannotBeMerchant (){
-        logger = extentReports.startTest("verifyThatBothSourceAndDestinationCannotBeMerchant");
         AdminTransferCreation adminTransfer = new AdminTransferCreation(driver);
         adminTransfer.setEmoneyManagement();
         adminTransfer.setAdminTransfer();
@@ -32,12 +31,10 @@ public class TestAdminTransfer extends BrowserSettings {
         Assert.assertFalse(DESTINATION_TYPE_DROPDOWN.contains("Merchant SVA"));
         System.out.println("If one of the sources is Merchant SVA another one can't be Merchant SVA ");
         Assert.assertTrue(true);
-        logger.log(LogStatus.PASS,"Test case passed is verifyThatBothSourceAndDestinationCannotBeMerchant");
     }
 
     @Test (dependsOnMethods = {"verifyThatBothSourceAndDestinationCannotBeMerchant"})
     public  void verifyThatSourceAndDestinationCannotBeEqual (){
-        logger = extentReports.startTest("verifyThatSourceAndDestinationCannotBeEqual");
         AdminTransferCreation adminTransfer = new AdminTransferCreation(driver);
         adminTransfer.setEmoneyManagement();
         adminTransfer.setAdminTransfer();
@@ -48,12 +45,10 @@ public class TestAdminTransfer extends BrowserSettings {
         Assert.assertFalse(DESTINATION_TYPE_DROPDOWN.contains("OpCo Fee/Commission Account"));
         System.out.println("If one of the sources is OpCo Fee/Commission Account another one can't be OpCo Fee/Commission Account");
         Assert.assertTrue(true);
-        logger.log(LogStatus.PASS,"Test case passed is verifyThatSourceAndDestinationCannotBeEqual");
     }
 
     @Test (dependsOnMethods = {"verifyThatSourceAndDestinationCannotBeEqual"})
     public  void verifyThatAdminTransferCanBeApproved (){
-        logger = extentReports.startTest("verifyThatAdminTransferCanBeApproved");
         java.lang.String txn_id;
         AdminTransferCreation adminTransfer = new AdminTransferCreation(driver);
         adminTransfer.setEmoneyManagement();
@@ -93,7 +88,6 @@ public class TestAdminTransfer extends BrowserSettings {
         Assert.assertEquals(adminPending.getSuccessfulMessage(), "This Admin Transfer has been successfully approved");
         System.out.println("Admin transfer has successfully been created by First Super BO Admin and approved by Second Super BO Admin");
         Assert.assertTrue(true);
-        logger.log(LogStatus.PASS,"Test case passed is verifyThatAdminTransferCanBeApproved");
     }
 
 
