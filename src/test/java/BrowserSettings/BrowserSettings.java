@@ -1,11 +1,8 @@
 package BrowserSettings;
 
-import Utilities.ExtentReports.ExtentTestManager;
-import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.*;
 import java.util.concurrent.TimeUnit;
 
@@ -18,10 +15,6 @@ public class BrowserSettings {
      * */
 
     public static WebDriver driver;
-//
-//    public static Connection conn = null ;
-//    public static Statement stmt = null;
-//    public static ResultSet resultSet = null ;
 
     public WebDriver getDriver() {
         return driver;
@@ -35,7 +28,6 @@ public class BrowserSettings {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
     }
-
 
     @AfterSuite
     public void tearDown (){

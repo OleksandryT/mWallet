@@ -178,7 +178,9 @@ public class AdminTransferCreation {
     }
 
     public  void setNext(){
-        driver.findElement(NEXT).click();
+        WebElement next = driver.findElement(NEXT);
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("arguments[0].click();",next);
     }
 
     public  void setConfirmCreationOfAdminTransfer (){

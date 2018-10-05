@@ -19,18 +19,35 @@
       </run>
     </groups>
     <classes>
-      <class name="Tests.Smoke.Myprofilehelp.TestMyProfile">
+      <class name="Tests.Smoke.EmoneyManagement.TestAdminReverse">
         <methods>
-          <include name="verifyLogIn"/>
+          <include name="verifySuccessfulConfirmationOfAdminReverse"/>
+          <include name="verifySuccessfulRejectionOfAdminReverse"/>
           <include name="startTest"/>
+          <include name="verifyThatRejectedReverseCanBeReversedAndConfirmedAgain"/>
+          <include name="verifyThatConfirmedAdminReverseCantBeReversedAgain"/>
         </methods>
-      </class> <!-- Tests.Smoke.Myprofilehelp.TestMyProfile -->
+      </class> <!-- Tests.Smoke.EmoneyManagement.TestAdminReverse -->
       <class name="Tests.Smoke.Services.TestServiceBulkCreation">
         <methods>
           <include name="verifyCreationOfP2PPrepaidService"/>
           <include name="startTest"/>
         </methods>
       </class> <!-- Tests.Smoke.Services.TestServiceBulkCreation -->
+      <class name="Tests.Smoke.Myprofilehelp.TestMyProfile">
+        <methods>
+          <include name="verifyLogIn"/>
+          <include name="startTest"/>
+        </methods>
+      </class> <!-- Tests.Smoke.Myprofilehelp.TestMyProfile -->
+      <class name="Tests.Smoke.EmoneyManagement.TestAdminTransfer">
+        <methods>
+          <include name="verifyThatBothSourceAndDestinationCannotBeMerchant"/>
+          <include name="verifyThatAdminTransferCanBeApproved"/>
+          <include name="startTest"/>
+          <include name="verifyThatSourceAndDestinationCannotBeEqual"/>
+        </methods>
+      </class> <!-- Tests.Smoke.EmoneyManagement.TestAdminTransfer -->
     </classes>
   </test> <!-- Back Office User Functionality in Chrome(failed) -->
 </suite> <!-- Failed suite [mWallet Suite] -->

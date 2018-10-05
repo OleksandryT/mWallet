@@ -23,7 +23,7 @@ public class TestManualRetirement extends BrowserSettings {
         ManageRetirementCreation retirementWithExactAmount = new ManageRetirementCreation(driver);
         retirementWithExactAmount.createRetirementWithExactAmount();
         String successfullCreation = driver.findElement(By.xpath("//*[@id=\"successmsg\"]")).getAttribute("value");
-        Assert.assertTrue(true,"Retirement transaction successfully started. Another PSS Admin has to confirm this transfer before it will be completed.");
+        Assert.assertTrue(driver.getPageSource().contains("Retirement transaction successfully started. Another PSS Admin has to confirm this transfer before it will be completed."));
         System.out.println("Retirement was successfully created with exact amount. Second Admin should Approve it");
 
     }

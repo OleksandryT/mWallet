@@ -8,7 +8,7 @@ import java.util.Random;
 
 public abstract class RandomValues {
 
-    public static final String RANDOM_ALPHABETIC = RandomStringUtils.randomAlphabetic(10);
+    public static final String RANDOM_ALPHABETIC = RandomStringUtils.randomAlphabetic(8);
     public static final String RANDOM_NUMBER_MSISDN = "38067"+ RandomStringUtils.randomNumeric(7);
     public static final String RANDOM_NUMBER = RandomStringUtils.randomNumeric(4);
     public static final String RANDOM_ALPHA_NUMERIC = RandomStringUtils.randomAlphanumeric(10);

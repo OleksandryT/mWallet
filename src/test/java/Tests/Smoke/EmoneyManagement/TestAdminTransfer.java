@@ -3,6 +3,7 @@ import BrowserSettings.BrowserSettings;
 import Functions.EmoneyManagement.AdminTransfer.AdminTransferCreation;
 import Functions.EmoneyManagement.AdminTransfer.AdminTransferPending;
 import Functions.MyprofileHelp.MyProfileHelp;
+import Utilities.OracleDataBase.ConnectToMySQL;
 import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -15,7 +16,7 @@ import org.testng.annotations.Test;
 import static Functions.EmoneyManagement.AdminTransfer.AdminTransferPending.TRANSACTION_ID;
 import static Functions.EmoneyManagement.AdminTransfer.AdminTransferPending.TXN_ID;
 
-@Test(groups = {"AdminTransfer"},dependsOnGroups = {"MyProfile"})
+@Test(groups = {"AdminTransfer"},dependsOnGroups = {"AdminReverse"})
 public class TestAdminTransfer extends BrowserSettings {
 
     @Test
@@ -48,7 +49,7 @@ public class TestAdminTransfer extends BrowserSettings {
     }
 
     @Test (dependsOnMethods = {"verifyThatSourceAndDestinationCannotBeEqual"})
-    public  void verifyThatAdminTransferCanBeApproved (){
+    public  void verifyThatAdminTransferCanBeApproved () throws InterruptedException {
         java.lang.String txn_id;
         AdminTransferCreation adminTransfer = new AdminTransferCreation(driver);
         adminTransfer.setEmoneyManagement();
@@ -66,8 +67,8 @@ public class TestAdminTransfer extends BrowserSettings {
         System.out.println("TXN ID is : " + txn_id);
         MyProfileHelp userLogOut = new MyProfileHelp(driver);
         userLogOut.loggOut();
-        userLogOut.useridLocator(MyProfileHelp.getUserIdName_2());
-        userLogOut.passwordLocator(MyProfileHelp.getPasswordName_2());
+        userLogOut.useridLocator(MyProfileHelp.getUserIdName());
+        userLogOut.passwordLocator(MyProfileHelp.getOldPasswordName());
         userLogOut.signInButton();
         adminTransfer.setEmoneyManagement();
         AdminTransferPending adminPending = new AdminTransferPending(driver);
@@ -88,6 +89,10 @@ public class TestAdminTransfer extends BrowserSettings {
         Assert.assertEquals(adminPending.getSuccessfulMessage(), "This Admin Transfer has been successfully approved");
         System.out.println("Admin transfer has successfully been created by First Super BO Admin and approved by Second Super BO Admin");
         Assert.assertTrue(true);
+        Thread.sleep(5000);
+        String sqlQuery = " select * from transaction_view where transaction_id='"+txn_id+"'";
+        String actualServiceFullName = ConnectToMySQL.executeSQLQuery("QA", sqlQuery);
+        System.out.println(actualServiceFullName);
     }
 
 

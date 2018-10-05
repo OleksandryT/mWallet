@@ -24,10 +24,11 @@
         <class name="Tests.Smoke.Myprofilehelp.TestMyProfile"/>
         <!--<class name="Tests.Smoke.Transactions.TestTransactions"/>-->
         <!--<class name="Tests.Smoke.Merchants.TestMerchantCreation"/>-->
-        <class name="Tests.Smoke.Services.TestServiceBulkCreation"/>
-        <!--<class name="Tests.Smoke.EmoneyManagement.TestAdminTransfer"/>-->
-        <!--<class name="Tests.Smoke.EmoneyManagement.TestAdminReverse"/>-->
+        <!--<class name="Tests.Smoke.Services.TestServiceBulkCreation"/>-->
+        <class name="Tests.Smoke.EmoneyManagement.TestAdminTransfer"/>
+        <class name="Tests.Smoke.EmoneyManagement.TestAdminReverse"/>
         <!--<class name="Tests.Smoke.EmoneyManagement.TestManualRetirement"/>-->
+        <class name="Tests.Smoke.Services.TestServiceBulkCreation"/>
 
         </classes>
     </test>

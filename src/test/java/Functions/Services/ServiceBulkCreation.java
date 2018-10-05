@@ -1,17 +1,11 @@
 package Functions.Services;
 
-import Functions.Customers.Customer;
-import org.apache.xpath.jaxp.JAXPVariableStack;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ServiceBulkCreation {
-
-    Customer customer;
 
     private static WebDriver driver;
     public ServiceBulkCreation(WebDriver driver) {
@@ -55,20 +49,19 @@ public class ServiceBulkCreation {
         JavascriptExecutor executor = (JavascriptExecutor)driver;
         executor.executeScript("arguments[0].click();", save);
     }
-//
-//    public void setGoToManageServices (){
-//        WebElement manageServices= driver.findElement((By) GO_TO_MANAGE_SERVICES);
-//        JavascriptExecutor executor = (JavascriptExecutor)driver;
-//        executor.executeScript("arguments[0].click();", manageServices);
-//    }
+
+    public void setGoToManageServices (){
+        WebElement manageServices= driver.findElement((By) GO_TO_MANAGE_SERVICES);
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        executor.executeScript("arguments[0].click();", manageServices);
+    }
 
     public void serviceRegistration (){
         setServices();
         setBulkServiceCreation();
         setChooseFile();
         setSave();
-//        WebDriverWait wait = new WebDriverWait(driver,30);
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(GO_TO_MANAGE_SERVICES));
+
     }
 
 }

@@ -29,7 +29,8 @@ public class AdminReversePending {
     public static final By REJECT_REVERSE_BUTTON = By.xpath("//*[@ng-click=\"rejectReversal()\"]");
     public static final By COMMENTS_FOR_REJECTION = By.xpath("//*[@ng-model=\"txnSelected.rejectReason\"]");
     public static final By BACK_TO_SEARCH_TRANSACTION_RESULT_BUTTON = By.xpath("//*[@ng-click=\"backToSearchTransactionResult()\"]");
-
+    public static final By ADMIN_REVERSE_TXN_ID = By.xpath("//*[@id=\"transactionDetailsForm\"]/div[1]/div[2]/div[1]/div/label");
+    public static final By ALREADY_REVERSED_ADMIN_TXN = By.xpath("//*[@id=\"content\"]/div[4]/form/div[2]/div[2]/div[1]/div/label");
 
     public void setEmoneyManagement() {
         WebElement emoneyManagement = driver.findElement(EMONEY_MANAGEMENT);
@@ -47,8 +48,8 @@ public class AdminReversePending {
         WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.visibilityOfElementLocated(FIRST_ROW_WITH_TRANSACTION));
         String firstResult = driver.findElement(FIRST_ROW_WITH_TRANSACTION).getText();
-        System.out.println(AdminReverseCreation.TXN_ID_FOR_REVERSE);
-        System.out.println(firstResult);
+        System.out.println("Id of reversed txn is " + AdminReverseCreation.TXN_ID_FOR_REVERSE);
+        System.out.println("Admin reverse txn id is "+ firstResult);
         WebDriverWait wait1 = new WebDriverWait(driver, 20);
         wait1.until(ExpectedConditions.elementToBeClickable(DETAILS));
         driver.findElement(DETAILS).click();
@@ -76,6 +77,8 @@ public class AdminReversePending {
     public void setBackToSearchTransactionResultButton (){
         driver.findElement(BACK_TO_SEARCH_TRANSACTION_RESULT_BUTTON).click();
     }
+
+
 
 
 

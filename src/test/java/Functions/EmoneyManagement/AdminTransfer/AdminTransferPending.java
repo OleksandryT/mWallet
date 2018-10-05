@@ -30,6 +30,7 @@ public class AdminTransferPending  {
     public static final By DETAILS = By.xpath("//*[@id=\"manage\"]/table/tbody/tr[2]/td[9]/a/span");
     public static final By TXN_ID = By.xpath("//*[@id=\"content\"]/div[4]/div/div/section[3]/div/form/div/div/div/label");
     public static By FIRST_ROW_WITH_TRANSACTION = By.xpath("//*[@id=\"manage\"]/table/tbody/tr[2]/td[1]");
+    public static final By CREATED_TRANSACTION_ID = By.xpath("//*[@id=\"content\"]/div[4]/div[1]/div/form/div[2]/div[1]/div/label");
 
     public String getSuccessfulMessage() {
         return successfulMessage;
@@ -60,8 +61,9 @@ public class AdminTransferPending  {
                     WebDriverWait wait  = new WebDriverWait(driver, 30);
                     wait.until(ExpectedConditions.elementToBeClickable(DETAILS));
                     WebElement details = driver.findElement(DETAILS);
-                    JavascriptExecutor ja = (JavascriptExecutor)driver;
-                    ja.executeScript("arguments[0].click();",details);
+//                    JavascriptExecutor ja = (JavascriptExecutor)driver;
+//                    ja.executeScript("arguments[0].click();",details);
+                    details.click();
                     System.out.println("TxnID was found between pendings and details view has been opened");
                 }
                 else
@@ -80,6 +82,10 @@ public class AdminTransferPending  {
 
     public  void setNotes (){
         driver.findElement(NOTES).sendKeys("autoTest"+RANDOM_ALPHABETIC);
+    }
+
+    public void setTransactionId (){
+        driver.findElement(CREATED_TRANSACTION_ID).getAttribute("value");
     }
 
 
