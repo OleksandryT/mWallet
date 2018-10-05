@@ -1,19 +1,27 @@
 package Functions.Merchants;
 
 
-import RandomValuesForTests.*;
+import Utilities.*;
+import Utilities.RandomValues.RandomValues;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static RandomValuesForTests.RandomValues.*;
+import java.util.concurrent.TimeUnit;
 
-public class MerchantCreation implements Merchants {
+import static Utilities.RandomValues.RandomValues.*;
 
-    private WebDriver driver;
+public class MerchantCreation extends Merchants {
+    /*
+     * вынести все переменные в отдельный класс, что бы они не засоряли класс
+     * переименовать методы в такие, чо бы можно было понимать что каждый метод делает
+     * */
+
+    private static WebDriver driver;
 
     public MerchantCreation(WebDriver driver) {
         this.driver = driver;
@@ -21,6 +29,7 @@ public class MerchantCreation implements Merchants {
 
     private MerchantCreation(){}
 
+    public static final By MERCHANT_ID = By.xpath("//*[@id=\"content\"]/div[4]/div/div/section[7]/div/form/merch-general-information/div[2]/div[1]/div/label");
     public static final By MERCHANTS_FIELD = By.xpath("//*[@id=\"wrapper\"]/ul/li[4]/a");
     public static final By CREATE_MERCHANT_FIELD = By.xpath("/html/body/div[4]/navp/div[3]/div/ul/li[4]/ul/li[3]/a");
     public static final By MERCHANT_TYPE_DROPBOX = By.xpath("//*[@id=\"merchantType\"]");
@@ -131,10 +140,11 @@ public class MerchantCreation implements Merchants {
     public static final By BANK_DETAIL_RECIPIENT_PAYMENT_PURPOSE_FIELD_2 = By.xpath("//*[@id=\"bankDetailPaymentPurposebd2\"]");
     public static final By PAYMENT_PURPOSE_FIELD = By.xpath("//*[@id=\"bankDetailPaymentPurposeepr\"]");
     public static final By SAVE_BUTTON = By.xpath("//*[@id=\"regMerchSave\"]");
-    private static final By MERCHANT_ID = By.xpath("//*[@id=\"content\"]/div[4]/div/div/section[7]/div/form/merch-general-information/div[2]/div[1]/div/label");
 
-    public String getMerchantId() {
-        return String.valueOf(MERCHANT_ID);
+
+    public static String merchantId() {
+        String merchant_new = driver.findElement(MERCHANT_ID).getText();
+        return merchant_new;
     }
 
     public void merchantLocator() {
@@ -150,16 +160,21 @@ public class MerchantCreation implements Merchants {
     }
 
     public void merchnatTypeDropboxLocator() {
-        driver.findElement(MERCHANT_TYPE_DROPBOX).click();
+        Select dropboxMerchant = new Select(driver.findElement(MERCHANT_TYPE_DROPBOX));
+        dropboxMerchant.selectByVisibleText("Merchant");
+
     }
 
     public void merchantTypeMerchantLocator() {
-        driver.findElement(MERCHANT_TYPE_MERCHANT_FIELD).click();
+//        WebElement merchant = driver.findElement(MERCHANT_TYPE_MERCHANT_FIELD);
+//        JavascriptExecutor js = (JavascriptExecutor)driver;
+//        js.executeScript("arguments.click();", merchant);
     }
 
     public void fullnameLocator() {
         WebElement fullname = driver.findElement(FULL_NAME_FIELD);
-        fullname.click();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", fullname);
         fullname.clear();
         fullname.sendKeys(RANDOM_ALPHABETIC);
     }
@@ -295,7 +310,7 @@ public class MerchantCreation implements Merchants {
 
     public void setNextButtonCompany() {
         WebElement nextButton1 = driver.findElement(NEXT_BUTTON_COMPANY);
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(NEXT_BUTTON_COMPANY));
         if (nextButton1.isEnabled()) {
             JavascriptExecutor executor = (JavascriptExecutor) driver;
@@ -325,7 +340,7 @@ public class MerchantCreation implements Merchants {
         wait.until(ExpectedConditions.elementToBeClickable(AGREEMENT_CONTRACT_SCAN_0_BUTTON));
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", contractWithAgent);
-        contractWithAgent.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
+        contractWithAgent.sendKeys("C:\\Users\\ilona\\Desktop\\test.png");
     }
 
     public void setIDOfMerchantContractWithAgentForSettlement1Field() {
@@ -346,7 +361,7 @@ public class MerchantCreation implements Merchants {
         WebElement contractWithAgent1 = driver.findElement(AGREEMENT_CONTRACT_SCAN_1_BUTTON);
         JavascriptExecutor executor1 = (JavascriptExecutor) driver;
         executor1.executeScript("arguments[0].click();", contractWithAgent1);
-        contractWithAgent1.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
+        contractWithAgent1.sendKeys("C:\\Users\\ilona\\Desktop\\test.png");
     }
 
     public void setIDOfMerchantContractWithAgentForSettlement2Field() {
@@ -367,7 +382,7 @@ public class MerchantCreation implements Merchants {
         WebElement contractWithAgent2 = driver.findElement(AGREEMENT_CONTRACT_SCAN_2_BUTTON);
         JavascriptExecutor executor2 = (JavascriptExecutor) driver;
         executor2.executeScript("arguments[0].click();", contractWithAgent2);
-        contractWithAgent2.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
+        contractWithAgent2.sendKeys("C:\\Users\\ilona\\Desktop\\test.png");
     }
 
     public void setIDOfMerchantContractWithAgentForSettlement3Field() {
@@ -388,42 +403,42 @@ public class MerchantCreation implements Merchants {
         WebElement contractWithAgent3 = driver.findElement(AGREEMENT_CONTRACT_SCAN_3_BUTTON);
         JavascriptExecutor executor3 = (JavascriptExecutor) driver;
         executor3.executeScript("arguments[0].click();", contractWithAgent3);
-        contractWithAgent3.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
+        contractWithAgent3.sendKeys("C:\\Users\\ilona\\Desktop\\test.png");
     }
 
     public void setScanCopyOfStatueButton() {
         WebElement scanStatue = driver.findElement(SCAN_COPY_OF_STATUE_BUTTON);
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", scanStatue);
-        scanStatue.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
+        scanStatue.sendKeys("C:\\Users\\ilona\\Desktop\\test.png");
     }
 
     public void setScanCopyOfTaxIdButton() {
         WebElement scanTax = driver.findElement(SCAN_COPY_OF_TAX_ID_BUTTON);
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", scanTax);
-        scanTax.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
+        scanTax.sendKeys("C:\\Users\\ilona\\Desktop\\test.png");
     }
 
     public void setScanStatementOfCsrButton() {
         WebElement scanCsr = driver.findElement(SCAN_STATEMENT_OF_CSR_BUTTON);
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", scanCsr);
-        scanCsr.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
+        scanCsr.sendKeys("C:\\Users\\ilona\\Desktop\\test.png");
     }
 
     public void setScanStatementExtractFromCsrButton() {
         WebElement scanCsrExtr = driver.findElement(SCAN_STATEMENT_EXTRACT_FROM_CSR_BUTTON);
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", scanCsrExtr);
-        scanCsrExtr.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
+        scanCsrExtr.sendKeys("C:\\Users\\ilona\\Desktop\\test.png");
     }
 
     public void setScanStatementQuestionnareButton() {
         WebElement scanQuestionnare = driver.findElement(SCAN_STATEMENT_QUESTIONNARE_BUTTON);
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", scanQuestionnare);
-        scanQuestionnare.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
+        scanQuestionnare.sendKeys("C:\\Users\\ilona\\Desktop\\test.png");
     }
 
     public void setNextButton1() {
@@ -665,21 +680,21 @@ public class MerchantCreation implements Merchants {
         WebElement signeePassport = driver.findElement(SIGNEE_PASSPORT_SCAN_BUTTON);
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", signeePassport);
-        signeePassport.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
+        signeePassport.sendKeys("C:\\Users\\ilona\\Desktop\\test.png");
     }
 
     public void setSigneeTaxIdScanButton() {
         WebElement signeeTax = driver.findElement(SIGNEE_TAX_ID_SCAN_BUTTON);
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", signeeTax);
-        signeeTax.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
+        signeeTax.sendKeys("C:\\Users\\ilona\\Desktop\\test.png");
     }
 
     public void setSigneeAuthorizingScanButton() {
         WebElement signeeAuthorize = driver.findElement(SIGNEE_AUTHORIZING_SCAN_BUTTON);
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", signeeAuthorize);
-        signeeAuthorize.sendKeys("C:\\Users\\ilonazhd\\Desktop\\winscp.png");
+        signeeAuthorize.sendKeys("C:\\Users\\ilona\\Desktop\\test.png");
     }
 
     public void setNextButton2() {
@@ -1014,6 +1029,7 @@ public class MerchantCreation implements Merchants {
         setPaymentPurposeField();
         setNextButton3();
         setSaveButton();
+        driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
     }
 
 }

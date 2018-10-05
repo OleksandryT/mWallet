@@ -1,9 +1,11 @@
-package RandomValuesForTests;
+package Utilities;
 
-import org.openqa.grid.web.servlet.handler.WebDriverRequest;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static Functions.MyprofileHelp.MyProfileHelp.passwordField;
 import static Functions.MyprofileHelp.MyProfileHelp.signIn;
@@ -18,9 +20,8 @@ public abstract class BackOfficeUser {
 
     private static final By LOG_OUT = By.xpath("//*[@translate='general_label_logout']");
 
-    public void goToMWallet (String url){
-        driver.get(url);
-    }
+    public abstract void goToMWallet(String url);
+
     public void useridLocator(String userIdName){
         WebElement userL = driver.findElement(userIdFiled);
         userL.click();
@@ -38,7 +39,10 @@ public abstract class BackOfficeUser {
     }
 
     public void loggOut (){
-        driver.findElement(LOG_OUT).click();
-
+        WebElement logOut = driver.findElement(LOG_OUT);
+        WebDriverWait wait = new WebDriverWait(driver,10);
+        wait.until(ExpectedConditions.elementToBeClickable(logOut));
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("arguments[0].click();",logOut);
     }
 }

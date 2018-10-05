@@ -1,6 +1,6 @@
 package Functions.MyprofileHelp;
 
-import RandomValuesForTests.BackOfficeUser;
+import Utilities.BackOfficeUser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static RandomValuesForTests.RandomValues.*;
+import static Utilities.RandomValues.RandomValues.*;
 
 public class MyProfileHelp extends BackOfficeUser {
 
@@ -16,6 +16,8 @@ public class MyProfileHelp extends BackOfficeUser {
     public MyProfileHelp(WebDriver driver) {
         super(driver);
         this.driver = driver; }
+
+
 
     public static final By userIdFiled = By.xpath("//*[@id=\"floating\"]/form/table/tbody/tr[1]/td[2]/input");
     public static final By passwordField = By.xpath("//*[@id=\"floating\"]/form/table/tbody/tr[2]/td[2]/input");
@@ -34,7 +36,7 @@ public class MyProfileHelp extends BackOfficeUser {
     public static final By contactPhoneUpdateDetailsField = By.xpath("//*[@id = 'regAdmnContact']");
     public static final By noteUpdateDetailsField = By.xpath("//*[@id = 'regAdmnFreetex']");
     public static final By nextUpdateDetailsField = By.xpath("//*[@id = 'adminAcntEdtUpdate']");
-    public static final By confirmUpdateDetailsField = By.xpath("//*[@id = 'updateDistributorConfirm']");
+    public static final By confirmUpdateDetailsField = By.xpath("//*[@ng-click = 'updateAdmin()']");
     public static final By reEditField = By.xpath("//*[@ng-click = 'reEditMyAccount()']");
     public static final By oldPasswordField = By.xpath("//*[@id = 'admnChngPassOld']");
     public static final By newPasswordField = By.xpath("//*[@id = 'admnChngPassNew1']");
@@ -75,12 +77,9 @@ public class MyProfileHelp extends BackOfficeUser {
         return url;
     }
 
-    public void goToMWallet(String url) {
-        driver.get(url);
-    }
-
     public void useridLocator(String userIdName) {
         WebElement userL = driver.findElement(userIdFiled);
+
         userL.click();
         userL.clear();
         userL.sendKeys(userIdName);
@@ -100,6 +99,11 @@ public class MyProfileHelp extends BackOfficeUser {
     @Override
     public void loggOut() {
         super.loggOut();
+    }
+
+    @Override
+    public void goToMWallet(String url) {
+        driver.get(url);
     }
 
     public void setWelcomeField (){
@@ -214,8 +218,8 @@ public class MyProfileHelp extends BackOfficeUser {
         WebElement confirmButton = driver.findElement(confirmUpdateDetailsField);
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", confirmButton);
-        WebDriverWait wait = new WebDriverWait(driver,20);
-        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//*[@id=\"adminAcntReEdt\"]"))));
+//        WebDriverWait wait = new WebDriverWait(driver,20);
+//        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//*[@id=\"adminAcntReEdt\"]"))));
     }
 
     public void setReEditField (){

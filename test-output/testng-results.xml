@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="6" total="15" passed="9">
+  <reporter-output>
+  </reporter-output>
+  <suite name="mWallet Suite" duration-ms="98230" started-at="2018-10-05T09:15:24Z" finished-at="2018-10-05T09:17:03Z">
+    <groups>
+      <group name="MyProfile">
+        <method signature="TestMyProfile.verifyLogIn()[pri:0, instance:Tests.Smoke.Myprofilehelp.TestMyProfile@6536e911]" name="verifyLogIn" class="Tests.Smoke.Myprofilehelp.TestMyProfile"/>
+      </group> <!-- MyProfile -->
+      <group name="AdminTransfer">
+        <method signature="TestAdminTransfer.verifyThatBothSourceAndDestinationCannotBeMerchant()[pri:0, instance:Tests.Smoke.EmoneyManagement.TestAdminTransfer@520a3426]" name="verifyThatBothSourceAndDestinationCannotBeMerchant" class="Tests.Smoke.EmoneyManagement.TestAdminTransfer"/>
+        <method signature="TestAdminTransfer.verifyThatSourceAndDestinationCannotBeEqual()[pri:0, instance:Tests.Smoke.EmoneyManagement.TestAdminTransfer@520a3426]" name="verifyThatSourceAndDestinationCannotBeEqual" class="Tests.Smoke.EmoneyManagement.TestAdminTransfer"/>
+        <method signature="TestAdminTransfer.verifyThatAdminTransferCanBeApproved()[pri:0, instance:Tests.Smoke.EmoneyManagement.TestAdminTransfer@520a3426]" name="verifyThatAdminTransferCanBeApproved" class="Tests.Smoke.EmoneyManagement.TestAdminTransfer"/>
+      </group> <!-- AdminTransfer -->
+      <group name="Service">
+        <method signature="TestServiceBulkCreation.verifyCreationOfP2PPrepaidService()[pri:0, instance:Tests.Smoke.Services.TestServiceBulkCreation@3e9b1010]" name="verifyCreationOfP2PPrepaidService" class="Tests.Smoke.Services.TestServiceBulkCreation"/>
+      </group> <!-- Service -->
+      <group name="AdminReverse">
+        <method signature="TestAdminReverse.verifySuccessfulConfirmationOfAdminReverse()[pri:0, instance:Tests.Smoke.EmoneyManagement.TestAdminReverse@18eed359]" name="verifySuccessfulConfirmationOfAdminReverse" class="Tests.Smoke.EmoneyManagement.TestAdminReverse"/>
+        <method signature="TestAdminReverse.verifyThatConfirmedAdminReverseCantBeReversedAgain()[pri:0, instance:Tests.Smoke.EmoneyManagement.TestAdminReverse@18eed359]" name="verifyThatConfirmedAdminReverseCantBeReversedAgain" class="Tests.Smoke.EmoneyManagement.TestAdminReverse"/>
+        <method signature="TestAdminReverse.verifySuccessfulRejectionOfAdminReverse()[pri:0, instance:Tests.Smoke.EmoneyManagement.TestAdminReverse@18eed359]" name="verifySuccessfulRejectionOfAdminReverse" class="Tests.Smoke.EmoneyManagement.TestAdminReverse"/>
+        <method signature="TestAdminReverse.verifyThatRejectedReverseCanBeReversedAndConfirmedAgain()[pri:0, instance:Tests.Smoke.EmoneyManagement.TestAdminReverse@18eed359]" name="verifyThatRejectedReverseCanBeReversedAndConfirmedAgain" class="Tests.Smoke.EmoneyManagement.TestAdminReverse"/>
+      </group> <!-- AdminReverse -->
+    </groups>
+    <test name="Back Office User Functionality in Chrome" duration-ms="98230" started-at="2018-10-05T09:15:24Z" finished-at="2018-10-05T09:17:03Z">
+      <class name="Tests.Smoke.EmoneyManagement.TestAdminReverse">
+        <test-method status="PASS" signature="verifySuccessfulConfirmationOfAdminReverse()[pri:0, instance:Tests.Smoke.EmoneyManagement.TestAdminReverse@18eed359]" name="verifySuccessfulConfirmationOfAdminReverse" duration-ms="19364" depends-on-groups="MyProfile" started-at="2018-10-05T09:15:49Z" finished-at="2018-10-05T09:16:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifySuccessfulConfirmationOfAdminReverse -->
+        <test-method status="PASS" signature="verifyThatConfirmedAdminReverseCantBeReversedAgain()[pri:0, instance:Tests.Smoke.EmoneyManagement.TestAdminReverse@18eed359]" name="verifyThatConfirmedAdminReverseCantBeReversedAgain" duration-ms="7521" depends-on-groups="MyProfile" started-at="2018-10-05T09:16:09Z" depends-on-methods="Tests.Smoke.EmoneyManagement.TestAdminReverse.verifySuccessfulConfirmationOfAdminReverse" finished-at="2018-10-05T09:16:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyThatConfirmedAdminReverseCantBeReversedAgain -->
+        <test-method status="PASS" signature="verifySuccessfulRejectionOfAdminReverse()[pri:0, instance:Tests.Smoke.EmoneyManagement.TestAdminReverse@18eed359]" name="verifySuccessfulRejectionOfAdminReverse" duration-ms="13331" depends-on-groups="MyProfile" started-at="2018-10-05T09:16:16Z" depends-on-methods="Tests.Smoke.EmoneyManagement.TestAdminReverse.verifyThatConfirmedAdminReverseCantBeReversedAgain" finished-at="2018-10-05T09:16:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifySuccessfulRejectionOfAdminReverse -->
+        <test-method status="PASS" signature="verifyThatRejectedReverseCanBeReversedAndConfirmedAgain()[pri:0, instance:Tests.Smoke.EmoneyManagement.TestAdminReverse@18eed359]" name="verifyThatRejectedReverseCanBeReversedAndConfirmedAgain" duration-ms="11515" depends-on-groups="MyProfile" started-at="2018-10-05T09:16:30Z" depends-on-methods="Tests.Smoke.EmoneyManagement.TestAdminReverse.verifySuccessfulRejectionOfAdminReverse" finished-at="2018-10-05T09:16:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyThatRejectedReverseCanBeReversedAndConfirmedAgain -->
+      </class> <!-- Tests.Smoke.EmoneyManagement.TestAdminReverse -->
+      <class name="Tests.Smoke.Services.TestServiceBulkCreation">
+        <test-method status="PASS" signature="verifyCreationOfP2PPrepaidService()[pri:0, instance:Tests.Smoke.Services.TestServiceBulkCreation@3e9b1010]" name="verifyCreationOfP2PPrepaidService" duration-ms="7138" depends-on-groups="AdminTransfer" started-at="2018-10-05T09:16:56Z" finished-at="2018-10-05T09:17:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyCreationOfP2PPrepaidService -->
+      </class> <!-- Tests.Smoke.Services.TestServiceBulkCreation -->
+      <class name="Tests.Smoke.Myprofilehelp.TestMyProfile">
+        <test-method status="PASS" signature="startTest(java.lang.String)[pri:0, instance:Tests.Smoke.Myprofilehelp.TestMyProfile@6536e911]" name="startTest" is-config="true" duration-ms="4235" started-at="2018-10-05T09:15:20Z" finished-at="2018-10-05T09:15:24Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTest -->
+        <test-method status="PASS" signature="verifyLogIn()[pri:0, instance:Tests.Smoke.Myprofilehelp.TestMyProfile@6536e911]" name="verifyLogIn" duration-ms="25040" started-at="2018-10-05T09:15:24Z" finished-at="2018-10-05T09:15:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyLogIn -->
+      </class> <!-- Tests.Smoke.Myprofilehelp.TestMyProfile -->
+      <class name="Tests.Smoke.EmoneyManagement.TestAdminTransfer">
+        <test-method status="PASS" signature="verifyThatBothSourceAndDestinationCannotBeMerchant()[pri:0, instance:Tests.Smoke.EmoneyManagement.TestAdminTransfer@520a3426]" name="verifyThatBothSourceAndDestinationCannotBeMerchant" duration-ms="1753" depends-on-groups="AdminReverse" started-at="2018-10-05T09:16:41Z" finished-at="2018-10-05T09:16:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyThatBothSourceAndDestinationCannotBeMerchant -->
+        <test-method status="PASS" signature="verifyThatSourceAndDestinationCannotBeEqual()[pri:0, instance:Tests.Smoke.EmoneyManagement.TestAdminTransfer@520a3426]" name="verifyThatSourceAndDestinationCannotBeEqual" duration-ms="685" depends-on-groups="AdminReverse" started-at="2018-10-05T09:16:43Z" depends-on-methods="Tests.Smoke.EmoneyManagement.TestAdminTransfer.verifyThatBothSourceAndDestinationCannotBeMerchant" finished-at="2018-10-05T09:16:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyThatSourceAndDestinationCannotBeEqual -->
+        <test-method status="PASS" signature="verifyThatAdminTransferCanBeApproved()[pri:0, instance:Tests.Smoke.EmoneyManagement.TestAdminTransfer@520a3426]" name="verifyThatAdminTransferCanBeApproved" duration-ms="11855" depends-on-groups="AdminReverse" started-at="2018-10-05T09:16:44Z" depends-on-methods="Tests.Smoke.EmoneyManagement.TestAdminTransfer.verifyThatSourceAndDestinationCannotBeEqual" finished-at="2018-10-05T09:16:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyThatAdminTransferCanBeApproved -->
+      </class> <!-- Tests.Smoke.EmoneyManagement.TestAdminTransfer -->
+    </test> <!-- Back Office User Functionality in Chrome -->
+  </suite> <!-- mWallet Suite -->
+</testng-results>

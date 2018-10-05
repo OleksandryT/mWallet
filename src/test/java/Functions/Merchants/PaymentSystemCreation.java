@@ -1,16 +1,21 @@
 package Functions.Merchants;
 
-import RandomValuesForTests.Merchants;
-import RandomValuesForTests.RandomValues;
+import Utilities.Merchants;
+import Utilities.RandomValues.RandomValues;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import static Functions.Merchants.MerchantCreation.*;
-import static RandomValuesForTests.RandomValues.*;
+import static Utilities.RandomValues.RandomValues.*;
 
-public class PaymentSystemCreation implements Merchants {
+public class PaymentSystemCreation extends Merchants {
+
+    /*
+     * вынести все переменные в отдельный класс, что бы они не засоряли класс
+     * переименовать методы в такие, чо бы можно было понимать что каждый метод делает
+     * */
 
     private WebDriver driver;
 

@@ -1,5 +1,6 @@
 package Functions.EmoneyManagement.AdminTransfer;
 
+import Utilities.RandomValues.RandomValues;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -30,13 +31,6 @@ public class AdminTransferCreation {
     private static String MERCHANT_SOURCE_ID = "009805915";
     private static String PAYMENT_SYSTEM_DESTINATION_ID = "005671744";
 
-    public static String getMerchantSourceId() {
-        return MERCHANT_SOURCE_ID;
-    }
-
-    public static String getPaymentSystemDestinationId() {
-        return PAYMENT_SYSTEM_DESTINATION_ID;
-    }
 
     public void setEmoneyManagement (){
         WebElement emoneyManagement = driver.findElement(EMONEY_MANAGEMENT);
@@ -139,7 +133,8 @@ public class AdminTransferCreation {
 
     public  void setSourceMerchantId(){
         WebElement merchantSource = driver.findElement(SOURCE_MERCHANT_ID);
-        merchantSource.click();
+        JavascriptExecutor ja = (JavascriptExecutor)driver;
+        ja.executeScript("arguments[0].click();",merchantSource);
         merchantSource.sendKeys(MERCHANT_SOURCE_ID);
     }
 
@@ -166,14 +161,16 @@ public class AdminTransferCreation {
 
     public  void setAmount (String sum){
         WebElement amount = driver.findElement(AMOUNT);
-        amount.click();
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("arguments[0].click();",amount);
         amount.sendKeys(sum);
     }
 
-    public  void setNote(String text){
+    public  void setNote(){
         WebElement note = driver.findElement(NOTE);
-        note.click();
-        note.sendKeys(text);
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("arguments[0].click();",note);
+        note.sendKeys(RandomValues.RANDOM_ALPHABETIC);
     }
 
     public  void setClear (){
@@ -181,7 +178,9 @@ public class AdminTransferCreation {
     }
 
     public  void setNext(){
-        driver.findElement(NEXT).click();
+        WebElement next = driver.findElement(NEXT);
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("arguments[0].click();",next);
     }
 
     public  void setConfirmCreationOfAdminTransfer (){

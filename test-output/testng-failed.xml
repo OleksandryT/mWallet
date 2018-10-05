@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" guice-stage="DEVELOPMENT" name="Failed suite [mWallet Suite]" parallel="tests">
+  <listeners>
+    <listener class-name="Utilities.Listeners.TestListener"/>
+    <listener class-name="Utilities.Listeners.AnnotationTransformer"/>
+  </listeners>
+  <test thread-count="2" name="Back Office User Functionality in Chrome(failed)" parallel="tests">
+    <parameter name="browser" value="Chrome"/>
+    <groups>
+      <run>
+        <include name="MyProfile"/>
+        <include name="Transactions"/>
+        <include name="Merchants"/>
+        <include name="AdminTransfer"/>
+        <include name="AdminReverse"/>
+        <include name="ManageRetirement"/>
+        <include name="Service"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="Tests.Smoke.EmoneyManagement.TestAdminReverse">
+        <methods>
+          <include name="verifySuccessfulConfirmationOfAdminReverse"/>
+          <include name="verifySuccessfulRejectionOfAdminReverse"/>
+          <include name="startTest"/>
+          <include name="verifyThatRejectedReverseCanBeReversedAndConfirmedAgain"/>
+          <include name="verifyThatConfirmedAdminReverseCantBeReversedAgain"/>
+        </methods>
+      </class> <!-- Tests.Smoke.EmoneyManagement.TestAdminReverse -->
+      <class name="Tests.Smoke.Services.TestServiceBulkCreation">
+        <methods>
+          <include name="verifyCreationOfP2PPrepaidService"/>
+          <include name="startTest"/>
+        </methods>
+      </class> <!-- Tests.Smoke.Services.TestServiceBulkCreation -->
+      <class name="Tests.Smoke.Myprofilehelp.TestMyProfile">
+        <methods>
+          <include name="verifyLogIn"/>
+          <include name="startTest"/>
+        </methods>
+      </class> <!-- Tests.Smoke.Myprofilehelp.TestMyProfile -->
+      <class name="Tests.Smoke.EmoneyManagement.TestAdminTransfer">
+        <methods>
+          <include name="verifyThatBothSourceAndDestinationCannotBeMerchant"/>
+          <include name="verifyThatAdminTransferCanBeApproved"/>
+          <include name="startTest"/>
+          <include name="verifyThatSourceAndDestinationCannotBeEqual"/>
+        </methods>
+      </class> <!-- Tests.Smoke.EmoneyManagement.TestAdminTransfer -->
+    </classes>
+  </test> <!-- Back Office User Functionality in Chrome(failed) -->
+</suite> <!-- Failed suite [mWallet Suite] -->

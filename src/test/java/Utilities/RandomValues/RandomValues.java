@@ -1,4 +1,4 @@
-package RandomValuesForTests;
+package Utilities.RandomValues;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import java.text.DateFormat;
@@ -8,12 +8,11 @@ import java.util.Random;
 
 public abstract class RandomValues {
 
-    public static final String RANDOM_ALPHABETIC = RandomStringUtils.randomAlphabetic(10);
+    public static final String RANDOM_ALPHABETIC = RandomStringUtils.randomAlphabetic(8);
     public static final String RANDOM_NUMBER_MSISDN = "38067"+ RandomStringUtils.randomNumeric(7);
-    public static final String RANDOM_NUMBER = RandomStringUtils.randomNumeric(6);
+    public static final String RANDOM_NUMBER = RandomStringUtils.randomNumeric(4);
     public static final String RANDOM_ALPHA_NUMERIC = RandomStringUtils.randomAlphanumeric(10);
-    public static final String DAYS_FOR_REFUND = "1";
-
+    public static final String DAYS_FOR_REFUND = "5";
     public static final DateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
     public static final String CALENDAR_DATE = DATE_FORMAT.format(new Date());
 
@@ -32,9 +31,9 @@ public abstract class RandomValues {
     }
 
     public static final String GENERATE_EMAIL(int length) {
-        String allowedChars="abcdefghijklmnopqrstuvwxyz" +   //alphabets
-                "1234567890" +   //numbers
-                "_-.";   //special characters
+        String allowedChars="abcdefghijklmnopqrstuvwxyz" +
+                "1234567890" +
+                "_-.";
         String email="";
         String temp=RandomStringUtils.random(length,allowedChars);
         email=temp.substring(0,temp.length()-9)+"@test.org";
@@ -42,9 +41,9 @@ public abstract class RandomValues {
     }
 
     public static final String GENERATE_URL(int length) {
-        String allowedChars="abcdefghijklmnopqrstuvwxyz" +   //alphabets
-                "1234567890" +   //numbers
-                "_-.";   //special characters
+        String allowedChars="abcdefghijklmnopqrstuvwxyz" +
+                "1234567890" +
+                "_-.";
         String url="";
         String temp=RandomStringUtils.random(length,allowedChars);
         url=temp.substring(0,3)+"."+temp.substring(4,temp.length()-4)+"."+temp.substring(temp.length()-3);
