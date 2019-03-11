@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>m:WalletR2D3</groupId>
-    <artifactId>m:WalletR2D3</artifactId>
+    <groupId>WalletR2D3</groupId>
+    <artifactId>WalletR2D3</artifactId>
     <version>1.0-SNAPSHOT</version>
     <build>
         <plugins>
@@ -22,55 +22,66 @@
 
     <dependencies>
 
+        <!--<dependency>-->
+        <!--<groupId>org.seleniumhq.selenium</groupId>-->
+        <!--<artifactId>selenium-java</artifactId>-->
+        <!--<version>3.14.0</version>-->
+        <!--</dependency>-->
+
+
+        <!--<dependency>-->
+        <!--<groupId>org.seleniumhq.selenium</groupId>-->
+        <!--<artifactId>selenium-chrome-driver</artifactId>-->
+        <!--<version>3.13.0</version>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+        <!--<groupId>org.seleniumhq.selenium</groupId>-->
+        <!--<artifactId>selenium-firefox-driver</artifactId>-->
+        <!--<version>LATEST</version>-->
+        <!--</dependency>-->
+
+
+        <!--<dependency>-->
+        <!--<groupId>com.aventstack</groupId>-->
+        <!--<artifactId>extentreports</artifactId>-->
+        <!--<version>LATEST</version>-->
+        <!--</dependency>-->
+
+
+        <!--<dependency>-->
+        <!--<groupId>org.seleniumhq.selenium</groupId>-->
+        <!--<artifactId>selenium-firefox-driver</artifactId>-->
+        <!--<version>3.13.0</version>-->
+        <!--<scope>test</scope>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+        <!--<groupId>org.seleniumhq.selenium</groupId>-->
+        <!--<artifactId>selenium-server</artifactId>-->
+        <!--<version>3.14.0</version>-->
+        <!--</dependency>-->
+
+
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>3.14.0</version>
+            <artifactId>selenium-api</artifactId>
+            <version>3.0.1</version>
+            <scope>test</scope>
         </dependency>
-
-
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-chrome-driver</artifactId>
-            <version>3.13.0</version>
+            <version>3.0.1</version>
+            <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-firefox-driver</artifactId>
-            <version>LATEST</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.relevantcodes</groupId>
-            <artifactId>extentreports</artifactId>
-            <version>LATEST</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.aventstack</groupId>
-            <artifactId>extentreports</artifactId>
-            <version>LATEST</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc6</artifactId>
-            <version>LATEST</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-firefox-driver</artifactId>
-            <version>3.13.0</version>
+            <artifactId>selenium-support</artifactId>
+            <version>3.0.1</version>
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-server</artifactId>
-            <version>3.14.0</version>
-        </dependency>
 
         <dependency>
             <groupId>org.testng</groupId>
@@ -80,12 +91,28 @@
         </dependency>
 
         <dependency>
+            <groupId>com.relevantcodes</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>2.41.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.7</version>
+            <scope>test</scope>
         </dependency>
 
-    </dependencies>
+        <dependency>
+            <groupId>oracle</groupId>
+            <artifactId>ojdbc6</artifactId>
+            <version>11.2.0.3</version>
+            <scope>test</scope>
 
+        </dependency>
+
+
+    </dependencies>
 
 </project>
