@@ -1,0 +1,22 @@
+ <settings>
+
+        <profiles>
+
+            <profile>
+                <id>oracleprofile</id>
+                <repositories>
+                    <repository>
+                        <id>oracle-repo</id>
+                        <name>oracle repo</name>
+                        <url>http://www.datanucleus.org/downloads/maven2/</url>
+                    </repository>
+                </repositories>
+            </profile>
+
+        </profiles>
+
+        <activeProfiles>
+            <activeProfile>oracleprofile</activeProfile>
+        </activeProfiles>
+
+    </settings>
